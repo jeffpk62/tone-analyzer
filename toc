@@ -6,33 +6,34 @@ Tone Analyzer
 
     {: .navgroup id="learn"}
     getting-started.md
+    index.md
+    developer-overview.md
 
     {: .topicgroup}
     Demos
-        [General purpose demo](https://tone-analyzer-demo.mybluemix.net/)
-        [Customer Engagement](https://customer-engagement-demo.mybluemix.net/)
+        [General purpose](https://tone-analyzer-demo.mybluemix.net/)
+        [Customer engagement](http://customer-engagement-analytics.mybluemix.net/)
 
     {: .topicgroup}
     Additional resources
         [Blog](https://developer.ibm.com/watson/blog/)
-        [Webinars](http://www.ibm.com/watson/building-with-watson-webinar.html)
+        [Webinars](https://www.ibm.com/watson/webinars/)
         [Watson videos](https://www.youtube.com/user/IBMWatsonSolutions)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    {: .topicgroup}
-    External docs
-        [About](https://www.ibm.com/watson/developercloud/doc/tone-analyzer/index.html)
-        [The tone score](https://www.ibm.com/watson/developercloud/doc/tone-analyzer/understand-tone.html)
+    using-tone.md
+    using-tone-chat.md
+
+    {: topicgroup}
+    Service background
+        case-studies.md
+        science.md
+        references.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     [API reference](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/)
-
-    {: .topicgroup}
-    Sample apps
-        [Cloud Insurance Co. Web](https://github.com/IBM-Bluemix/cloudco-insurance)
-        [Social Customer Care](https://github.com/watson-developer-cloud/social-customer-care)
 
     {: .topicgroup}
     Watson SDKs
@@ -46,7 +47,7 @@ Tone Analyzer
     {: .navgroup-end}
 
     {: .navgroup id="help"}
-    [Release notes](https://www.ibm.com/watson/developercloud/doc/tone-analyzer/release-notes.html)
+    release-notes.md
 
     {: .topicgroup}
     Developer community
