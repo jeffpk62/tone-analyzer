@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-09"
+lastupdated: "2017-08-11"
 
 ---
 
@@ -22,14 +22,14 @@ lastupdated: "2017-08-09"
 The {{site.data.keyword.toneanalyzershort}} service analyzes the tone of input content. This tutorial shows commands that analyze different sample content. The examples demonstrate both the general purpose and the customer engagement endpoints.
 {: shortdesc}
 
-> **Note:** The examples use cURL to call methods of the HTTP interface. You can install the version of cURL for your operating system from [curl.haxx.se](https://curl.haxx.se/){: new_window}. You must install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
+> **Note:** The examples use cURL to call methods of the HTTP interface. You can install the version of cURL for your operating system from [curl.haxx.se ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window}. You must install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
 
 ## Step 1: Log in, create the service, and get your credentials
 
 If you already know the credentials for your {{site.data.keyword.toneanalyzershort}} service instance, skip this step.
 {: tip}
 
-1.  Go to the [{{site.data.keyword.toneanalyzershort}} service](https://console.bluemix.net/catalog/services/tone-analyzer/){: new_window} and either sign up for a free Bluemix account or log in.
+1.  Go to the [{{site.data.keyword.toneanalyzershort}} service ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/catalog/services/tone-analyzer/){: new_window} and either sign up for a free Bluemix account or log in.
 1.  After you log in, enter `tone-tutorial` in the **Service name field** of the {{site.data.keyword.toneanalyzershort}} page. Click **Create**.
 1.  Copy your credentials:
     1.  Click **Service credentials**.
