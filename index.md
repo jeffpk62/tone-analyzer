@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-11"
+lastupdated: "2017-08-15"
 
 ---
 
@@ -56,7 +56,7 @@ Some interesting use cases of the service follow:
 
 You can also use the {{site.data.keyword.toneanalyzershort}} service with additional {{site.data.keyword.ibmwatson_notm}} services, such as {{site.data.keyword.conversationfull}} or {{site.data.keyword.speechtotextfull}}, to analyze user input. For example, the [Conversation Food Coach ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://food-coach.mybluemix.net/){: new_window} application uses the {{site.data.keyword.conversationshort}} service to coach users to make healthy food choices based on their responses about the food that they eat. For more information, see this [Watson blog post ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/watson/blog/2016/10/17/creating-a-compassionate-conversational-agent-using-watson-tone-analyzer-and-watson-conversation-services/){: new_window}.
 
-> **Note:** The {{site.data.keyword.toneanalyzershort}} service algorithmically calculates the tone of written text. It does not infer the personality characteristics of the author of the text. To obtain a personality portrait, see the [{{site.data.keyword.personalityinsightsfull}} service ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/doc/personality-insights/index.html){: new_window}.
+> **Note:** The {{site.data.keyword.toneanalyzershort}} service algorithmically calculates the tone of written text. It does not infer the personality characteristics of the author of the text. To obtain a personality portrait, see the [{{site.data.keyword.personalityinsightsfull}} service ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/personality-insights/index.html){: new_window}.
 
 ## Language support
 
