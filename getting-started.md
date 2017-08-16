@@ -36,7 +36,7 @@ If you already know the credentials for your {{site.data.keyword.toneanalyzersho
     1.  Click **View credentials** under **Actions**.
     1.  Copy the `username` and `password` values.
 
-## Step 2. Use the general purpose endpoint via the POST request method
+## Step 2: Use the general purpose endpoint via the POST request method
 {: #generalPurposePost}
 
 The following commands call the `POST /v3/tone` method to analyze the contents of the file `tone.json`. The file includes a single paragraph of plain text written by one person. The examples demonstrate various uses of the method's `tones` and `sentences` query parameters.
@@ -83,7 +83,7 @@ The following commands call the `POST /v3/tone` method to analyze the contents o
 
 For an example of the method's output, see [Example response](/docs/services/tone-analyzer/using-tone.html#exampleResponse).
 
-## Step 3. Use the general purpose endpoint via the GET request method
+## Step 3: Use the general purpose endpoint via the GET request method
 {: #generalPurposeGet}
 
 The interface also offers a `GET /v3/tone` method. The `GET` method provides the same functionality and produces the same results as the `POST` method, but you use the method's `text` query parameter to specify the content to be analyzed. The method accepts only plain text input.
@@ -101,7 +101,7 @@ The interface also offers a `GET /v3/tone` method. The `GET` method provides the
     ```
     {: pre}
 
-## Step 4. Use the customer engagement endpoint
+## Step 4: Use the customer engagement endpoint
 {: #customerEngagement}
 
 The following command calls the `POST /v3/tone_chat` method to analyze the contents of the file `tone-chat.json`. The file includes a brief exchange of messages between two people, a <code>customer</code> and an <code>agent</code>.
