@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-11"
+lastupdated: "2017-09-10"
 
 ---
 
@@ -155,7 +155,7 @@ The following example shows the high-level structure of an `UtterancesAnalyses` 
 ### Example response
 {: #exampleResponse}
 
-The following output is returned for the example in [Requesting a tone analysis](#request). (The same output is returned for the example in [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html#customerEngagement).) All reported tones have a score of at least 0.5; those with a score of at least 0.75 are very likely to be perceived by participants in the conversation.
+The following output is returned for the example in [Requesting a tone analysis](#request). (The same output is returned for the example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html#customerEngagement).) All reported tones have a score of at least 0.5; those with a score of at least 0.75 are very likely to be perceived by participants in the conversation.
 
 ```javascript
 {
