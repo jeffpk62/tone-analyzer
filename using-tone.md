@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-11"
+lastupdated: "2017-09-10"
 
 ---
 
@@ -132,7 +132,7 @@ The methods accept the following parameters. For input content, submit a maximum
   </tr>
 </table>
 
-The following example cURL command use the HTTP `POST` request method to call the general purpose endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> and a version of `2016-05-19`. The example requests an analysis of all tones for both the full document and the individual sentences.
+The following example cURL command uses the HTTP `POST` request method to call the general purpose endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> and a version of `2016-05-19`. The example requests an analysis of all tones for both the full document and the individual sentences.
 
 ```bash
 curl -X POST --user "{username}":"{password}"
@@ -152,7 +152,7 @@ curl -X GET --user "{username}":"{password}"
 ```
 {: pre}
 
-For additional examples, see [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html).
+For additional examples, see the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html).
 
 ### Specifying the character set
 {: #charset}
@@ -164,17 +164,19 @@ By default, the service uses the following character sets for input content:
 
 When submitting plain text or HTML content, include the `charset` parameter with the `Content-Type` header to indicate the character encoding of the input text. The following example specifies UTF-8 character encoding for plain text input:
 
-```javascript
+```
 Content-Type: text/plain;charset=utf-8
 ```
 {: codeblock}
 
 By using the `charset` parameter, you can avoid potential problems associated with non-ASCII or non-printable characters. If you pass UTF-8 data without specifying the character set, special characters can result in incorrect results or in HTTP 4*nn* or 5*nn* errors.
 
-### Specifying JSON input
+To prevent similar errors when using cURL, always pass the content via the `--data-binary` option of the `curl` command to preserve any UTF-8 encoding for the content. If you use the `--data` option to pass the content as ASCII, the command can process the input, which can cause problems for data encoded in UTF-8.
+
+## Specifying JSON input
 {: #JSONinput}
 
-To analyze JSON input, you pass the method a JSON `ToneInput` object with the following simple format.
+To analyze JSON input with the `POST` request method, you pass the method a JSON `ToneInput` object with the following simple format:
 
 ```javascript
 {
@@ -183,12 +185,13 @@ To analyze JSON input, you pass the method a JSON `ToneInput` object with the fo
 ```
 {: codeblock}
 
-The following example shows the contents of the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> file that is used with the examples in [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html). The file includes a single paragraph of text written by one person. (The following text includes line breaks for readability; do not include them in actual input.)
+The following example shows the contents of the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> file that is used with the examples in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html). The file includes a single paragraph of text written by one person. (The following text includes line breaks for readability; do not include them in actual input.)
 
 ```javascript
 {
-  "text": "Team, I know that times are tough! Product sales have been disappointing for the past three quarters.
-  We have a competitive product, but we need to do a better job of selling it!"
+  "text": "Team, I know that times are tough! Product sales have been
+  disappointing for the past three quarters. We have a competitive
+  product, but we need to do a better job of selling it!"
 }
 ```
 {: codeblock}
