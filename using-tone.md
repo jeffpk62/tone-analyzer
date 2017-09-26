@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-10"
+lastupdated: "2017-09-21"
 
 ---
 
@@ -19,10 +19,8 @@ lastupdated: "2017-09-10"
 
 # Using the general purpose endpoint
 
-The {{site.data.keyword.toneanalyzershort}} general purpose endpoint analyzes the tone of written communications, from short email messages to longer documents. It can help you understand the emotional, social, and language tones of your communications.
+The {{site.data.keyword.toneanalyzershort}} general purpose endpoint analyzes the tone of written communications, from short email messages to longer documents. It can help you understand the emotional and language tones of your communications. For detailed information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
 {: shortdesc}
-
-For detailed information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}. For information about the research behind the service, see [The science behind the service](/docs/services/tone-analyzer/science.html).
 
 ## Requesting a tone analysis
 {: #request}
@@ -32,7 +30,7 @@ To analyze tone with the general purpose endpoint, you call one of the two versi
 -   The `POST /v3/tone` method accepts input content in JSON, plain text, or HTML format via the required body of the request. Use this version of the method for longer text or for text that you do not want to expose on the URL.
 -   The `GET /v3/tone` method accepts input content via its required `text` query parameter. Use this version of the method for simple text that is easily accommodated on the URL.
 
-The methods accept the following parameters. For input content, submit a maximum of 128 KB of content; sentences with fewer than three words cannot be analyzed.
+The methods accept the following parameters.
 
 <table>
   <caption>Table 1. Parameters of the <code>/v3/tone</code> methods</caption>
@@ -69,76 +67,124 @@ The methods accept the following parameters. For input content, submit a maximum
     <td style="text-align:center">String</td>
     <td>
       The content type of the request:
-      <ul style="margin-left:20px; padding:0px;">
-        <li style="margin:10px 0px; color:#404040; line-height:120%;">
+      <ul style="margin:0px 0px 0px 20px; padding:0px">
+        <li style="margin:0px; padding:0px">
           <code>text/plain</code> for plain text
         </li>
-        <li style="margin:10px 0px; color:#404040; line-height:120%;">
+        <li style="margin:0px; padding:0px">
             <code>text/html</code> for text in HTML (the service removes
             HTML tags and analyzes only the textual content)
         </li>
-        <li style="margin:10px 0px; color:#404040; line-height:120%;">
+        <li style="margin:0px; padding:0px">
           <code>application/json</code> for text in JSON format
         </li>
       </ul>
-    </td>
-  </tr>
-  <tr>
-    <td><code>tones</code><br/><em>Optional</em></td>
-    <td style="text-align:center">Query</td>
-    <td style="text-align:center">String[, String...] </td>
-    <td>
-      A comma-separated list of tones for which the service is to return
-      its analysis of the input; the indicated tones apply both to the full
-      document and to individual sentences of the document. You can specify
-      one or more of the following values:
-      <ul style="margin-left:20px; padding:0px;">
-        <li style="margin:10px 0px; color:#404040; line-height:120%;">
-          <code>emotion</code>
-        </li>
-        <li style="margin:10px 0px; color:#404040; line-height:120%;">
-          <code>social</code>
-        </li>
-        <li style="margin:10px 0px; color:#404040; line-height:120%;">
-          <code>language</code>
-        </li>
-      </ul>
-      Omit the parameter to request results for all three tones.
-    </td>
-  </tr>
-  <tr>
-    <td><code>sentences</code><br/><em>Optional</em></td>
-    <td style="text-align:center">Query</td>
-    <td style="text-align:center">String</td>
-    <td>
-      Indicates whether the service is to return an analysis of each
-      individual sentence in addition to its analysis of the full document.
-      If <code>true</code> (the default), the service returns results for
-      each sentence. The service returns results only for the first 100
-      sentences of the input.
+    <em>Omit for <code>GET</code> requests.</em>
     </td>
   </tr>
   <tr>
     <td><code>version</code><br/><em>Required</em></td>
     <td style="text-align:center">Query</td>
-    <td style="text-align:center">Boolean</td>
+    <td style="text-align:center">String</td>
     <td>
       The requested version of the response format as a date in the form
-      <code>YYYY-MM-DD</code>; for example, specify <code>2016-05-19</code>
-      for May 19, 2016. The parameter allows the service to update its
-      interface and response format for new versions without breaking
-      existing clients.
+      <code>YYYY-MM-DD</code>; for example, specify <code>2017-09-21</code>
+      for September 21, 2017.
+    </td>
+  </tr>
+  <tr>
+    <td><code>Content-Language</code><br/><em>Optional</em></td>
+    <td style="text-align:center">Header</td>
+    <td style="text-align:center">String</td>
+    <td>
+      The language of the input content:
+      <ul style="margin:0px 0px 0px 20px; padding:0px">
+        <li style="margin:0px; padding:0px">
+          <code>en</code> (English, the default)
+        </li>
+        <li style="margin:0px; padding:0px">
+            <code>fr</code> (French)
+        </li>
+      </ul>
+      Regional variants are treated as their parent language; for example,
+      <code>en-US</code> is interpreted as <code>en</code>. The input
+      content must match the specified language. Do not submit content
+      that contains both languages. You can use different languages for
+      the input and response.
+    </td>
+  </tr>
+  <tr>
+    <td><code>Accept-Language</code><br/><em>Optional</em></td>
+    <td style="text-align:center">Header</td>
+    <td style="text-align:center">String</td>
+    <td>
+      The desired language of the response:
+      <ul style="margin:0px 0px 0px 20px; padding:0px">
+        <li style="margin:0px; padding:0px">
+          ar (Arabic)
+        </li>
+        <li style="margin:0px; padding:0px">
+          de (German)
+        </li>
+        <li style="margin:0px; padding:0px">
+          en (English, the default)
+        </li>
+        <li style="margin:0px; padding:0px">
+          es (Spanish)
+        </li>
+        <li style="margin:0px; padding:0px">
+          fr (French)
+        </li>
+        <li style="margin:0px; padding:0px">
+          it (Italian)
+        </li>
+        <li style="margin:0px; padding:0px">
+          ja (Japanese)
+        </li>
+        <li style="margin:0px; padding:0px">
+          ko (Korean)
+        </li>
+        <li style="margin:0px; padding:0px">
+          pt-br (Brazilian Portuguese)
+        </li>
+        <li style="margin:0px; padding:0px">
+          zh-cn (Simplified Chinese)
+        </li>
+        <li style="margin:0px; padding:0px">
+          zh-tw (Traditional Chinese)
+        </li>
+      </ul>
+      For two-character arguments, regional variants are treated as their
+      parent language; for example, <code>en-US</code> is interpreted as
+      <code>en</code>. You can use different languages for the input and
+      response.
+    </td>
+  </tr>
+  <tr>
+    <td><code>sentences</code><br/><em>Optional</em></td>
+    <td style="text-align:center">Query</td>
+    <td style="text-align:center">Boolean</td>
+    <td>
+      Indicates whether the service is to return an analysis of each
+      individual sentence in addition to its analysis of the full document.
+      If <code>true</code> (the default), the service returns results for
+      each sentence.
     </td>
   </tr>
 </table>
 
-The following example cURL command uses the HTTP `POST` request method to call the general purpose endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> and a version of `2016-05-19`. The example requests an analysis of all tones for both the full document and the individual sentences.
+Submit no more than 128 KB of total input content and no more than 1000 individual sentences. The service analyzes the first 1000 sentences for document-level analysis and only the first 100 sentences for sentence-level analysis. It returns a `warning` field as part of its response if you exceed either limit; the request still succeeds with HTTP response code 200.
+
+### Example requests
+{: #exampleRequests}
+
+The following example cURL command uses the HTTP `POST` request method to call the general purpose endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> and a version of `2017-09-21`. The example requests an analysis for both the full document and the individual sentences.
 
 ```bash
 curl -X POST --user "{username}":"{password}"
 --header "Content-Type: application/json"
 --data-binary @./tone.json
-"https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2016-05-19"
+"https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21"
 ```
 {: pre}
 
@@ -146,7 +192,7 @@ The following example command is equivalent to the previous example but uses the
 
 ```bash
 curl -X GET --user "{username}":"{password}"
-"https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2016-05-19&text=Team%2C%20I%20know%20that
+"https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21&text=Team%2C%20I%20know%20that
 %20times%20are%20tough%21%20Product%20sales%20have%20been%20disappointing%20for%20the%20past%20three%20quarters.
 %20We%20have%20a%20competitive%20product%2C%20but%20we%20need%20to%20do%20a%20better%20job%20of%20selling%20it%21"
 ```
@@ -199,22 +245,20 @@ The following example shows the contents of the <a target="_blank" href="https:/
 ## JSON response content
 {: #JSONresponse}
 
-The service returns a JSON `ToneAnalysis` object that always contains a `document_tone` field. This field contains a `DocumentAnalysis` object that provides the analysis of the full input document. It contains a single field, `tone_categories`, that contains an array of `ToneCategory` objects, one for each of the requested tones.
+The service returns a JSON `ToneAnalysis` object that always contains a `document_tone` field. This field contains a `DocumentAnalysis` object that provides the analysis of the full input document. It contains a single field, `tones`, that provides the results of the analysis for each qualifying tone of the document.
 
-If the `sentences` parameter of the request is set to `true`, the response also includes a `sentences_tone` field. This field contains an array of `SentenceAnalysis` objects, each of which provides the following information for a different sentence from the input content:
+If the `sentences` parameter of the request is omitted or set to `true`, the response also includes a `sentences_tone` field. This field contains an array of `SentenceAnalysis` objects, each of which provides the following information for a different sentence from the input content:
 
 -   `sentence_id` (integer) provides the unique identifier for the sentence. The first sentence has ID 0, and the ID of each subsequent sentence is incremented by one.
 -   `text` (string) provides the text of the sentence.
--   `input_from` (integer) identifies the offset of the first character of the sentence in the overall input content.
--   `input_to` (integer) identifies the offset of the last character of the sentence in the overall input content.
--   `tone_categories` contains an array of `ToneCategory` objects, one for each of the requested tones.
+-   `tones` provides the results of the analysis for each qualifying tone of the sentence.
 
 The following example shows the high-level structure of the `ToneAnalysis` object:
 
 ```javascript
 {
   "document_tone": {
-    "tone_categories": [
+    "tones": [
       . . .
     ]
   },
@@ -222,9 +266,7 @@ The following example shows the high-level structure of the `ToneAnalysis` objec
     {
       "sentence_id": {integer},
       "text": "{string}",
-      "input_from": {integer},
-      "input_to": {integer},
-      "tone_categories": [
+      "tones": [
         . . .
       ]
     },
@@ -234,85 +276,48 @@ The following example shows the high-level structure of the `ToneAnalysis` objec
 ```
 {: codeblock}
 
-### Tone category and score results
+### Tone and score results
 
-The `ToneCategory` objects that are returned for both document and sentence analyses have the following fields:
+The `tones` fields that are returned for both document- and sentence-level analyses contain an array of `ToneScore` objects that provides results for the dominant tones, those whose scores are at least 0.5. The array is empty if no tone has a score that meets this threshold. Each `ToneScore` object provides the following information about a qualifying tone:
 
--   `category_id` (string) is the unique, non-localized identifier of the category for the results: `emotion_tone`, `social_tone`, or `language_tone`. For both the document and its sentences, the service returns results only for the tones requested with the `sentences` query parameter.
--   `category_name` (string) is the user-visible, localized name of the category.
--   `tones` contains an array of `ToneScore` objects that provides the results for the tones of the category.
-
-The `ToneScore` objects that are returned for each tone category have the following fields:
-
--   `score` (double) provides the score for the tone in the range of 0 to 1.
--   `tone_id` (string) is the unique, non-localized identifier of the tone; for descriptions of the tones, [General purpose tones](#tones). The service returns scores for all tones of a category, regardless of their values.
+-   `score` (double) is the score for the tone in the range of 0.5 to 1. A score greater than 0.75 indicates a high likelihood that the tone is perceived in the content.
+-   `tone_id` (string) is the unique, non-localized identifier of the tone; for descriptions of the tones, see [General purpose tones](#tones).
 -   `tone_name` (string) is the user-visible, localized name of the tone.
 
-The following example shows the high-level structure of the `ToneCategory` object:
+The following example shows the structure of the `ToneScore` object:
 
 ```javascript
-"tone_categories": [
-  {
-    "category_id": "{string}",
-    "category_name": "{string}"
-    "tones": [
-      {
-        "score": {double},
-        "tone_id": "{string}",
-        "tone_name": "{string}"
-      },
-      . . .
-    ]
-  }
-  . . .
-]
+{
+  "tones": [
+    {
+      "score": {double},
+      "tone_id": "{string}",
+      "tone_name": "{string}"
+    },
+    . . .
+  ]
+}
 ```
 {: codeblock}
 
 ### Example response
 {: #exampleResponse}
 
-The following output is returned for the example in [Requesting a tone analysis](#request). (The same output is returned for the first example in [Getting started](/docs/services/tone-analyzer/getting-started.html).) The response includes results for the full document and for each individual sentence. To save space, the output omits many of the tones and scores.
+The following output is returned for the [Example requests](#exampleRequests). (The same output is returned for the first example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html).) The response includes results for the full document and for each individual sentence. All reported tones have a score of at least 0.5; those with a score of at least 0.75 are very likely to be perceived in the content.
 
 ```javascript
 {
   "document_tone": {
-    "tone_categories": [
+    "tones": [
       {
-        "tones": [
-          {
-            "score": 0.134622,
-            "tone_id": "anger",
-            "tone_name": "Anger"
-          },
-          . . .
-        ],
-        "category_id": "emotion_tone",
-        "category_name": "Emotion Tone"
+        "score": 0.6165,
+        "tone_id": "sadness",
+        "tone_name": "Sadness"
       },
       {
-        "tones": [
-          {
-            "score": 0.829888,
-            "tone_id": "analytical",
-            "tone_name": "Analytical"
-          },
-          . . .
-        ],
-        "category_id": "language_tone",
-        "category_name": "Language Tone"
-      },
-      {
-        "tones": [
-          {
-            "score": 0.230392,
-            "tone_id": "openness_big5",
-            "tone_name": "Openness"
-          },
-          . . .
-        ],
-        "category_id": "social_tone",
-        "category_name": "Social Tone"
+        "score": 0.829888,
+        "tone_id": "analytical",
+        "tone_name": "Analytical"
       }
     ]
   },
@@ -320,64 +325,39 @@ The following output is returned for the example in [Requesting a tone analysis]
     {
       "sentence_id": 0,
       "text": "Team, I know that times are tough!",
-      "input_from": 0,
-      "input_to": 34,
-      "tone_categories": [
+      "tones": [
         {
-          "tones": [
-            {
-              "score": 0.150882,
-              "tone_id": "anger",
-              "tone_name": "Anger"
-            },
-            . . .
-          ],
-          "category_id": "emotion_tone",
-          "category_name": "Emotion Tone"
-        },
-        . . .
+          "score": 0.801827,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
       ]
     },
     {
       "sentence_id": 1,
       "text": "Product sales have been disappointing for the past three quarters.",
-      "input_from": 35,
-      "input_to": 101,
-      "tone_categories": [
+      "tones": [
         {
-          "tones": [
-            {
-              "score": 0.106857,
-              "tone_id": "anger",
-              "tone_name": "Anger"
-            },
-            . . .
-          ],
-          "category_id": "emotion_tone",
-          "category_name": "Emotion Tone"
+          "score": 0.771241,
+          "tone_id": "sadness",
+          "tone_name": "Sadness"
         },
-        . . .
+        {
+          "score": 0.687768,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
       ]
     },
     {
       "sentence_id": 2,
       "text": "We have a competitive product, but we need to do a better job of selling it!",
-      "input_from": 102,
-      "input_to": 178,
-      "tone_categories": [
+      "tones": [
         {
-          "tones": [
-            {
-              "score": 0.094095,
-              "tone_id": "anger",
-              "tone_name": "Anger"
-            },
-            . . .
-          ],
-          "category_id": "emotion_tone",
-          "category_name": "Emotion Tone"
-        },
-        . . .
+          "score": 0.506763,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
       ]
     }
   ]
@@ -388,14 +368,10 @@ The following output is returned for the example in [Requesting a tone analysis]
 ## General purpose tones
 {: #tones}
 
-The following sections describe the emotion, social, and language tones that the service can return. For each tone, a score of less than 0.5 indicates that the emotion is unlikely to be perceived in the content. A score greater than 0.75 indicates a high likelihood that the tone will be perceived.
-
-### Emotion tones
-
-Emotion tones (ID `emotion_tone`) measure different types of emotions and feelings that people express.
+The following table describes the general purpose tones that the service can return. A tone whose score is less than 0.5 is omitted, indicating that the emotion is unlikely to be perceived in the content. A score greater than 0.75 indicates a high likelihood that the tone will be perceived.
 
 <table>
-  <caption>Table 2. Emotion tones</caption>
+  <caption>Table 2. General purpose tones</caption>
   <tr>
     <th style="text-align:left; vertical-align:bottom; width:20%">Tone / ID</th>
     <th style="text-align:left">Description</th>
@@ -406,14 +382,7 @@ Emotion tones (ID `emotion_tone`) measure different types of emotions and feelin
       Anger is evoked due to injustice, conflict, humiliation, negligence,
       or betrayal. If anger is active, the individual attacks the target,
       verbally or physically. If anger is passive, the person silently
-      sulks and feels tension and hostility.
-    </td>
-  </tr>
-  <tr>
-    <td>Disgust<br/><code>disgust</code></td>
-    <td>
-      Disgust is an emotional response of revulsion to something considered
-      offensive or unpleasant. The sensation refers to something revolting.
+      sulks and feels tension and hostility. (An emotional tone.)
     </td>
   </tr>
   <tr>
@@ -421,7 +390,7 @@ Emotion tones (ID `emotion_tone`) measure different types of emotions and feelin
     <td>
       Fear is a response to impending danger. It is a survival mechanism that
       is triggered as a reaction to some negative stimulus. Fear may be a mild
-      caution or an extreme phobia.
+      caution or an extreme phobia. (An emotional tone.)
     </td>
   </tr>
   <tr>
@@ -429,7 +398,7 @@ Emotion tones (ID `emotion_tone`) measure different types of emotions and feelin
     <td>
       Joy (or happiness) has shades of enjoyment, satisfaction, and pleasure.
       Joy brings a sense of well-being, inner peace, love, safety, and
-      contentment.
+      contentment. (An emotional tone.)
     </td>
   </tr>
   <tr>
@@ -437,129 +406,31 @@ Emotion tones (ID `emotion_tone`) measure different types of emotions and feelin
     <td>
       Sadness indicates a feeling of loss and disadvantage. When a person is
       quiet, less energetic, and withdrawn, it may be inferred that they feel
-      sadness.
+      sadness. (An emotional tone.)
     </td>
-  </tr>
-</table>
-
-### Social tones
-
-Social tones (ID `social_tone`) measure the social tendencies in people's writing. The tones are adopted from the Big Five personality model; for more information, see the [Personality models](http://www.ibm.com/watson/developercloud/doc/personality-insights/models.html) described for the {{site.data.keyword.personalityinsightsfull}} service.
-
-<table>
-  <caption>Table 3. Social tones</caption>
-  <tr>
-    <th style="text-align:left; vertical-align:bottom">Tone / ID</th>
-    <th style="text-align:left; vertical-align:bottom">Tone</th>
-    <th style="text-align:left; vertical-align:bottom">People with a score of &lt;0.5 are more likely to be perceived as...</th>
-    <th style="text-align:left; vertical-align:bottom">People with a score of &gt;0.75 are more likely to be perceived as...</th>
-  </tr>
-  <tr>
-    <td>Agreeableness<br/><code>agreeableness_big5</code></td>
-    <td>
-      The tendency to be compassionate and cooperative towards others
-    </td>
-    <td>
-      Selfish, uncaring, uncooperative, self-interested, confrontational,
-      skeptical, or arrogant
-    </td>
-    <td>
-      Caring, sympathetic, cooperative, compromising, trustworthy, or humble
-    </td>
-  </tr>
-  <tr>
-    <td>Conscientiousness<br/><code>conscientiousness_big5</code></td>
-    <td>
-      The tendency to act in an organized or thoughtful way
-    </td>
-    <td>
-      Spontaneous, laid-back, reckless, unmethodical, remiss, or disorganized
-    </td>
-    <td>
-      Disciplined, dutiful, achievement-striving, confident, driven, or
-      organized
-    </td>
-  </tr>
-  <tr>
-    <td>Emotional range<br/><code>emotional_range_big5</code></td>
-    <td>
-      The extent to which a person's emotions are sensitive to their
-      environment
-    </td>
-    <td>
-      Calm, bland, content, relaxed, unconcerned, or careful
-    </td>
-    <td>
-      Concerned, frustrated, angry, passionate, upset, stressed, insecure,
-      or impulsive
-    </td>
-  </tr>
-  <tr>
-    <td>Extraversion<br/><code>extraversion_big5</code></td>
-    <td>
-      The tendency to seek stimulation in the company of others
-    </td>
-    <td>
-      Independent, timid, introverted, restrained, boring, or dreary
-    </td>
-    <td>
-      Engaging, seeking attention, needy, assertive, outgoing, sociable,
-      cheerful, excitement-seeking, or busy
-    </td>
-  </tr>
-  <tr>
-    <td>Openness<br/><code>openness_big5</code></td>
-    <td>
-      The extent to which a person is open to experiencing a variety of
-      activities
-    </td>
-    <td>
-      No-nonsense, straightforward, blunt, or preferring tradition and the
-      obvious over the complex, ambiguous, and subtle
-    </td>
-    <td>
-      Intellectual, curious, emotionally aware, imaginative, willing to try
-      new things, appreciating beauty, or open to change
-    </td>
-  </tr>
-</table>
-
-### Language tones
-
-Language tones (ID `language_tone`) describe a person's perceived writing style. A score of less than 0.5 indicates that the content offered little or no evidence of the tone.
-
-<table>
-  <caption>Table 4. Language tones</caption>
-  <tr>
-    <th style="text-align:left; vertical-align:bottom; width:20%">Tone / ID</th>
-    <th style="text-align:left; vertical-align:bottom; width:40%">Description</th>
-    <th style="text-align:left">People with a score of &gt;0.75 are more likely to be perceived as...</th>
   </tr>
   <tr>
     <td>Analytical<br/><code>analytical</code></td>
     <td>
-      A person's reasoning and analytical attitude about things
-    </td>
-    <td>
-      Intellectual, rational, systematic, emotionless, or impersonal
+      An analytical tone indicates a person's reasoning and analytical attitude
+      about things. An analytical person might be perceived as intellectual,
+      rational, systematic, emotionless, or impersonal. (A language tone.)
     </td>
   </tr>
   <tr>
     <td>Confident<br/><code>confident</code></td>
     <td>
-      A person's degree of certainty
-    </td>
-    <td>
-      Assured, collected, hopeful, or egotistical
+      A confident tone indicates a person's degree of certainty. A confident
+      person might be perceived as assured, collected, hopeful, or egotistical.
+      (A language tone.)
     </td>
   </tr>
   <tr>
     <td>Tentative<br/><code>tentative</code></td>
     <td>
-      A person's degree of inhibition
-    </td>
-    <td>
-      Questionable, doubtful, or debatable
+      A tentative tone indicates a person's degree of inhibition. A tentative
+      person might be perceived as questionable, doubtful, or debatable. (A
+      language tone.)
     </td>
   </tr>
 </table>

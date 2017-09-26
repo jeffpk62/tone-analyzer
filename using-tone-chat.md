@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-10"
+lastupdated: "2017-09-20"
 
 ---
 
@@ -19,18 +19,16 @@ lastupdated: "2017-09-10"
 
 # Using the customer engagement endpoint
 
-The {{site.data.keyword.toneanalyzershort}} customer engagement endpoint analyzes the tone of customer service and support conversations. It can help you better understand your interactions with customers and improve your communications in general or for specific customers.
+The {{site.data.keyword.toneanalyzershort}} customer engagement endpoint analyzes the tone of customer service and support conversations. It can help you better understand your interactions with customers and improve your communications in general or for specific customers. For detailed information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
 {: shortdesc}
-
-For detailed information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}. For information about the research behind the service, see [The science behind the service](/docs/services/tone-analyzer/science.html).
 
 ## Requesting a tone analysis
 {: #request}
 
-To analyze tone with the customer engagement endpoint, you call the `POST /v3/tone-chat` method with the following parameters.
+To analyze tone with the customer engagement endpoint, you call the `POST /v3/tone_chat` method with the following parameters.
 
 <table>
-  <caption>Table 1. Parameters of the <code>POST /v3/tone-chat</code>
+  <caption>Table 1. Parameters of the <code>POST /v3/tone_chat</code>
     method</caption>
   <tr>
     <th style="text-align:left; width:20%">Parameter</th>
@@ -53,25 +51,73 @@ To analyze tone with the customer engagement endpoint, you call the `POST /v3/to
     <td style="text-align:center">String</td>
     <td>
       The requested version of the interface as a date in the form
-      <code>YYYY-MM-DD</code>; for example, specify <code>2016-05-19</code>
-      for May 19, 2016. The parameter allows the service to update its
-      interface and response format for new versions without breaking
-      existing clients.
+      <code>YYYY-MM-DD</code>; for example, specify <code>2017-09-21</code>
+      for September 21, 2017.
+    </td>
+  </tr>
+  <tr>
+    <td><code>Accept-Language</code><br/><em>Optional</em></td>
+    <td style="text-align:center">Header</td>
+    <td style="text-align:center">String</td>
+    <td>
+      The desired language of the response:
+      <ul style="margin:0px 0px 0px 20px; padding:0px">
+        <li style="margin:0px; padding:0px">
+          ar (Arabic)
+        </li>
+        <li style="margin:0px; padding:0px">
+          de (German)
+        </li>
+        <li style="margin:0px; padding:0px">
+          en (English, the default)
+        </li>
+        <li style="margin:0px; padding:0px">
+          es (Spanish)
+        </li>
+        <li style="margin:0px; padding:0px">
+          fr (French)
+        </li>
+        <li style="margin:0px; padding:0px">
+          it (Italian)
+        </li>
+        <li style="margin:0px; padding:0px">
+          ja (Japanese)
+        </li>
+        <li style="margin:0px; padding:0px">
+          ko (Korean)
+        </li>
+        <li style="margin:0px; padding:0px">
+          pt-br (Brazilian Portuguese)
+        </li>
+        <li style="margin:0px; padding:0px">
+          zh-cn (Simplified Chinese)
+        </li>
+        <li style="margin:0px; padding:0px">
+          zh-tw (Traditional Chinese)
+        </li>
+      </ul>
     </td>
   </tr>
 </table>
 
-The following example cURL command calls the customer engagement endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> and a version of `2016-05-19`:
+If you submit more than 50 utterances, the service returns a `warning` field for the overall content at the `utterances_tone` level of its response; it analyzes only the first 50 utterances. If you submit a single utterance that contains more than 500 characters, the service returns an `error` field for that utterance and does not analyze the utterance. In both cases, the request still succeeds with HTTP response code 200.
+
+> **Note:** The service returns response code 400 if all utterances of the input have more than 500 characters.
+
+### Example request
+{: #exampleRequest}
+
+The following example cURL command calls the customer engagement endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> and a version of `2017-09-21`:
 
 ```bash
 curl -X POST --user "{username}":"{password}"
 --header "Content-Type: application/json"
 --data-binary @./tone-chat.json
-"https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone_chat?version=2016-05-19"
+"https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone_chat?version=2017-09-21"
 ```
 {: pre}
 
-### Specifying JSON input
+## Specifying JSON input
 {: #JSONrequest}
 
 You pass the method a JSON `ToneChatInput` object with the following format. The `utterances` field provides an array of `utterance` objects, where `text` is a required string that provides an utterance contributed by a user to the conversation that is to be analyzed, and `user` is an optional string that identifies the user who contributed the utterance.
@@ -122,15 +168,15 @@ The service returns a JSON `UtteranceAnalyses` object that contains a single fie
 
 -   `utterance_id` (integer) provides the unique identifier of the utterance. The first utterance has ID 0, and the ID of each subsequent utterance is incremented by one.
 -   `utterance_text` (string) provides the text of the utterance.
--   `tones` is an array of `ToneChatScore` objects that provides results for any tone whose score is at least 0.5. The array is empty if the utterance has no tone with a score that meets this threshold.
+-   `tones` is an array of `ToneChatScore` objects that provides results for the dominant tones, those whose scores are at least 0.5. The array is empty if the utterance has no tone with a score that meets this threshold.
 
-Each `ToneChatScore` object provides the following information about one of the qualifying tones:
+Each `ToneChatScore` object provides the following information about a qualifying tone:
 
--   `score` (double) provides the score for the tone in the range of 0.5 to 1. A score greater than 0.75 indicates a high likelihood that the tone is perceived in the utterance.
+-   `score` (double) is the score for the tone in the range of 0.5 to 1. A score greater than 0.75 indicates a high likelihood that the tone is perceived in the utterance.
 -   `tone_id` (string) is the unique, non-localized identifier of the tone; for descriptions of the tones, see [Customer engagement tones](#tones).
 -   `tone_name` (string) is the user-visible, localized name of the tone.
 
-The following example shows the high-level structure of an `UtterancesAnalyses` object:
+The following example shows the structure of the `UtterancesAnalyses` object:
 
 ```javascript
 {
@@ -155,7 +201,7 @@ The following example shows the high-level structure of an `UtterancesAnalyses` 
 ### Example response
 {: #exampleResponse}
 
-The following output is returned for the example in [Requesting a tone analysis](#request). (The same output is returned for the example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html#customerEngagement).) All reported tones have a score of at least 0.5; those with a score of at least 0.75 are very likely to be perceived by participants in the conversation.
+The following output is returned for the [Example request](#exampleRequest). (The same output is returned for the example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html#customerEngagement).) All reported tones have a score of at least 0.5; those with a score of at least 0.75 are very likely to be perceived by participants in the conversation.
 
 ```javascript
 {

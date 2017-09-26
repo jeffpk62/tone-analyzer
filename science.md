@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-11"
+lastupdated: "2017-09-19"
 
 ---
 
@@ -19,14 +19,14 @@ lastupdated: "2017-08-11"
 
 # The science behind the service
 
-The {{site.data.keyword.toneanalyzerfull}} service is based on the theory of psycholinguistics, a field of research that explores the relationship between linguistic behavior and psychological theories. The service uses linguistic analysis and the correlation between the linguistic features of written text and emotional, social, and language tones to develop scores for each of these tone dimensions.
+The {{site.data.keyword.toneanalyzerfull}} service is based on the theory of psycholinguistics, a field of research that explores the relationship between linguistic behavior and psychological theories. The service uses linguistic analysis and the correlation between the linguistic features of written text and emotional and language tones to develop scores for each of these tone dimensions.
 {: shortdesc}
 
 Psycholinguistics researchers have worked to understand whether the words that we use in our day-to-day lives reflect who we are, how we feel, and how we think. After several decades of research in this area, it is now accepted in psychology, marketing, and other fields that language reflects more than just what we want to say. The frequency with which we use certain types of words can provide clues to personality, thinking style, social connections, and emotional states.
 
-For example, people exhibit various language tones in their daily communications: joyful or sad, open or conservative, analytical or informal ([Gou et al., 2014](/docs/services/tone-analyzer/references.html#bib-gou), and [Jian et al., 2014](/docs/services/tone-analyzer/references.html#bib-jian)). These tones can impact the perception of a person's online identity and the effectiveness of their communications in different contexts.
+For example, people exhibit various tones in their daily communications: joyful or sad, open or conservative, analytical or informal ([Gou et al., 2014](/docs/services/tone-analyzer/references.html#bib-gou), and [Jian et al., 2014](/docs/services/tone-analyzer/references.html#bib-jian)). These tones can impact the perception of a person's online identity and the effectiveness of their communications in different contexts.
 
-Moreover, in business email communications, people are likely to perceive negative emotions with greater intensity than they do positive emotions ([Byron, 2008](/docs/services/tone-analyzer/references.html#bib-byron)). The personality characteristics, such as openness and agreeableness, that people express in business communications also influence others' perceptions of their occupational proficiency ([Barrick & Mount 1991](/docs/services/tone-analyzer/references.html#bib-barrick)). And in social media, people present different online identities that impact the impression that others have of them ([DiMicco & Millen, 2007](/docs/services/tone-analyzer/references.html#bib-dimicco)).
+Moreover, in business email communications, people are likely to perceive negative emotions with greater intensity than they do positive emotions ([Byron, 2008](/docs/services/tone-analyzer/references.html#bib-byron)). And in social media, people present different online identities that impact the impression that others have of them ([DiMicco & Millen, 2007](/docs/services/tone-analyzer/references.html#bib-dimicco)).
 
 Many people naturally read a message and judge the tones conveyed by the sender. But can a computer detect the tones disclosed by a message accurately and automatically? This is one of the many challenging questions to which researchers in the artificial intelligence and cognitive sciences fields are seeking answers. First with the {{site.data.keyword.personalityinsightsshort}} service and now with the {{site.data.keyword.toneanalyzershort}} service, IBM is beginning to answer this question.
 
@@ -48,16 +48,16 @@ Most of these prior works are based on finding psychologically meaningful word c
 The general purpose endpoint analyzes written content for a set of tones that are applicable to a broad range of uses. The {{site.data.keyword.toneanalyzershort}} service computes a scorecard that includes the following tones:
 
 -   **Emotional tone** is derived from IBM's work on emotion analysis, which is an ensemble framework that infers emotions from a given text. To derive emotion scores from text, IBM use a stacked generalization-based ensemble framework; stacked generalization uses a high-level model to combine lower-level models to achieve greater predictive accuracy. Features such as n-grams (unigrams, bigrams, and trigrams), punctuation, emoticons, curse words, greetings (such as "hello," "hi," and "thanks"), and sentiment polarity are fed into machine-learning algorithms to classify emotion categories.
--   **Social tone** consists of the Big Five personality dimensions of openness, agreeableness, and conscientiousness. For more information about these Big Five characteristics, see [Personality models](http://www.ibm.com/watson/developercloud/doc/personality-insights/models.html) from the {{site.data.keyword.personalityinsightsshort}} service.
 -   **Language tone** is calculated from linguistic analysis based on learned features.
 
 ### Measuring the quality of the service
 
-IBM measured the quality of the {{site.data.keyword.toneanalyzershort}} service along each of the dimensions of tone mentioned in the previous section:
+IBM measured the quality of the {{site.data.keyword.toneanalyzershort}} service along the dimensions of tone mentioned in the previous section:
 
 -   *Emotional tone* categories were benchmarked against standard emotion data sets such as ISEAR and SEMEVAL. Results show that the average performance of the ensemble model (macro-average F1 score is around 41 percent and 68 percent, respectively, for the two data sets) is statistically better than the best reported accuracy of the state-of-the-art models (whose macro-average F1 scores are around 37 percent and 63 percent, respectively).
--   *Social tone* categories were tested against ground-truth data collected by administering personality surveys to more than 1500 people. The derived social scores were correlated with survey-based scores (p-value less than 0.05), with an average correlation coefficient of 0.33. The average Mean Absolute Error (MAE) between the inferred and actual scores was 0.12 for Big Five dimensions.
--   *Language tone* was evaluated with an in-depth study of more than two hundred thousand sentences collected from sources such as debate forums, speeches, and social media. Of these sentences, IBM randomly selected 1330 sentences for analytical tone and 1000 sentences each for confident and tentative tones. IBM then submitted these sentence to the {{site.data.keyword.toneanalyzershort}} service and also asked humans to analyze them. For the human analysis, IBM used a crowd-sourcing platform called [CrowdFlower ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.crowdflower.com/){: new_window} to annotate the selected sentences with different labels. Only raters with approval ratings over 85 percent were allowed to participate in the annotation tasks. Five annotators labeled each sentence, and IBM used the most prevalent of the five annotated results to determine the final labels.
+-   *Language tone* was evaluated with an in-depth study of more than two hundred thousand sentences collected from sources such as debate forums, speeches, and social media. Of these sentences, IBM randomly selected 1330 sentences for analytical tone and 1000 sentences each for confident and tentative tones. IBM then submitted these sentence to the {{site.data.keyword.toneanalyzershort}} service and also asked humans to analyze them.
+
+    For the human analysis, IBM used a crowd-sourcing platform called [CrowdFlower ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.crowdflower.com/){: new_window} to annotate the selected sentences with different labels. Only raters with approval ratings over 85 percent were allowed to participate in the annotation tasks. Five annotators labeled each sentence, and IBM used the most prevalent of the five annotated results to determine the final labels.
     -   For *analytical tone*, humans labeled 915 of the 1330 sentences as analytical, 411 as non-analytical, and 4 as not understandable. By comparing the predicted label with these ground-truth labels, IBM found that its analytical tone detection received an F1 score of 0.7518.
     -   For *tentative tone*, humans labeled 292 of the 1000 sentences as tentative, 706 as non-tentative, and 2 as not understandable. By comparing the predicted label with the ground-truth labels, IBM found that its tentative tone detection received an F1 score of 0.6369.
     -   For *confident tone*, humans labeled 623 of the 1000 sentences as confident, 374 as non-confident, and 3 as not understandable. By comparing the predicted label with the ground-truth labels, IBM found that its confident tone detection received an F1 score of 0.7288.
