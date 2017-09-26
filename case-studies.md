@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-11"
+lastupdated: "2017-09-19"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2017-08-11"
 
 # Case studies
 
-Read these case studies to get inspiration for what you can do with the {{site.data.keyword.toneanalyzerfull}} service. The studies describe the correlation between reported tones and expected outcomes. For most studies, IBM measured correlation as a number between 0 and 1, with 1 being a perfect correlation and 0 being no correlation.
+Read these case studies to get inspiration for what you can do with the {{site.data.keyword.toneanalyzerfull}} service. The studies describe the correlation between reported tones and expected outcomes. Correlation can be positive or negative and has a range of -1.0 to 1.0.
 {: shortdesc}
 
 ## Predicting customer satisfaction in support forums
@@ -42,8 +42,6 @@ The service can predict Kudos with 66-percent accuracy. IBM found the following 
 
 -   The more confident a response is, the more likely it is to earn Kudos (correlation of 0.23 between a high-value score on confidence and Kudos).
 -   The more tentative a response is, the less likely it is to earn Kudos (negative correlation of -0.27 between a high-value score on tentative and Kudos).
--   The more open a response is, the more likely it is to earn Kudos (correlation of 0.10 between a high-value score on openness and Kudos).
--   The more organized, thoughtful, and thorough a response is, the more likely it is to earn Kudos (correlation of 0.10 between a high-value score on conscientiousness and Kudos).
 
 ## Predicting customer satisfaction in Twitter responses
 
@@ -63,16 +61,9 @@ Validate whether the tone of the conversations between the agent and the custome
 
 ### Results
 
-The service can predict customer satisfaction from the tone of the response with 67-percent accuracy. IBM identified the following correlations between the tone of customer service tweets and whether the client was satisfied with the response:
+The service can predict customer satisfaction from the tone of the response with 67-percent accuracy. IBM discovered the following correlation between the tone of customer tweets and whether the customer was satisfied with the response:
 
--   Customer support representatives who act disgusted in their tweets are less likely to satisfy the customer (negative correlation of -0.155 between a high-value score on disgust in a customer service tweet and customer satisfaction).
--   Customer support representatives who seem frustrated, angry, stressed, or insecure are less likely to satisfy the customer (negative correlation of -0.186 between a high-value score on emotional range in a customer service tweet and customer satisfaction).
-
-IBM discovered the following correlations between the tone of customer tweets and whether the customer was satisfied with the response:
-
--   The angrier customers are, the less likely they are to be satisfied with the response (negative correlation of -0.198 between a high-value score on anger in a customer tweet and customer satisfaction).
--   The more disgusted customers are, the less likely they are to be satisfied with the response (negative correlation of -0.184 between a high-value score on disgust in a customer tweet and customer satisfaction).
--   The more organized, thoughtful, and thorough customers' tweets are, the more likely they are to be satisfied with the response (correlation of 0.177 between a high-value score on conscientiousness in a customer tweet and customer satisfaction).
+-   The angrier that customers are, the less likely they are to be satisfied with the response (negative correlation of -0.198 between a high-value score on anger in a customer tweet and customer satisfaction).
 
 ## Predicting TED Talk applause
 
@@ -95,14 +86,9 @@ Sentences that received applause were already tagged in the data set.
 
 The service can predict applause with 75-percent accuracy. IBM found the following correlations between the tone of each set of sentences and whether those sentences received applause:
 
--   The more disgusted a speaker is, the less likely they are to receive applause (negative correlation of -0.066 between a high-value score on disgust and applause).
 -   The more sadness a speaker expresses, the less likely they are to receive applause (negative correlation of -0.055 between a high-value score on sadness and applause).
 -   The more emotionless or impersonal a speaker seems, the less likely they are to receive applause (negative correlation of -0.29 between a high-value score on analytical and applause).
 -   The more joyful, contented, and satisfied a speaker seems, the more likely they are to receive applause (correlation of 0.21 between a high-value score on joy and applause).
--   The more organized, thoughtful, and thorough a speaker seems, the more likely they are to receive applause (correlation of 0.0964 between a high-value score on conscientiousness and applause).
--   The more engaging, sociable, and outgoing a speaker seems, the more likely they are to receive applause (correlation of 0.0942 between a high-value score on extraversion and applause).
--   The more caring, sympathetic, and trustworthy a speaker seems, the more likely they are to receive applause (correlation of 0.068 between a high-value score on agreeableness and applause).
--   The more concerned, passionate, and fierce a speaker seems, the more likely they are to receive applause (correlation of 0.064 between a high-value score on emotional range and applause).
 
 ## Predicting Twitter retweets and likes
 
@@ -120,17 +106,7 @@ Find correlations between the tone of a tweet and whether that tweet is liked or
 
 ### Results
 
-IBM found the following correlations between the tone of a tweet and whether it is liked:
-
--   The more imaginative, open to change, or emotionally aware a tweet seems, the more likely it is to be liked (correlation of 0.02 between a high-value score on openness and likes).
--   The more organized, thoughtful, or thorough a tweet seems, the more likely it is to be liked (correlation of 0.03 between a high-value score on consciousness and likes).
--   The angrier, more stressed, or impulsive a tweet seems, the less likely it is to be retweeted (negative correlation of -0.02 between a high-value score on emotional range and likes).
-
-IBM found the following correlations between the tone of a tweet and whether it is retweeted:
-
--   The more imaginative, open to change, or emotionally aware a tweet seems, the more likely it is to be retweeted (correlation of 0.05 between a high-value score on openness and retweets).
--   The more organized, thoughtful, or thorough a tweet seems, the more likely it is to be retweeted (correlation of 0.03 between a high-value score on consciousness and retweets).
--   The angrier, more stressed, or impulsive a tweet seems, the less likely it is to be retweeted (negative correlation of -0.033 between a high-value score on emotional range and retweets).
+IBM found correlations between the tone of a tweet and whether it is liked, and  between the tone of a tweet and whether it is retweeted.
 
 ## Predicting online dating matches
 
