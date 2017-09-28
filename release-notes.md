@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-25"
+lastupdated: "2017-09-28"
 
 ---
 
@@ -24,8 +24,15 @@ The following sections document the new features and changes that were included 
 
 > **Note:** The release notes now document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
 
+## 28 September 2017
+{: #September2017b}
+
+**Service version:** `3.4.1`<br/> **Interface version:** `2017-09-21`
+
+-   The throttling limit on the maximum number of requests that an individual Bluemix username can submit has increased to 1200 requests per minute. The service returns HTTP response code 429 *Too many requests* if a user exceeds that limit.
+
 ## 25 September 2017
-{: #September2017}
+{: #September2017a}
 
 **Service version:** `3.4.1`<br/> **Interface version:** `2017-09-21`
 
@@ -58,15 +65,9 @@ The following sections document the new features and changes that were included 
 
 The service was updated for a small defect fix to the customer engagement endpoint.
 
-## 1 July 2017
-{: #July2017a}
-
-**Service version:** `3.3.5`<br/> **Interface version:** `2016-05-19`
-
-The customer engagement endpoint of the {{site.data.keyword.toneanalyzershort}} service is now generally available (GA). All calls to the endpoint are now charged at the same rate as calls to the general purpose endpoint.
-
 ## Older releases
 
+-   [1 July 2017](#July2017a)
 -   [8 May 2017](#May2017)
 -   [17 April 2017](#April2017)
 -   [15 March 2017](#March2017)
@@ -74,6 +75,13 @@ The customer engagement endpoint of the {{site.data.keyword.toneanalyzershort}} 
 -   [18 October 2016](#October2016b)
 -   [3 October 2016](#October2016a)
 -   [19 May 2016](#May2016)
+
+### 1 July 2017
+{: #July2017a}
+
+**Service version:** `3.3.5`<br/> **Interface version:** `2016-05-19`
+
+The customer engagement endpoint of the {{site.data.keyword.toneanalyzershort}} service is now generally available (GA). All calls to the endpoint are now charged at the same rate as calls to the general purpose endpoint.
 
 ### 8 May 2017
 {: #May2017}
