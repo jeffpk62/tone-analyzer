@@ -29,7 +29,7 @@ The following sections document the new features and changes that were included 
 
 **Service version:** `3.4.1`<br/> **Interface version:** `2017-09-21`
 
--   The throttling limit on the maximum number of requests that an individual Bluemix username can submit has increased to 1200 requests per minute. The service returns HTTP response code 429 *Too many requests* if a user exceeds that limit.
+-   The throttling limit on the maximum number of requests that an individual {{site.data.keyword.Bluemix_notm}} username can submit has increased to 1200 requests per minute. The service returns HTTP response code 429 *Too many requests* if a user exceeds that limit.
 
 ## 25 September 2017
 {: #September2017a}
@@ -51,7 +51,7 @@ The following sections document the new features and changes that were included 
     -   For the `/v3/tone` method, if you submit more than 128 KB or 1000 sentences of input content, the service returns a `warning` field as part of its response. The service analyzes the first 1000 sentences for document-level analysis and, as it does currently, only the first 100 sentences for sentence-level analysis. Earlier versions of the service returned response code 400 for the request if you exceeded either limit. Note also that the service now analyzes sentences that have fewer than three words.
     -   For the `/v3/tone_chat` method, if you submit more than 50 utterances, the service returns a `warning` field for the overall content at the `utterances_tone` level of the response; it analyzes only the first 50 utterances. If you submit a single utterance that contains more than 500 characters, the service returns an `error` field for that utterance and does not analyze the utterance. Earlier versions of the service returned response code 400 if you exceeded either limit. Note that if all utterances of the input have more than 500 characters, the service still returns response code 400 for the request.
 
--   The service now throttles the number of requests that it accepts from a single user. The service returns HTTP response code 429 *Too many requests* if it receives more than 600 requests per minute from an individual Bluemix username.
+-   The service now throttles the number of requests that it accepts from a single user. The service returns HTTP response code 429 *Too many requests* if it receives more than 600 requests per minute from an individual {{site.data.keyword.Bluemix_notm}} username.
 
 -   The following changes apply to both the general purpose and customer engagement endpoints:
 
