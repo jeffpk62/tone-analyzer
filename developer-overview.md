@@ -35,7 +35,7 @@ For more information, see [Using the general purpose endpoint](/docs/services/to
 
 The {{site.data.keyword.toneanalyzershort}} service supports a number of SDKs for simplified application development. The SDKs are available for many popular programming languages and platforms, including Node.js, Java, Python, and Apple&reg; iOS. For a complete list of SDKs and information about using them, see [{{site.data.keyword.watson}} SDKs](/docs/services/watson/getting-started-sdks.html). All SDKs are available from the [watson-developer-cloud namespace ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/watson-developer-cloud){: new_window} on GitHub.
 
-All SDKs support authenticating by using either your {{site.data.keyword.Bluemix_short}} service credentials or an authentication token.
+For mobile development, see the [{{site.data.keyword.watson}} Developer Cloud Swift SDK ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/watson-developer-cloud/swift-sdk){: new_window}. All SDKs support authenticating by using either your service credentials or an authentication token.
 
 ## Learning more about application development
 {: #learn}
