@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-20"
+lastupdated: "2017-10-28"
 
 ---
 
@@ -211,34 +211,23 @@ The following output is returned for the [Example request](#exampleRequest). (Th
       "utterance_text": "Hello, I'm having a problem with your product.",
       "tones": [
         {
-          "score": 0.711722,
+          "score": 0.718352,
           "tone_id": "polite",
-          "tone_name": "polite"
+          "tone_name": "Polite"
         }
       ]
     },
     {
       "utterance_id": 1,
       "utterance_text": "OK, let me know what's going on, please.",
-      "tones": [
-        {
-          "score": 0.814275,
-          "tone_id": "polite",
-          "tone_name": "polite"
-        }
-      ]
+      "tones": []
     },
     {
       "utterance_id": 2,
       "utterance_text": "Well, nothing is working :(",
       "tones": [
         {
-          "score": 0.753187,
-          "tone_id": "frustrated",
-          "tone_name": "frustrated"
-        },
-        {
-          "score": 0.940611,
+          "score": 0.997149,
           "tone_id": "sad",
           "tone_name": "sad"
         }
@@ -249,14 +238,14 @@ The following output is returned for the [Example request](#exampleRequest). (Th
       "utterance_text": "Sorry to hear that.",
       "tones": [
         {
-          "score": 0.992159,
+          "score": 0.689109,
           "tone_id": "polite",
-          "tone_name": "polite"
+          "tone_name": "Polite"
         },
         {
-          "score": 0.772394,
+          "score": 0.663203,
           "tone_id": "sympathetic",
-          "tone_name": "sympathetic"
+          "tone_name": "Sympathetic"
         }
       ]
     }
