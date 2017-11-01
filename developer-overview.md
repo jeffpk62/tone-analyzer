@@ -26,7 +26,7 @@ You can access the capabilities of the {{site.data.keyword.toneanalyzershort}} s
 ## Programming with the service
 {: #programming}
 
-To amalyze the tone of an individual's text, you pass the input text to the service via the `GET` or `POST /v3/tone` method. To analyze the exchanges in a conversation, you pass input to the service via the `POST /v3/tone_chat` method. In both cases, the service returns its analysis in JSON format.
+To analyze the tone of an individual's text, you pass the input text to the service via the `GET` or `POST /v3/tone` method. To analyze the exchanges in a conversation, you pass input to the service via the `POST /v3/tone_chat` method. In both cases, the service returns its analysis in JSON format.
 
 For more information, see [Using the general purpose endpoint](/docs/services/tone-analyzer/using-tone.html) and [Using the customer engagement endpoint](/docs/services/tone-analyzer/using-tone-chat.html).
 
