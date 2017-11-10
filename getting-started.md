@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-19"
+lastupdated: "2017-10-12"
 
 ---
 
@@ -12,31 +12,44 @@ lastupdated: "2017-09-19"
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:download: .download}
 
 # Getting started tutorial
 
 The {{site.data.keyword.toneanalyzershort}} service analyzes the tone of input content. This tutorial shows commands that analyze different sample content. The examples demonstrate both the general purpose and the customer engagement endpoints.
 {: shortdesc}
 
-> **Note:** The examples use cURL to call methods of the HTTP interface. You can install the version of cURL for your operating system from [curl.haxx.se ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window}. You must install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
+## Before you begin
+{: #prerequisites}
 
-## Step 1: Log in, create the service, and get your credentials
+- Create an instance of the service:
+    - {: download} If you're seeing this, you created your service instance. Now get your credentials.
+    - Create a project from a service:
+        1.  Go to the {{site.data.keyword.watson}} Developer Console [Services ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/developer/watson/services){: new_window} page.
+        1.  Select {{site.data.keyword.toneanalyzershort}}, click **Add Services**, and either sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.
+        1.  Type `tone-tutorial` as the project name and click **Create Project**.
+- Copy the credentials to authenticate to your service instance:
+    - {: download} From the service dashboard (what you're looking at):
+        1.  Click the **Service credentials** tab.
+        1.  Click **View credentials** under **Actions**.
+        1.  Copy the `username`, `password`, and `url` values.
+        {: download}
+    - From your **tone-tutorial** project in the Developer Console, copy the `username`,  `password`, and `url` values for `"tone_analyzer"` from the  **Credentials** section.
+- Make sure you have cURL:
+    - The examples use cURL to call methods of the HTTP interface. Install the version for your operating system from [curl.haxx.se ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window}. Install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
 
-If you already know the credentials for your {{site.data.keyword.toneanalyzershort}} service instance, skip this step.
-{: tip}
+<!-- Remove this text after dedicated instances have the Developer Console: begin -->
 
-1.  Go to the [{{site.data.keyword.toneanalyzershort}} service ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/catalog/services/tone-analyzer/){: new_window} and either sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.
-1.  After you log in, enter `tone-tutorial` in the **Service name field** of the {{site.data.keyword.toneanalyzershort}} page. Click **Create**.
-1.  Copy your credentials:
-    1.  Click **Service credentials**.
-    1.  Click **View credentials** under **Actions**.
-    1.  Copy the `username` and `password` values.
+If you use {{site.data.keyword.Bluemix_dedicated_notm}}, create your service instance from the [{{site.data.keyword.toneanalyzershort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/catalog/services/tone-analyzer/){: new_window} page in the Catalog. For details about how to find your service credentials, see [Service credentials for Watson services ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/watson/getting-started-credentials.html#getting-credentials-manually){: new_window}.
 
-## Step 2: Use the general purpose endpoint via the POST request method
+<!-- Remove this text after dedicated instances have the Developer Console: end -->
+
+## Step 1: Use the general purpose endpoint via the POST request method
 {: #generalPurposePost}
 
 The following commands call the `POST /v3/tone` method to analyze the contents of the file `tone.json`. The file includes a single paragraph of plain text written by one person. The examples demonstrate the method's `sentences` query parameters.
@@ -66,7 +79,7 @@ The following commands call the `POST /v3/tone` method to analyze the contents o
 
 For an example of the method's output, see [Example response](/docs/services/tone-analyzer/using-tone.html#exampleResponse).
 
-## Step 3: Use the general purpose endpoint via the GET request method
+## Step 2: Use the general purpose endpoint via the GET request method
 {: #generalPurposeGet}
 
 The interface also offers a `GET /v3/tone` method. The `GET` method provides the same functionality and produces the same results as the `POST` method, but you use the method's `text` query parameter to specify the content to be analyzed. The method accepts only plain text input.
@@ -83,7 +96,7 @@ The interface also offers a `GET /v3/tone` method. The `GET` method provides the
     ```
     {: pre}
 
-## Step 4: Use the customer engagement endpoint
+## Step 3: Use the customer engagement endpoint
 {: #customerEngagement}
 
 The following command calls the `POST /v3/tone_chat` method to analyze the contents of the file `tone-chat.json`. The file includes a brief exchange of messages between two people, a <code>customer</code> and an <code>agent</code>.
