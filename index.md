@@ -36,7 +36,7 @@ The service offers two endpoints:
 
     Use the {{site.data.keyword.toneanalyzershort}} general purpose endpoint to analyze shorter web data, such as email messages or tweets, or longer documents, such as articles or blog posts. Monitor social media to understand what customers are saying about a brand and to determine whom to target with specific messaging. The endpoint accepts JSON, plain text, or HTML input. For more information about the method and the tones that it returns, see [Using the general purpose endpoint](/docs/services/tone-analyzer/using-tone.html).
 
-    The [general purpose demo ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://tone-analyzer-demo.mybluemix.net/){: new_window} lets you submit content to the service for analysis. The service returns overall and sentence-level analyses of the tone of the content.
+    The [general purpose demo ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://tone-analyzer-demo.ng.bluemix.net/){: new_window} lets you submit content to the service for analysis. The service returns overall and sentence-level analyses of the tone of the content.
 -   **Customer engagement endpoint** (`POST /v3/tone_chat`)
 
     Use the {{site.data.keyword.toneanalyzershort}} customer engagement endpoint to monitor customer service and support conversations. Escalate customer conversations when they turn sour or find opportunities to improve customer service scripts, dialog strategies, and customer journeys. The endpoint accepts JSON input. For more information about the method and the tones that it returns, see [Using the customer engagement endpoint](/docs/services/tone-analyzer/using-tone-chat.html).
