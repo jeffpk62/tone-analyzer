@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-28"
+lastupdated: "2017-12-14"
 
 ---
 
@@ -24,12 +24,19 @@ The following sections document the new features and changes that were included 
 
 > **Note:** The release notes now document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
 
+## 13 December 2017
+{: #December2017}
+
+**Service version:** `3.5.1`<br/> **Interface version:** `2017-09-21`
+
+Internal improvements were made to the models used by the customer engagement endpoint. You do not need to take any action in response to this change.
+
 ## 28 September 2017
 {: #September2017b}
 
 **Service version:** `3.4.1`<br/> **Interface version:** `2017-09-21`
 
--   The throttling limit on the maximum number of requests that an individual {{site.data.keyword.Bluemix_notm}} username can submit has increased to 1200 requests per minute. The service returns HTTP response code 429 *Too many requests* if a user exceeds that limit.
+The throttling limit on the maximum number of requests that an individual {{site.data.keyword.Bluemix_notm}} username can submit has increased to 1200 requests per minute. The service returns HTTP response code 429 *Too many requests* if a user exceeds that limit.
 
 ## 25 September 2017
 {: #September2017a}
@@ -58,15 +65,9 @@ The following sections document the new features and changes that were included 
     -   The interface version specified with the `version` parameter is `2017-09-21` to use the latest version of the service.
     -   The documentation has been updated to note that the service can produce localized output in a variety of languages. Use the `Accept-Language` request header to specify the desired language.
 
-## 6 July 2017
-{: #July2017b}
-
-**Service version:** `3.3.6`<br/> **Interface version:** `2016-05-19`
-
-The service was updated for a small defect fix to the customer engagement endpoint.
-
 ## Older releases
 
+-   [6 July 2017](#July2017b)
 -   [1 July 2017](#July2017a)
 -   [8 May 2017](#May2017)
 -   [17 April 2017](#April2017)
@@ -75,6 +76,13 @@ The service was updated for a small defect fix to the customer engagement endpoi
 -   [18 October 2016](#October2016b)
 -   [3 October 2016](#October2016a)
 -   [19 May 2016](#May2016)
+
+### 6 July 2017
+{: #July2017b}
+
+**Service version:** `3.3.6`<br/> **Interface version:** `2016-05-19`
+
+The service was updated for a small defect fix to the customer engagement endpoint.
 
 ### 1 July 2017
 {: #July2017a}
