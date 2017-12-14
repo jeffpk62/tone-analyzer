@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-28"
+lastupdated: "2017-12-14"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2017-09-28"
 
 # About
 
-> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on September 25 and 28, 2017. For the general purpose endpoint, both the request parameters and the response content changed; in addition, the endpoint no longer returns social tones or the disgust tone, and it now accepts French input. Input and throttling limits changed for both endpoints, as did the interface version. The service also now accepts partially correct input instead of returning an error for the overall request. For more information about these and other changes, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).*
+> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on December 13, 2017. The models used by the customer engagement endpoint were improved. For information about this and all recent updates, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).*
 
 The {{site.data.keyword.toneanalyzerfull}} service uses linguistic analysis to detect emotional and language tones in written text. The service can analyze tone at both the document and sentence levels. You can use the service to understand how your written communications are perceived and then to improve the tone of your communications. Businesses can use the service to learn the tone of their customers' communications and to respond to each customer appropriately, or to understand and improve their customer conversations in general.
 {: shortdesc}
