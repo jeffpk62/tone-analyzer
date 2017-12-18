@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-12-14"
+lastupdated: "2017-12-18"
 
 ---
 
@@ -133,4 +133,4 @@ The generally available (GA) release of the {{site.data.keyword.toneanalyzershor
 -   The writing tone model has been renamed to language tone.
 -   The language and emotion tone models now handle negations.
 -   The service no longer returns a response for sentences with fewer than three words.
--   The service now has a simplified and improved [demo ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://tone-analyzer-demo.mybluemix.net){: new_window}.
+-   The service now has a simplified and improved [demo ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://tone-analyzer-demo.ng.bluemix.net){: new_window}.
