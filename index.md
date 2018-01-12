@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2018-01-02"
+  years: 2015, 2018
+lastupdated: "2018-01-12"
 
 ---
 
@@ -41,7 +41,7 @@ The service offers two endpoints:
 
     Use the {{site.data.keyword.toneanalyzershort}} customer engagement endpoint to monitor customer service and support conversations. Escalate customer conversations when they turn sour or find opportunities to improve customer service scripts, dialog strategies, and customer journeys. The endpoint accepts JSON input. For more information about the method and the tones that it returns, see [Using the customer engagement endpoint](/docs/services/tone-analyzer/using-tone-chat.html).
 
-    The [customer engagement demo ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://customer-engagement-analytics.mybluemix.net/){: new_window} analyzes conversations between customers and customer service agents. The service measures customer satisfaction and concerns, assesses agent performance, and lets you gauge how the interaction evolves.
+    The [customer engagement demo ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://customer-engagement-demo.ng.bluemix.net/){: new_window} analyzes conversations between customers and customer service agents. The service measures customer satisfaction and concerns, assesses agent performance, and lets you gauge how the interaction evolves.
 
 For information about the pricing plans available for the service, see the [{{site.data.keyword.toneanalyzershort}} service in the {{site.data.keyword.Bluemix_short}} Catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/tone-analyzer){: new_window}.
 
