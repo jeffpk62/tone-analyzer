@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-18"
+  years: 2015, 2018
+lastupdated: "2018-01-12"
 
 ---
 
@@ -23,13 +23,6 @@ The following sections document the new features and changes that were included 
 {: shortdesc}
 
 > **Note:** The release notes now document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
-
-## 13 December 2017
-{: #December2017}
-
-**Service version:** `3.5.1`<br/> **Interface version:** `2017-09-21`
-
-Internal improvements were made to the models used by the customer engagement endpoint. You do not need to take any action in response to this change.
 
 ## 28 September 2017
 {: #September2017b}
