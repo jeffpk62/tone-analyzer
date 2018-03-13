@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-15"
+lastupdated: "2018-01-12"
 
 ---
 
@@ -23,6 +23,13 @@ The following sections document the new features and changes that were included 
 {: shortdesc}
 
 > **Note:** The release notes now document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
+
+## 13 March 2018
+{: #March2018}
+
+**Service version:** `3.5.3`<br/> **Interface version:** `2017-09-21`
+
+The service was updated to add French (`fr`) input content in addition to English for the customer engagement endpoint.
 
 ## 28 September 2017
 {: #September2017b}

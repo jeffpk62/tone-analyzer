@@ -56,6 +56,27 @@ To analyze tone with the customer engagement endpoint, you call the `POST /v3/to
     </td>
   </tr>
   <tr>
+    <td><code>Content-Language</code><br/><em>Optional</em></td>
+    <td style="text-align:center">Header</td>
+    <td style="text-align:center">String</td>
+    <td>
+      The language of the input content:
+      <ul style="margin:0px 0px 0px 20px; padding:0px">
+        <li style="margin:0px; padding:0px">
+          <code>en</code> (English, the default)
+        </li>
+        <li style="margin:0px; padding:0px">
+            <code>fr</code> (French)
+        </li>
+      </ul>
+      Regional variants are treated as their parent language; for example,
+      <code>en-US</code> is interpreted as <code>en</code>. The input
+      content must match the specified language. Do not submit content
+      that contains both languages. You can use different languages for
+      the input and response.
+    </td>
+  </tr>
+  <tr>
     <td><code>Accept-Language</code><br/><em>Optional</em></td>
     <td style="text-align:center">Header</td>
     <td style="text-align:center">String</td>
