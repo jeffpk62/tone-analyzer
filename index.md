@@ -18,6 +18,7 @@ lastupdated: "2018-01-12"
 {:swift: .ph data-hd-programlang='swift'}
 
 # About
+{: #about}
 
 > **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on December 13, 2017. The models used by the customer engagement endpoint were improved. For information about this and all recent updates, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).*
 

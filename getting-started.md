@@ -20,6 +20,7 @@ lastupdated: "2017-10-12"
 {:download: .download}
 
 # Getting started tutorial
+{: #gettingStarted}
 
 The {{site.data.keyword.toneanalyzershort}} service analyzes the tone of input content. This tutorial shows commands that analyze different sample content. The examples demonstrate both the general purpose and the customer engagement endpoints.
 {: shortdesc}
