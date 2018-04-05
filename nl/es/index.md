@@ -18,6 +18,7 @@ lastupdated: "2017-09-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Acerca de
+{: #about}
 
 > **Actualización del servicio:** *El servicio{{site.data.keyword.toneanalyzershort}} se ha actualizado el 25 y el 28 de septiembre de 2017. Para el punto final de finalidad propósito general, se ha modificado tanto los parámetros de solicitud como contenido de la respuesta; además, el punto final ya no devuelve los tonos sociales o el tono de repulsión, y ahora acepta entradas en francés. Los límites de entrada y de limitación se han modificado para ambos puntos finales, al igual que la versión de la interfaz. Ahora el servicio acepta una entrada parcialmente correcta en lugar de devolver un error para la solicitud general. Para obtener más información sobre estos y otros cambios, consulte las [Notas del release](/docs/services/tone-analyzer/release-notes.html).*
 

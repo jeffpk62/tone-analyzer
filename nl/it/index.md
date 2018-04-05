@@ -17,7 +17,8 @@ lastupdated: "2017-09-28"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Informazioni 
+# Informazioni
+{: #about}
 
 > **Aggiornamento del servizio:** *il servizio {{site.data.keyword.toneanalyzershort}} è stato aggiornato tra il 25 e il 28 settembre 2017. Per l'endpoint di utilizzo generico, sono stati modificati i parametri della richiesta e il contenuto della risposta; in aggiunta, l'endpoint non restituisce più i toni sociali o il tono di disgusto e ora accetta l'input in francese. L'input e i limiti della strozzatura sono stati modificati per entrambi gli endpoint, come fatto nella versione dell'interfaccia. Il servizio inoltre ora accetta input parzialmente corretto invece di restituire un errore per la richiesta generale. Per ulteriori informazioni su queste ed altre modifiche, consulta le [Note sulla release](/docs/services/tone-analyzer/release-notes.html).*
 

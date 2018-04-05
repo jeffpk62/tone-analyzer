@@ -20,6 +20,7 @@ lastupdated: "2017-10-12"
 {:download: .download}
 
 # Esercitazione introduttiva
+{: #gettingStarted}
 
 Il servizio {{site.data.keyword.toneanalyzershort}} analizza il tono del contenuto di input. Questa esercitazione mostra i comandi che analizzano diverso contenuto di esempio. Gli esempi illustrano gli endpoint di utilizzo generico e di coinvolgimento del cliente.
 {: shortdesc}
@@ -28,24 +29,24 @@ Il servizio {{site.data.keyword.toneanalyzershort}} analizza il tono del contenu
 {: #prerequisites}
 
 - Crea un'istanza del servizio:
-    - {: download} Se stai visualizzando questo, hai creato la tua istanza del servizio. Ora ottieni le tue credenziali. 
-    - Crea un progetto da un servizio: 
-        1.  Vai alla pagina {{site.data.keyword.watson}} Developer Console [Services ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.{DomainName}/developer/watson/services){: new_window}. 
+    - {: download} Se stai visualizzando questo, hai creato la tua istanza del servizio. Ora ottieni le tue credenziali.
+    - Crea un progetto da un servizio:
+        1.  Vai alla pagina {{site.data.keyword.watson}} Developer Console [Services ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.{DomainName}/developer/watson/services){: new_window}.
         1.  Seleziona {{site.data.keyword.toneanalyzershort}}, fai clic su **Add Services** e registrati per un account gratuito di {{site.data.keyword.Bluemix_notm}} o accedi.
         1.  Immetti `tone-tutorial` come nome del progetto e fai clic su **Create Project**.
-- Copia le credenziali per autenticarti con la tua istanza del servizio: 
-    - {: download} Dal dashboard del servizio (che stai guardando): 
-        1.  Fai clic sulla scheda **Service credentials**. 
-        1.  Fai clic su **View credentials** in **Actions**. 
+- Copia le credenziali per autenticarti con la tua istanza del servizio:
+    - {: download} Dal dashboard del servizio (che stai guardando):
+        1.  Fai clic sulla scheda **Service credentials**.
+        1.  Fai clic su **View credentials** in **Actions**.
         1.  Copia i valori `username`, `password` e `url`.
         {: download}
     - Dal tuo progetto **tone-tutorial** nella Developer Console, copia i valori `username`,  `password` e `url` per `"tone_analyzer"` dalla sezione **Credentials**.
-- Assicurati di avere cURL: 
+- Assicurati di avere cURL:
     - Gli esempi utilizzano cURL per richiamare i metodi dell'interfaccia HTTP. Installa la versione per il tuo sistema operativo da [curl.haxx.se ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://curl.haxx.se/){: new_window}. Installa la versione che supporta il protocollo SSH (Secure Sockets Layer). Assicurati di includere il file binario installato nella tua variabile di ambiente `PATH`.
 
 <!-- Remove this text after dedicated instances have the Developer Console: begin -->
 
-Se utilizzi {{site.data.keyword.Bluemix_dedicated_notm}}, crea la tua istanza del servizio dalla pagina [{{site.data.keyword.toneanalyzershort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.{DomainName}/catalog/services/tone-analyzer/){: new_window} nel catalogo. Per i dettagli su come trovare le tue credenziali del servizio, consulta [Credenziali del servizio per i servizi Watson ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/services/watson/getting-started-credentials.html#getting-credentials-manually){: new_window}. 
+Se utilizzi {{site.data.keyword.Bluemix_dedicated_notm}}, crea la tua istanza del servizio dalla pagina [{{site.data.keyword.toneanalyzershort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.{DomainName}/catalog/services/tone-analyzer/){: new_window} nel catalogo. Per i dettagli su come trovare le tue credenziali del servizio, consulta [Credenziali del servizio per i servizi Watson ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/services/watson/getting-started-credentials.html#getting-credentials-manually){: new_window}.
 
 <!-- Remove this text after dedicated instances have the Developer Console: end -->
 
@@ -102,7 +103,7 @@ L'interfaccia offre inoltre un metodo `GET /v3/tone`. Il metodo `GET` fornisce l
 Il seguente comando richiama il metodo `POST /v3/tone_chat` per analizzare i contenuti del file `tone-chat.json`. Il file include un breve scambio di messaggi tra due persone, un <code>customer</code> e un <code>agent</code>.
 
 1.  Scarica il file di esempio <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno" class="style-scope doc-content"></a>.
-1.  Immetti il seguente comando per analizzare il tono dello scambio nel file di esempio. 
+1.  Immetti il seguente comando per analizzare il tono dello scambio nel file di esempio.
 
     ```bash
     curl -X POST --user "{username}":"{password}" \

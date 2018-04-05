@@ -20,6 +20,7 @@ lastupdated: "2017-10-12"
 {:download: .download}
 
 # 入門指導教學
+{: #gettingStarted}
 
 {{site.data.keyword.toneanalyzershort}} 服務可分析輸入內容的語氣。本指導教學會顯示分析不同範例內容的指令。這些範例同時示範一般用途端點及客戶參與端點。
 {: shortdesc}

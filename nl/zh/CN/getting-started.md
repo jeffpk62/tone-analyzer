@@ -20,6 +20,7 @@ lastupdated: "2017-10-12"
 {:download: .download}
 
 # 入门教程
+{: #gettingStarted}
 
 {{site.data.keyword.toneanalyzershort}} 服务分析输入内容的语气。本教程显示用于分析不同样本内容的命令。以下示例演示通用和客户参与端点：
 {: shortdesc}
