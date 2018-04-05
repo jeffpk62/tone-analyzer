@@ -20,6 +20,7 @@ lastupdated: "2017-10-12"
 {:download: .download}
 
 # 入門チュートリアル
+{: #gettingStarted}
 
 {{site.data.keyword.toneanalyzershort}} サービスは、入力コンテンツのトーンを分析します。このチュートリアルでは、さまざまなサンプル・コンテンツを分析するためのコマンドを示します。複数の例を使用して、汎用エンドポイントとカスタマー・エンゲージメント・エンドポイントの両方について説明します。
 {: shortdesc}

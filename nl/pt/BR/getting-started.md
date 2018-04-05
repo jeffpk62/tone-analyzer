@@ -20,6 +20,7 @@ lastupdated: "2017-10-12"
 {:download: .download}
 
 # Tutorial de introdução
+{: #gettingStarted}
 
 O serviço do {{site.data.keyword.toneanalyzershort}} analisa o tom do conteúdo de entrada. Este tutorial mostra comandos que analisam diferentes conteúdos de amostra. Os exemplos demonstram o propósito geral e os terminais de engajamento do cliente.
 {: shortdesc}

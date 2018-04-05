@@ -20,6 +20,7 @@ lastupdated: "2017-10-12"
 {:download: .download}
 
 # Guía de aprendizaje de iniciación
+{: #gettingStarted}
 
 El servicio {{site.data.keyword.toneanalyzershort}} analiza el tono del contenido de las entradas. En esta guía de aprendizaje se muestran los mandatos que analizan distinto contenido de ejemplo. Los ejemplos muestran puntos finales de finalidad general y de fidelización del cliente.
 {: shortdesc}

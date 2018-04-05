@@ -20,6 +20,7 @@ lastupdated: "2017-10-12"
 {:download: .download}
 
 # Tutoriel Initiation
+{: #gettingStarted}
 
 Le service {{site.data.keyword.toneanalyzershort}} analyse le ton du contenu en entrée. Ce tutoriel illustre des commandes qui analysent des échantillons de contenu différents. Les exemples décrivent le noeud final générique ainsi que le noeud final d'interaction avec les clients.
 {: shortdesc}

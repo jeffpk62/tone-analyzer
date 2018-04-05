@@ -18,6 +18,7 @@ lastupdated: "2017-09-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # A propos
+{: #about}
 
 > **Mise à jour du service :** *le service {{site.data.keyword.toneanalyzershort}} a été mis à jour les 25 et 28 septembre 2017. Dans le cas du noeud final générique, les paramètres de requête tout comme le contenu de la réponse ont été modifiés. Par ailleurs, le noeud final ne renvoie plus de tons sociaux ou le ton "dégoût" et accepte à présent une entrée en français. L'entrée et les limites de régulation ont changé pour les deux noeuds finaux, tout comme la version d'interface. Le service accepte désormais les entrées partiellement correctes au lieu de renvoyer une erreur pour la requête globale. Pour plus d'informations sur ces modifications et les autres, reportez-vous aux [Notes sur l'édition](/docs/services/tone-analyzer/release-notes.html).*
 

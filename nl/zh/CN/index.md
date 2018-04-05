@@ -18,6 +18,7 @@ lastupdated: "2017-09-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 关于
+{: #about}
 
 > **服务更新：***{{site.data.keyword.toneanalyzershort}} 服务已经在 2017 年 9 月 25 日和 28 日进行了更新。对于通用端点，请求参数和响应内容都已更改；此外，端点不再返回社交语气或厌恶语气，现在接受法语输入。针对两个端点，输入和控制限制已更改，接口版本也是如此。该服务现在还接受部分正确输入，而不是针对整体请求返回错误。有关这些更改和其他更改的更多信息，请参阅[发行说明](/docs/services/tone-analyzer/release-notes.html)。*
 
