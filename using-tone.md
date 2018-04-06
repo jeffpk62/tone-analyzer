@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-09-21"
+  years: 2015, 2018
+lastupdated: "2018-04-06"
 
 ---
 
@@ -103,7 +103,7 @@ The methods accept the following parameters.
           <code>en</code> (English, the default)
         </li>
         <li style="margin:0px; padding:0px">
-            <code>fr</code> (French)
+          <code>fr</code> (French)
         </li>
       </ul>
       Regional variants are treated as their parent language; for example,
@@ -121,37 +121,37 @@ The methods accept the following parameters.
       The desired language of the response:
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
-          ar (Arabic)
+          <code>ar</code> (Arabic)
         </li>
         <li style="margin:0px; padding:0px">
-          de (German)
+          <code>de</code> (German)
         </li>
         <li style="margin:0px; padding:0px">
-          en (English, the default)
+          <code>en</code> (English, the default)
         </li>
         <li style="margin:0px; padding:0px">
-          es (Spanish)
+          <code>es</code> (Spanish)
         </li>
         <li style="margin:0px; padding:0px">
-          fr (French)
+          <code>fr</code> (French)
         </li>
         <li style="margin:0px; padding:0px">
-          it (Italian)
+          <code>it</code> (Italian)
         </li>
         <li style="margin:0px; padding:0px">
-          ja (Japanese)
+          <code>ja</code> (Japanese)
         </li>
         <li style="margin:0px; padding:0px">
-          ko (Korean)
+          <code>ko</code> (Korean)
         </li>
         <li style="margin:0px; padding:0px">
-          pt-br (Brazilian Portuguese)
+          <code>pt-br</code> (Brazilian Portuguese)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-cn (Simplified Chinese)
+          <code>zh-cn</code> (Simplified Chinese)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-tw (Traditional Chinese)
+          <code>zh-tw</code> (Traditional Chinese)
         </li>
       </ul>
       For two-character arguments, regional variants are treated as their
