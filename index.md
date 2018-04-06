@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-12"
+lastupdated: "2018-04-06"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-01-12"
 # About
 {: #about}
 
-> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on December 13, 2017. The models used by the customer engagement endpoint were improved. For information about this and all recent updates, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).*
+> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on March 13, 2018. The customer engagement endpoint now supports French input content. For information about this and all recent updates, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).*
 
 The {{site.data.keyword.toneanalyzerfull}} service uses linguistic analysis to detect emotional and language tones in written text. The service can analyze tone at both the document and sentence levels. You can use the service to understand how your written communications are perceived and then to improve the tone of your communications. Businesses can use the service to learn the tone of their customers' communications and to respond to each customer appropriately, or to understand and improve their customer conversations in general.
 {: shortdesc}
@@ -62,4 +62,4 @@ You can also use the {{site.data.keyword.toneanalyzershort}} service with additi
 ## Language support
 {: #languages}
 
-The `/v3/tone` method can analyze content in English (`en`) and French (`fr`); the `/v3/tone_chat` method supports only English. Both methods can respond with localized content in a variety of languages. For more information, see [Using the general purpose endpoint](/docs/services/tone-analyzer/using-tone.html) and [Using the customer engagement endpoint](/docs/services/tone-analyzer/using-tone-chat.html).
+The `/v3/tone` and `/v3/tone_chat` methods can analyze content in English (`en`) and French (`fr`). Both methods can respond with localized content in a variety of languages. For more information, see [Using the general purpose endpoint](/docs/services/tone-analyzer/using-tone.html) and [Using the customer engagement endpoint](/docs/services/tone-analyzer/using-tone-chat.html).

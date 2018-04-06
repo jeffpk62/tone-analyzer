@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-12"
+lastupdated: "2018-04-06"
 
 ---
 
@@ -29,7 +29,7 @@ The following sections document the new features and changes that were included 
 
 **Service version:** `3.5.3`<br/> **Interface version:** `2017-09-21`
 
-The service was updated to add French (`fr`) input content in addition to English for the customer engagement endpoint.
+The service was updated to add French (`fr`) input content in addition to English for the customer engagement endpoint, `/v3/tone_chat`. You use the `Content-Language` request header to specify a language; the default is US English.
 
 ## 28 September 2017
 {: #September2017b}
