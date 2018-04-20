@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-06"
+lastupdated: "2018-04-20"
 
 ---
 
@@ -50,9 +50,11 @@ To analyze tone with the customer engagement endpoint, you call the `POST /v3/to
     <td style="text-align:center">Query</td>
     <td style="text-align:center">String</td>
     <td>
-      The requested version of the interface as a date in the form
+      The version of the API that you want to use as a date in the format
       <code>YYYY-MM-DD</code>; for example, specify <code>2017-09-21</code>
-      for September 21, 2017.
+      for September 21, 2017 (the latest version). For information about all
+      available versions, see the
+      [Release notes](/docs/services/tone-analyzer/release-notes.html).
     </td>
   </tr>
   <tr>
@@ -135,7 +137,7 @@ If you submit more than 50 utterances, the service returns a `warning` field for
 The following example cURL command calls the customer engagement endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> and a version of `2017-09-21`:
 
 ```bash
-curl -X POST --user "{username}":"{password}"
+curl -X POST --user {username}:{password}
 --header "Content-Type: application/json"
 --data-binary @./tone-chat.json
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone_chat?version=2017-09-21"
