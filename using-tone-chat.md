@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-20"
+lastupdated: "2018-04-27"
 
 ---
 
@@ -21,6 +21,8 @@ lastupdated: "2018-04-20"
 
 The {{site.data.keyword.toneanalyzershort}} customer engagement endpoint analyzes the tone of customer service and support conversations. It can help you better understand your interactions with customers and improve your communications in general or for specific customers. For detailed information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
 {: shortdesc}
+
+> **Note:** Request logging is disabled for the {{site.data.keyword.toneanalyzershort}} service. Regardless of whether you set the `X-Watson-Learning-Opt-Out` request header, the service neither logs nor retains data from requests and responses.
 
 ## Requesting a tone analysis
 {: #request}
