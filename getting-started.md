@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-16"
+lastupdated: "2018-04-27"
 
 ---
 
@@ -28,27 +28,17 @@ The {{site.data.keyword.toneanalyzershort}} service analyzes the tone of input c
 ## Before you begin
 {: #prerequisites}
 
+- {: download} If you're seeing this, you created your service instance. Now get your credentials.
 - Create an instance of the service:
-    - {: download} If you're seeing this, you created your service instance. Now get your credentials.
-    - Create a project from a service:
-        1.  Go to the {{site.data.keyword.watson}} Developer Console [Services ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/developer/watson/services){: new_window} page.
-        1.  Select {{site.data.keyword.toneanalyzershort}}, click **Add Services**, and either sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.
-        1.  Type `tone-tutorial` as the project name and click **Create Project**.
+    1.  Go to the [{{site.data.keyword.toneanalyzershort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/catalog/services/tone-analyzer){: new_window} page in the {{site.data.keyword.Bluemix_notm}} Catalog.
+    1.  Sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.
+    1.  Click **Create**.
 - Copy the credentials to authenticate to your service instance:
-    - {: download} From the service dashboard (what you're looking at):
-        1.  Click the **Service credentials** tab.
-        1.  Click **View credentials** under **Actions**.
-        1.  Copy the `username`, `password`, and `url` values.
-        {: download}
-    - From your **tone-tutorial** project in the Developer Console, copy the `username`,  `password`, and `url` values for `"tone_analyzer"` from the  **Credentials** section.
+    1.  On the service dashboard, click the **Service credentials** tab.
+    1.  Click **View credentials** under **Actions**.
+    1.  Copy the `username`, `password`, and `url` values.
 - Make sure you have cURL:
     - The examples use cURL to call methods of the HTTP interface. Install the version for your operating system from [curl.haxx.se ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window}. Install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
-
-<!-- Remove this text after dedicated instances have the Developer Console: begin -->
-
-If you use {{site.data.keyword.Bluemix_dedicated_notm}}, create your service instance from the [{{site.data.keyword.toneanalyzershort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/catalog/services/tone-analyzer/){: new_window} page in the Catalog. For details about how to find your service credentials, see [Service credentials for Watson services ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/watson/getting-started-credentials.html#getting-credentials-manually){: new_window}.
-
-<!-- Remove this text after dedicated instances have the Developer Console: end -->
 
 ## Step 1: Use the general purpose endpoint via the POST request method
 {: #generalPurposePost}
