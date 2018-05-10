@@ -34,6 +34,7 @@ Tone Analyzer
 
     {: .navgroup id="reference"}
     [API reference](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/)
+    information-security.md
 
     {: .topicgroup}
     Watson SDKs
