@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-08"
+lastupdated: "2018-05-10"
 
 ---
 
@@ -38,4 +38,4 @@ Learn more about IBM's own GDPR readiness journey and our GDPR capabilities and 
 ## Labeling and deleting data in the Tone Analyzer service
 {: #gdpr-tone-analyzer}
 
-The {{site.data.keyword.toneanalyzerfull}} service processes but does not store users' data. Users of the {{site.data.keyword.toneanalyzershort}} service do not need to take any action to identify, protect, or delete their data.
+The {{site.data.keyword.toneanalyzerfull}} service processes but does not store users' data. Users of the {{site.data.keyword.toneanalyzershort}} service do not need to take any action to identify, protect, or delete their data for this service.
