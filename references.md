@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-11"
+  years: 2015, 2018
+lastupdated: "2018-04-27"
 
 ---
 
@@ -18,6 +18,7 @@ lastupdated: "2017-08-11"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Research references
+{: #references}
 
 For more detailed information about the research and technical background behind the {{site.data.keyword.toneanalyzershort}} service, see the following documents:
 {: shortdesc}
@@ -40,7 +41,7 @@ For more detailed information about the research and technical background behind
 1.  <a id="bib-mohammad" style="border-bottom:none; color:black">Mohammad, Saif M., and Peter D. Turney.</a> [*Emotions Evoked by Common Words and Phrases: Using Mechanical Turk to Create an Emotion Lexicon.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://dl.acm.org/citation.cfm?id=1860635){: new_window} In Proceedings of the NAACL HLT 2010 Workshop on Computational Approaches to Analysis and Generation of Emotion in Text, CAAGET (2010): pp. 26-34.
 1.  <a id="bib-norman" style="border-bottom:none; color:black">Norman, Warren T.</a> [*Toward an Adequate Taxonomy of Personality Attributes: Replicated Factor Structure in Peer Nomination Personality Rating.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://psycnet.apa.org/journals/abn/66/6/574/){: new_window} Journal of Abnormal and Social Psychology, Vol. 66(6) (June 1963): pp. 574-583.
 1.  <a id="bib-pennebaker" style="border-bottom:none; color:black">Pennebaker, James W., Cindy K. Chung, Molly Ireland, Amy Gonzales, and Roger J. Booth.</a> [*The Development and Psychometric Properties of LIWC2007.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.liwc.net/LIWC2007LanguageManual.pdf){: new_window} Austin, TX: LIWC2007 Manual (2007).
-1.  <a id="" style="border-bottom:none; color:black">Plutchik, Robert.</a> [*The Nature of Emotions.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.americanscientist.org/issues/feature/2001/4/the-nature-of-emotions){: new_window} American Scientist, Vol. 89(4) (2001): pp. 344.
+1.  <a id="bib-plutchik" style="border-bottom:none; color:black">Plutchik, Robert.</a> [*The Nature of Emotions.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.americanscientist.org/issues/feature/2001/4/the-nature-of-emotions){: new_window} American Scientist, Vol. 89(4) (2001): pp. 344.
 1.  <a id="bib-shen" style="border-bottom:none; color:black">Shen, Jianqiang, Oliver Brdiczka, and Juan Liu.</a> [*Understanding Email Writers: Personality Prediction from Email Messages.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.parc.com/publication/3428/understanding-email-writers.html){: new_window} Proceedings of the 21st International Conference on User Modeling, Adaptation and Personalization (UMAP), Rome, Italy; Berlin: Springer, Lecture Notes in Computer Science 7899 (June 2013): pp. 318-330.
 1.  <a id="bib-tausczik" style="border-bottom:none; color:black">Tausczik, Yla R., and James W. Pennebaker.</a> [*The Psychological Meaning of Words: LIWC and Computerized Text Analysis Methods.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://jls.sagepub.com/content/29/1/24.abstract){: new_window} In Journal of Language and Social Psychology, Vol. 29(1) (2010): pp. 24-54.
 1.  <a id="bib-wang" style="border-bottom:none; color:black">Wang, Yichen, and Aditya Pal.</a> [*Detecting Emotions in Social Media: A Constrained NMF Approach.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.cc.gatech.edu/~ywang/papers/EmoDetect.pdf){: new_window} IBM Technical Report (2014).
