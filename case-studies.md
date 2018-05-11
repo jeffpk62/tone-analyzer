@@ -53,12 +53,12 @@ The service can predict Kudos with 66-percent accuracy. IBM found the following 
 
 Many companies are switching their customer support to Twitter. Twitter allows real-time answers, which helps to establish the brand as one with real people who care about their clients.
 
-IBM analyzed 333 customer support conversations on Twitter. The customers were satisfied with 240 of the conversations and not happy with 93 of the interactions. IBM measured satisfaction by reading through the conversations and labeling them. Responses were labeled "customer satisfied" when they solved the problem and the client seemed satisfied; they were labeled "customer not satisfied" when the problem was not addressed to the client's satisfaction.
+IBM analyzed 333 customer support conversations on Twitter. The customers were satisfied with 240 of the conversations and not happy with 93 of the interactions. IBM measured satisfaction by reading through the conversations and labeling them. Responses were labeled "customer satisfied" when they solved the problem and the client seemed satisfied. They were labeled "customer not satisfied" when the problem was not addressed to the client's satisfaction.
 
 ### Goals
 {: #twitterResponsesGoals}
 
-Validate whether the tone of the conversations between the agent and the customer had any effect on overall customer satisfaction. Also identify the tone features that significantly impact customer satisfaction.
+Validate whether the tone of the conversation between the agent and the customer affected overall customer satisfaction. Also, identify the tone features that significantly impact customer satisfaction.
 
 ### Actions
 {: #twitterResponsesActions}
@@ -72,7 +72,7 @@ Validate whether the tone of the conversations between the agent and the custome
 
 The service can predict customer satisfaction from the tone of the response with 67-percent accuracy. IBM discovered the following correlation between the tone of customer tweets and whether the customer was satisfied with the response:
 
--   The angrier that customers are, the less likely they are to be satisfied with the response (negative correlation of -0.198 between a high-value score on anger in a customer tweet and customer satisfaction).
+-   The angrier that customers are, the less likely they are to be satisfied with the response. A negative correlation of -0.198 exists between a high-value score on anger in a customer tweet and customer satisfaction.
 
 ## Predicting TED Talk applause
 {: #tedTalks}
@@ -90,7 +90,7 @@ Discover which tone patterns in TED Talks lead to applause and which patterns do
 Sentences that received applause were already tagged in the data set.
 
 -   Reviewed 1931 TED Talks.
--   Categorized as "applause text" a sentence tagged with "Applause." Also tagged the three sentences before the sentence with "applause text" and the three sentences after it with "non-applause text."
+-   Categorized as "applause text" a sentence that is tagged with "Applause." Also tagged the three sentences before the sentence with "applause text" and the three sentences after it with "non-applause text."
 -   Analyzed both applause and non-applause text with the {{site.data.keyword.toneanalyzershort}} service.
 -   Based on the correlations that were found, created classifiers to predict applause in other TED Talks based on their tone.
 
@@ -106,7 +106,7 @@ The service can predict applause with 75-percent accuracy. IBM found the followi
 ## Predicting Twitter retweets and likes
 {: #twitterRetweets}
 
-Establishing a brand on Twitter is becoming a requirement for companies to succeed. An essential part of establishing you or your company as worth following is creating tweets that garner many likes and retweets.
+Establishing a brand on Twitter is becoming a requirement for companies to succeed. An essential part of establishing you or your company as worth being followed is creating tweets that garner many likes and retweets.
 
 ### Goals
 {: #twitterRetweetsGoals}
@@ -133,7 +133,7 @@ Millions of people around the world use online dating to meet that special someo
 ### Goals
 {: #onlineDatingGoals}
 
-Correlate the tone of an individual's profile with the tone of a potential match's profile. Also discover whether that correlation would predict match success.
+Correlate the tone of an individual's profile with the tone of a potential match's profile. Also, discover whether that correlation predicts match success.
 
 ### Actions
 {: #onlineDatingActions}
@@ -142,11 +142,11 @@ Correlate the tone of an individual's profile with the tone of a potential match
 -   Analyzed each profile with the {{site.data.keyword.toneanalyzershort}} service.
 -   Defined potential matches as those who communicated through the site.
 -   Compared the tone analysis of potential matches to find correlations.
--   Developed a statistical model from the tone similarity of the profiles to predict whether two users would communicate. Then compared the model to multiple baselines that consider other attributes such as demographics.
+-   Developed a statistical model from the tone similarity of the profiles to predict whether two users would communicate. Then, compared the model to multiple baselines that consider other attributes such as demographics.
 
 ### Results
 {: #onlineDatingResults}
 
-Tone similarity between profiles can make a 45-percent improvement in predicting whether two users will communicate as compared to predictors that dating websites regularly use. IBM discovered a strong overall correlation between tone similarity and the number of messages exchanged, as shown in the following image.
+Tone similarity between profiles can make a 45-percent improvement in predicting whether two users communicate as compared to predictors that dating websites regularly use. IBM discovered a strong overall correlation between tone similarity and the number of messages that are exchanged, as shown in the following image.
 
 ![A strong correlation between the tones analyzed and the number of messages exchanged.](images/case-study.png)

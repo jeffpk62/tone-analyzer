@@ -36,14 +36,14 @@ The service was updated to add French (`fr`) input content in addition to Englis
 
 **Service version:** `3.4.1`<br/> **Interface version:** `2017-09-21`
 
-The throttling limit on the maximum number of requests that an individual {{site.data.keyword.Bluemix_notm}} username can submit has increased to 1200 requests per minute. The service returns HTTP response code 429 *Too many requests* if a user exceeds that limit.
+The throttling limit on the maximum number of requests that an individual {{site.data.keyword.Bluemix_notm}} username can submit increased to 1200 requests per minute. The service returns HTTP response code 429 *Too many requests* if a user exceeds that limit.
 
 ## 25 September 2017
 {: #September2017a}
 
 **Service version:** `3.4.1`<br/> **Interface version:** `2017-09-21`
 
--   The general-purpose endpoint (the `/v3/tone` method) changed as follows:
+-   The general-purpose endpoint (the `/v3/tone` method) changed:
 
     -   Supports French (`fr`) input content in addition to English.
     -   No longer returns social tones.
@@ -56,14 +56,14 @@ The throttling limit on the maximum number of requests that an individual {{site
 -   The service now returns HTTP response code 200 instead of 400 for partially correct input in the following cases:
 
     -   For the `/v3/tone` method, if you submit more than 128 KB or 1000 sentences of input content, the service returns a `warning` field as part of its response. The service analyzes the first 1000 sentences for document-level analysis and, as it does currently, only the first 100 sentences for sentence-level analysis. Earlier versions of the service returned response code 400 for the request if you exceeded either limit. Note also that the service now analyzes sentences that have fewer than three words.
-    -   For the `/v3/tone_chat` method, if you submit more than 50 utterances, the service returns a `warning` field for the overall content at the `utterances_tone` level of the response; it analyzes only the first 50 utterances. If you submit a single utterance that contains more than 500 characters, the service returns an `error` field for that utterance and does not analyze the utterance. Earlier versions of the service returned response code 400 if you exceeded either limit. Note that if all utterances of the input have more than 500 characters, the service still returns response code 400 for the request.
+    -   For the `/v3/tone_chat` method, if you submit more than 50 utterances, the service returns a `warning` field for the overall content at the `utterances_tone` level of the response; it analyzes only the first 50 utterances. If you submit a single utterance that contains more than 500 characters, the service returns an `error` field for that utterance and does not analyze the utterance. Earlier versions of the service returned response code 400 if you exceeded either limit. If all utterances of the input have more than 500 characters, the service still returns response code 400 for the request.
 
 -   The service now throttles the number of requests that it accepts from a single user. The service returns HTTP response code 429 *Too many requests* if it receives more than 600 requests per minute from an individual {{site.data.keyword.Bluemix_notm}} username.
 
 -   The following changes apply to both the general-purpose and customer-engagement endpoints:
 
-    -   The interface version specified with the `version` parameter is `2017-09-21` to use the latest version of the service.
-    -   The documentation has been updated to note that the service can produce localized output in a variety of languages. Use the `Accept-Language` request header to specify the desired language.
+    -   The interface version that is specified with the `version` parameter is `2017-09-21` to use the latest version of the service.
+    -   The documentation was updated to note that the service can produce localized output in various languages. Use the `Accept-Language` request header to specify the desired language.
 
 ## Older releases
 
@@ -101,7 +101,7 @@ IBM updated the emotion tone and customer-care engagement tone score models by f
 ### 17 April 2017
 {: #April2017}
 
--   A new set of tones specific to the customer-engagement domain are now available: *frustrated*, *satisfied*, *excited*, *polite*, *impolite*, *sad*, and *sympathetic*. The service detects these tones from the text of a conversation between a customer and an agent. The tones are currently beta functionality.
+-   A new set of tones specific to the customer-engagement domain is now available: *frustrated*, *satisfied*, *excited*, *polite*, *impolite*, *sad*, and *sympathetic*. The service detects these tones from the text of a conversation between a customer and an agent. The tones are currently beta functionality.
 -   IBM released updates to the emotion tone score model that improve the emotion results.
 
 ### 15 March 2017
@@ -112,25 +112,25 @@ IBM updated the emotion tone score model. The training data set was expanded. As
 ### 1 December 2016
 {: #December2016}
 
-IBM updated the document emotion tone scores. The new model takes into account the emotion profile of sentences to aggregate the document score.
+IBM updated the document emotion tone scores. The new model considers the emotion profile of sentences to aggregate the document score.
 
 ### 18 October 2016
 {: #October2016b}
 
-IBM enhanced the social tone. The service now uses an open-source word-embedding technique called [GloVe ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://nlp.stanford.edu/projects/glove/){: new_window} to infer social tone scores. This change allows the service to cover a larger vocabulary of words when calculating social tones. For more information about how social tones are inferred, see [The science behind the service](http://www.ibm.com/watson/developercloud/doc/personality-insights/science.html) for the {{site.data.keyword.personalityinsightsshort}} service.
+IBM enhanced the social tone. The service now uses an open-source word-embedding technique that is called [GloVe ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://nlp.stanford.edu/projects/glove/){: new_window} to infer social tone scores. This change allows the service to cover a larger vocabulary of words when it calculates social tones. For more information about how social tones are inferred, see [The science behind the service](http://www.ibm.com/watson/developercloud/doc/personality-insights/science.html) for the {{site.data.keyword.personalityinsightsshort}} service.
 
 ### 3 October 2016
 {: #October2016a}
 
-IBM enhanced sentence-level emotion detection. The service uses new training data, a new feature-selection process, and augmented lexicons for words, emojis, and slang. These changes produce different but significantly improved emotion scores at the sentence level. The service's API has not changed.
+IBM enhanced sentence-level emotion detection. The service uses new training data, a new feature-selection process, and augmented lexicons for words, emojis, and slang. These changes produce different but significantly improved emotion scores at the sentence level. The service's API did not change.
 
 ### 19 May 2016
 {: #May2016}
 
 The generally available (GA) release of the {{site.data.keyword.toneanalyzershort}} service includes these new features:
 
--   The service's models use improved context sensitivity to interpret tone. The models now use more than just lexical tokens. They now consider additional features such as punctuation, emoticons, language parameters such as sentence structure, and sentence complexity.
--   The writing tone model has been renamed to language tone.
+-   The service's models use improved context sensitivity to interpret tone. The models now use more than lexical tokens. They now consider features such as punctuation, emoticons, language parameters such as sentence structure, and sentence complexity.
+-   The writing tone model was renamed to language tone.
 -   The language and emotion tone models now handle negations.
 -   The service no longer returns a response for sentences with fewer than three words.
 -   The service now has a simplified and improved [demo ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://tone-analyzer-demo.ng.bluemix.net){: new_window}.

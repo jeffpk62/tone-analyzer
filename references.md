@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-27"
+lastupdated: "2018-05-11"
 
 ---
 
@@ -20,14 +20,14 @@ lastupdated: "2018-04-27"
 # Research references
 {: #references}
 
-For more detailed information about the research and technical background behind the {{site.data.keyword.toneanalyzershort}} service, see the following documents:
+For more detailed information about the research and technical background behind the {{site.data.keyword.toneanalyzershort}} service, see the following documents.
 {: shortdesc}
 
 1.  <a id="bib-barrick" style="border-bottom:none; color:black">Barrick, Murray R., and Michael K. Mount.</a> [*The Big Five Personality Dimensions and Job Performance: A Meta-Analysis.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://onlinelibrary.wiley.com/doi/10.1111/j.1744-6570.1991.tb00688.x/abstract){: new_window} Personnel Psychology, Vol. 44(1) (March 1991): pp. 1-26.
 1.  <a id="bib-bradley" style="border-bottom:none; color:black">Bradley, Margaret M., and Peter J. Lang.</a> [*Affective Norms for English Words (ANEW) Instruction Manual and Affective Ratings.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.researchgate.net/publication/239604183_Affective_Norms_for_English_Words_%28ANEW%29_Instruction_Manual_and_Affective_Ratings){: new_window} Technical Report C-1, The Center for Research in Psychophysiology, University of Florida (1999).
 1.  <a id="bib-byron" style="border-bottom:none; color:black">Byron, Kristin.</a> [*Carrying too Heavy a Load? The Communication and Miscommunication of Emotion by Email.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://amr.aom.org/content/33/2/309.short){: new_window}  Academy of Management Review, Vol. 33(2) (2008): pp. 309-327.
 1.  <a id="bib-chen" style="border-bottom:none; color:black">Chen, Jilin, Gary Hsieh, Jalal Mahmud, and Jeffrey Nichols.</a> [*Understanding Individuals' Personal Values from Social Media Word Use.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://dl.acm.org/citation.cfm?id=2531608){: new_window} Proceedings of the ACM Conference on Computer Supported Cooperative Work & Social Computing (2014): pp. 405-414.
-1.  <a id="bib-costa" style="border-bottom:none; color:black">Costa, Paul T., Jr., and Robert R. McCrae.</a> *Revised NEO Personality Inventory (NEO-PI-R) and NEO Five-Factor Inventory (NEO-FFI)Manual.* Odessa, FL: Psychological Assessment Resources (1992).
+1.  <a id="bib-costa" style="border-bottom:none; color:black">Costa, Paul T., Jr., and Robert R. McCrae.</a> *Revised NEO Personality Inventory (NEO-PI-R) and NEO Five-Factor Inventory (NEO-FFI) Manual.* Odessa, FL: Psychological Assessment Resources (1992).
 1.  <a id="bib-dimicco" style="border-bottom:none; color:black">DiMicco, Joan M., and David R. Millen.</a> [*Identity Management: Multiple Presentations of Self in Facebook.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://dl.acm.org/citation.cfm?id=1316682){: new_window} In Proceedings of the 2007 International ACM Conference on Supporting Group Work (2007). pp. 383-386. New York, NY, USA: ACM.
 1.  <a id="bib-fast" style="border-bottom:none; color:black">Fast, Lisa A., and David C. Funder.</a> [*Personality as Manifest in Word Use: Correlations with Self-Report, Acquaintance Report, and Behavior.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ncbi.nlm.nih.gov/pubmed/18211181){: new_window} Journal of Personality and Social Psychology, Vol. 94(2) (2008).
 1.  <a id="bib-fellbaum" style="border-bottom:none; color:black">Fellbaum, Christiane.</a> [*WordNet and wordnets.* ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://philpapers.org/rec/FELWAW){: new_window} In Alex Barber (ed.), Encyclopedia of Language and Linguistics, Second Edition, Oxford: Elsevier (2005): pp. 665-670.

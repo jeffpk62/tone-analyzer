@@ -19,10 +19,10 @@ lastupdated: "2018-05-11"
 
 # Using the customer-engagement endpoint
 
-The {{site.data.keyword.toneanalyzershort}} customer-engagement endpoint analyzes the tone of customer service and support conversations. It can help you better understand your interactions with customers and improve your communications in general or for specific customers. For detailed information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+The {{site.data.keyword.toneanalyzershort}} customer-engagement endpoint analyzes the tone of customer service and support conversations. It can help you better understand your interactions with customers and improve your communications in general or for specific customers. For more information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
 {: shortdesc}
 
-> **Note:** Request logging is disabled for the {{site.data.keyword.toneanalyzershort}} service. Regardless of whether you set the `X-Watson-Learning-Opt-Out` request header, the service neither logs nor retains data from requests and responses.
+> **Note:** Request logging is disabled for the {{site.data.keyword.toneanalyzershort}} service. Regardless of whether you set the `X-Watson-Learning-Opt-Out` request header, the service does not log or retain data from requests and responses.
 
 ## Requesting a tone analysis
 {: #request}
@@ -54,8 +54,8 @@ To analyze tone with the customer-engagement endpoint, you call the `POST /v3/to
     <td>
       The version of the API that you want to use as a date in the format
       <code>YYYY-MM-DD</code>; for example, specify <code>2017-09-21</code>
-      for September 21, 2017 (the latest version). For information about all
-      available versions, see the
+      for September 21, 2017 (the latest version). For more information about
+      all available versions, see the
       [Release notes](/docs/services/tone-analyzer/release-notes.html).
     </td>
   </tr>
@@ -149,7 +149,7 @@ curl -X POST --user {username}:{password}
 ## Specifying JSON input
 {: #JSONrequest}
 
-You pass the method a JSON `ToneChatInput` object with the following format. The `utterances` field provides an array of `utterance` objects, where `text` is a required string that provides an utterance contributed by a user to the conversation that is to be analyzed, and `user` is an optional string that identifies the user who contributed the utterance.
+You pass the method a JSON `ToneChatInput` object with the following format. The `utterances` field provides an array of `utterance` objects. The `text` field is a required string that provides an utterance that was contributed by a user to the conversation that is to be analyzed. The `user` field is an optional string that identifies the user who contributed the utterance.
 
 ```javascript
 {
@@ -197,7 +197,7 @@ The service returns a JSON `UtteranceAnalyses` object that contains a single fie
 
 -   `utterance_id` (integer) provides the unique identifier of the utterance. The first utterance has ID 0, and the ID of each subsequent utterance is incremented by one.
 -   `utterance_text` (string) provides the text of the utterance.
--   `tones` is an array of `ToneChatScore` objects that provides results for the dominant tones, those whose scores are at least 0.5. The array is empty if the utterance has no tone with a score that meets this threshold.
+-   `tones` is an array of `ToneChatScore` objects that provides results for the dominant tones. Such tones have scores of at least 0.5. The array is empty if the utterance has no tone with a score that meets this threshold.
 
 Each `ToneChatScore` object provides the following information about a qualifying tone:
 
@@ -230,7 +230,7 @@ The following example shows the structure of the `UtteranceAnalyses` object:
 ### Example response
 {: #exampleResponse}
 
-The following output is returned for the [Example request](#exampleRequest). (The same output is returned for the example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html#customerEngagement).) All reported tones have a score of at least 0.5; those with a score of at least 0.75 are very likely to be perceived by participants in the conversation.
+The following output is returned for the [Example request](#exampleRequest). (The same output is returned for the example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html#customerEngagement).) All reported tones have a score of at least 0.5. Tones with a score of at least 0.75 are likely to be perceived by participants in the conversation.
 
 ```javascript
 {
