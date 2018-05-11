@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-29"
+lastupdated: "2018-05-11"
 
 ---
 
@@ -28,7 +28,7 @@ You can access the capabilities of the {{site.data.keyword.toneanalyzershort}} s
 
 To analyze the tone of an individual's text, you pass the input text to the service via the `GET` or `POST /v3/tone` method. To analyze the exchanges in a conversation, you pass input to the service via the `POST /v3/tone_chat` method. In both cases, the service returns its analysis in JSON format.
 
-For more information, see [Using the general purpose endpoint](/docs/services/tone-analyzer/using-tone.html) and [Using the customer engagement endpoint](/docs/services/tone-analyzer/using-tone-chat.html).
+For more information, see [Using the general-purpose endpoint](/docs/services/tone-analyzer/using-tone.html) and [Using the customer-engagement endpoint](/docs/services/tone-analyzer/using-tone-chat.html).
 
 ## Using Software Development Kits
 {: #sdks}
@@ -38,7 +38,7 @@ The {{site.data.keyword.toneanalyzershort}} service supports a number of SDKs fo
 ## Learning more about application development
 {: #learn}
 
-The {{site.data.keyword.toneanalyzershort}} service supports two typical programming models: *Direct interaction*, in which the client communicates with the service directly; and *relaying via a proxy*, in which the client and service exchange all data (requests and results) through a proxy application that resides in {{site.data.keyword.Bluemix_short}}.
+The {{site.data.keyword.toneanalyzershort}} service supports two typical programming models. With *direct interaction*, the client communicates with the service directly. With *relaying via a proxy*, the client and service exchange all data (requests and results) through a proxy application that resides in {{site.data.keyword.Bluemix_short}}.
 
 For more information about working with {{site.data.keyword.watson}} Developer Cloud services and {{site.data.keyword.Bluemix_notm}}, see the following:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-07"
+lastupdated: "2018-05-11"
 
 ---
 
@@ -29,7 +29,7 @@ The following sections document the new features and changes that were included 
 
 **Service version:** `3.5.3`<br/> **Interface version:** `2017-09-21`
 
-The service was updated to add French (`fr`) input content in addition to English for the customer engagement endpoint, `/v3/tone_chat`. You use the `Content-Language` request header to specify a language; the default is US English.
+The service was updated to add French (`fr`) input content in addition to English for the customer-engagement endpoint, `/v3/tone_chat`. You use the `Content-Language` request header to specify a language; the default is US English.
 
 ## 28 September 2017
 {: #September2017b}
@@ -43,7 +43,7 @@ The throttling limit on the maximum number of requests that an individual {{site
 
 **Service version:** `3.4.1`<br/> **Interface version:** `2017-09-21`
 
--   The general purpose endpoint (the `/v3/tone` method) changed as follows:
+-   The general-purpose endpoint (the `/v3/tone` method) changed as follows:
 
     -   Supports French (`fr`) input content in addition to English.
     -   No longer returns social tones.
@@ -60,7 +60,7 @@ The throttling limit on the maximum number of requests that an individual {{site
 
 -   The service now throttles the number of requests that it accepts from a single user. The service returns HTTP response code 429 *Too many requests* if it receives more than 600 requests per minute from an individual {{site.data.keyword.Bluemix_notm}} username.
 
--   The following changes apply to both the general purpose and customer engagement endpoints:
+-   The following changes apply to both the general-purpose and customer-engagement endpoints:
 
     -   The interface version specified with the `version` parameter is `2017-09-21` to use the latest version of the service.
     -   The documentation has been updated to note that the service can produce localized output in a variety of languages. Use the `Accept-Language` request header to specify the desired language.
@@ -82,14 +82,14 @@ The throttling limit on the maximum number of requests that an individual {{site
 
 **Service version:** `3.3.6`<br/> **Interface version:** `2016-05-19`
 
-The service was updated for a small defect fix to the customer engagement endpoint.
+The service was updated for a small defect fix to the customer-engagement endpoint.
 
 ### 1 July 2017
 {: #July2017a}
 
 **Service version:** `3.3.5`<br/> **Interface version:** `2016-05-19`
 
-The customer engagement endpoint of the {{site.data.keyword.toneanalyzershort}} service is now generally available (GA). All calls to the endpoint are now charged at the same rate as calls to the general purpose endpoint.
+The customer-engagement endpoint of the {{site.data.keyword.toneanalyzershort}} service is now generally available (GA). All calls to the endpoint are now charged at the same rate as calls to the general-purpose endpoint.
 
 ### 8 May 2017
 {: #May2017}
