@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-27"
+lastupdated: "2018-05-11"
 
 ---
 
@@ -17,9 +17,9 @@ lastupdated: "2018-04-27"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Using the general purpose endpoint
+# Using the general-purpose endpoint
 
-The {{site.data.keyword.toneanalyzershort}} general purpose endpoint analyzes the tone of written communications, from short email messages to longer documents. It can help you understand the emotional and language tones of your communications. For detailed information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+The {{site.data.keyword.toneanalyzershort}} general-purpose endpoint analyzes the tone of written communications, from short email messages to longer documents. It can help you understand the emotional and language tones of your communications. For detailed information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
 {: shortdesc}
 
 > **Note:** Request logging is disabled for the {{site.data.keyword.toneanalyzershort}} service. Regardless of whether you set the `X-Watson-Learning-Opt-Out` request header, the service neither logs nor retains data from requests and responses.
@@ -27,7 +27,7 @@ The {{site.data.keyword.toneanalyzershort}} general purpose endpoint analyzes th
 ## Requesting a tone analysis
 {: #request}
 
-To analyze tone with the general purpose endpoint, you call one of the two versions of the service's `tone` method:
+To analyze tone with the general-purpose endpoint, you call one of the two versions of the service's `tone` method:
 
 -   The `POST /v3/tone` method accepts input content in JSON, plain text, or HTML format via the required body of the request. Use this version of the method for longer text or for text that you do not want to expose on the URL.
 -   The `GET /v3/tone` method accepts input content via its required `text` query parameter. Use this version of the method for simple text that is easily accommodated on the URL.
@@ -182,7 +182,7 @@ Submit no more than 128 KB of total input content and no more than 1000 individu
 ### Example requests
 {: #exampleRequests}
 
-The following example cURL command uses the HTTP `POST` request method to call the general purpose endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> and a version of `2017-09-21`. The example requests an analysis for both the full document and the individual sentences.
+The following example cURL command uses the HTTP `POST` request method to call the general-purpose endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> and a version of `2017-09-21`. The example requests an analysis for both the full document and the individual sentences.
 
 ```bash
 curl -X POST --user {username}:{password}
@@ -285,7 +285,7 @@ The following example shows the high-level structure of the `ToneAnalysis` objec
 The `tones` fields that are returned for both document- and sentence-level analyses contain an array of `ToneScore` objects that provides results for the dominant tones, those whose scores are at least 0.5. The array is empty if no tone has a score that meets this threshold. Each `ToneScore` object provides the following information about a qualifying tone:
 
 -   `score` (double) is the score for the tone in the range of 0.5 to 1. A score greater than 0.75 indicates a high likelihood that the tone is perceived in the content.
--   `tone_id` (string) is the unique, non-localized identifier of the tone; for descriptions of the tones, see [General purpose tones](#tones).
+-   `tone_id` (string) is the unique, non-localized identifier of the tone; for descriptions of the tones, see [General-purpose tones](#tones).
 -   `tone_name` (string) is the user-visible, localized name of the tone.
 
 The following example shows the structure of the `ToneScore` object:
@@ -369,13 +369,13 @@ The following output is returned for the [Example requests](#exampleRequests). (
 ```
 {: codeblock}
 
-## General purpose tones
+## General-purpose tones
 {: #tones}
 
-The following table describes the general purpose tones that the service can return. A tone whose score is less than 0.5 is omitted, indicating that the emotion is unlikely to be perceived in the content. A score greater than 0.75 indicates a high likelihood that the tone will be perceived.
+The following table describes the general-purpose tones that the service can return. A tone whose score is less than 0.5 is omitted, indicating that the emotion is unlikely to be perceived in the content. A score greater than 0.75 indicates a high likelihood that the tone will be perceived.
 
 <table>
-  <caption>Table 2. General purpose tones</caption>
+  <caption>Table 2. General-purpose tones</caption>
   <tr>
     <th style="text-align:left; vertical-align:bottom; width:20%">Tone / ID</th>
     <th style="text-align:left">Description</th>
