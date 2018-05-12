@@ -24,19 +24,19 @@ The {{site.data.keyword.toneanalyzerfull}} service is based on the theory of psy
 
 Psycholinguistics researchers work to understand whether the words that people use in their day-to-day lives reflect who they are, how they feel, and how they think. After several decades of research, it is now accepted in psychology, marketing, and other fields that language reflects more than just what people want to say. The frequency with which people use certain types of words can provide clues to their personality, thinking style, social connections, and emotional states.
 
-For example, people exhibit various tones in their daily communications: joyful or sad, open or conservative, analytical or informal ([Gou et al., 2014](/docs/services/tone-analyzer/references.html#bib-gou), and [Jian et al., 2014](/docs/services/tone-analyzer/references.html#bib-jian)). These tones can impact the perception of a person's online identity and the effectiveness of their communications in different contexts.
+For example, people exhibit various tones in their daily communications: joyful or sad, open or conservative, analytical or informal ([Gou and others, 2014](/docs/services/tone-analyzer/references.html#bib-gou), and [Jian and others, 2014](/docs/services/tone-analyzer/references.html#bib-jian)). These tones can impact the perception of a person's online identity and the effectiveness of their communications in different contexts.
 
-Moreover, in business email communications, people are likely to perceive negative emotions with greater intensity than they do positive emotions ([Byron, 2008](/docs/services/tone-analyzer/references.html#bib-byron)). And in social media, people present different online identities that impact the impression that others have of them ([DiMicco & Millen, 2007](/docs/services/tone-analyzer/references.html#bib-dimicco)).
+Moreover, in business email communications, people are likely to perceive negative emotions with greater intensity than they do positive emotions ([Byron, 2008](/docs/services/tone-analyzer/references.html#bib-byron)). And in social media, people present different online identities that impact the impression that others have of them ([DiMicco and Millen, 2007](/docs/services/tone-analyzer/references.html#bib-dimicco)).
 
-Many people naturally read a message and judge the tones that are conveyed by the sender. But can a computer detect the tones that are disclosed by a message accurately and automatically? This question is one of the many challenging issues to which researchers in the artificial intelligence and cognitive sciences fields are seeking answers. First with the {{site.data.keyword.personalityinsightsshort}} service and now with the {{site.data.keyword.toneanalyzershort}} service, IBM is beginning to answer this question.
+Many people naturally read a message and judge the tones that are conveyed by the sender. But can a computer detect the tones that are disclosed by a message accurately and automatically? This question is one of the many challenging issues to which researchers in the artificial intelligence and cognitive sciences fields are seeking answers. First with the {{site.data.keyword.personalityinsightsshort}} service and now with the {{site.data.keyword.toneanalyzershort}} service, IBM is answering this question.
 
 ## Overview of related research
 
-Research shows a strong and statistically significant correlation between word choice and personality, emotions, attitudes, intrinsic needs, values, and thought processes. Several researchers found that people vary in how often they use certain categories of words when writing for blogs, essays, and tweets. Researchers found that these communication mediums can help predict different aspects of personality:
+Research shows a strong and statistically significant correlation between word choice and personality, emotions, attitudes, intrinsic needs, values, and thought processes. Several researchers found that people vary in how often they use certain categories of words when they write for blogs, essays, and tweets. Researchers found that these communication mediums can help predict different aspects of personality:
 
 -   [Fast and Funder (2008)](/docs/services/tone-analyzer/references.html#bib-fast)
--   [Gill et al. (2009)](/docs/services/tone-analyzer/references.html#bib-gill)
--   [Golbeck et al. (2011)](/docs/services/tone-analyzer/references.html#bib-golbeck)
+-   [Gill and others (2009)](/docs/services/tone-analyzer/references.html#bib-gill)
+-   [Golbeck and others (2011)](/docs/services/tone-analyzer/references.html#bib-golbeck)
 -   [Hirsh and Peterson (2009)](/docs/services/tone-analyzer/references.html#bib-hirsh)
 -   [Yarkoni (2010)](/docs/services/tone-analyzer/references.html#bib-yarkoni)
 
@@ -47,12 +47,12 @@ Most of these prior works are based on finding psychologically meaningful word c
 
 The general-purpose endpoint analyzes written content for a set of tones that is applicable to a broad range of uses. The {{site.data.keyword.toneanalyzershort}} service computes a scorecard that includes the following tones:
 
--   **Emotional tone** is derived from IBM's work on emotion analysis, which is an ensemble framework that infers emotions from a text. To derive emotion scores from text, IBM use a stacked generalization-based ensemble framework; stacked generalization uses a high-level model to combine lower-level models to achieve greater predictive accuracy. Features such as n-grams (unigrams, bigrams, and trigrams), punctuation, emoticons, curse words, greetings (such as "hello," "hi," and "thanks"), and sentiment polarity are fed into machine-learning algorithms to classify emotion categories.
+-   **Emotional tone** is derived from IBM's work on emotion analysis, which is an ensemble framework that infers emotions from a text. To derive emotion scores from text, IBM uses a stacked generalization-based ensemble framework; stacked generalization uses a high-level model to combine lower-level models to achieve greater predictive accuracy. Features such as n-grams (unigrams, bigrams, and trigrams), punctuation, emoticons, curse words, greetings (such as "hello," "hi," and "thanks"), and sentiment polarity are fed into machine-learning algorithms to classify emotion categories.
 -   **Language tone** is calculated from linguistic analysis based on learned features.
 
 ### Measuring the quality of the service
 
-IBM measured the quality of the {{site.data.keyword.toneanalyzershort}} service along the dimensions of tone just mentioned:
+IBM measured the quality of the {{site.data.keyword.toneanalyzershort}} service along the dimensions of tone from the previous section:
 
 -   *Emotional tone* categories were benchmarked against standard emotion data sets such as ISEAR and SEMEVAL. Results show that the average performance of the ensemble model (macro-average F1 score is around 41 percent and 68 percent for the two data sets) is statistically better than the best reported accuracy of the state-of-the-art models (macro-average F1 scores are around 37 percent and 63 percent).
 -   *Language tone* was evaluated with an in-depth study of more than two hundred thousand sentences that were collected from sources such as debate forums, speeches, and social media. IBM randomly selected 1330 of the sentences for analytical tone and 1000 sentences for each of confident and tentative tones. IBM then submitted the sentences to the {{site.data.keyword.toneanalyzershort}} service and also asked humans to analyze them.
@@ -68,7 +68,7 @@ Overall, the differences between the predicted and ground-truth labels are not s
 
 The customer-engagement endpoint identifies tones from the customer-care domain. To select the tones to evaluate with the customer-engagement model, IBM first conducted a study to identify which dimensions of tone are perceived as important in the domain:
 
-1.  IBM selected a set of 53 tones from the tone dimensions that are used in marketing, the dimensions that are used to describe writing styles, and the emotion and personality scales from psychology.
+1.  IBM selected a set of 53 tones from the dimensions that are used in marketing, the dimensions that are used to describe writing styles, and the emotion and personality scales from psychology.
 1.  IBM asked workers on CrowdFlower to rate the extent to which the 53 tone attributes describe a specific utterance in 1000 customer-care conversations. To simplify the rating task in the context of crowd-sourcing, IBM divided the 53 tones into four subsets. The human annotators needed to rate only a subset of the tones. IBM then determined ratings for all of the tones from aggregations of these results.
 1.  IBM performed factor analysis on a 53-by-53 correlation matrix and found at least seven significant factors (dimensions). IBM determined the names of factors to represent the most important concepts that are reflected by each of the dimensions.
 
@@ -94,11 +94,11 @@ IBM used the average of the five annotators' scores as the final label for each 
 
 Based on these customer-engagement conversations, IBM trained a machine-learning model based on the Support Vector Machine (SVM) to predict tone for new customer-care utterances. For the machine-learning model, IBM leveraged several categories of features:
 
--   n-gram features
--   lexical features from various dictionaries
--   the existence of second-person references in the conversation
--   some dialogue-specific features such as saying thank you or apologizing
--   several higher-level features such as the existence of consecutive question marks or exclamation marks
+-   N-gram features
+-   Lexical features from various dictionaries
+-   The existence of second-person references in the conversation
+-   Some dialogue-specific features such as saying thank you or apologizing
+-   Several higher-level features such as the existence of consecutive question marks or exclamation marks
 
 IBM found that about 30 percent of the samples had more than one associated tone. Therefore, IBM elected to solve a multi-label classification task rather than a multi-class classification task. For each tone, IBM trained the model independently by using a One-vs-Rest (OVR) paradigm. The paradigm used the utterances for each class as positive samples and all other utterances as negative samples. IBM identified the tones that were predicted with at least 0.5 probability as the final tones. For several tones, the training data was heavily unbalanced; IBM therefore identified the optimal weight value of the cost function for each tone during training.
 

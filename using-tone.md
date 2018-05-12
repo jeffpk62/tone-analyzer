@@ -19,10 +19,10 @@ lastupdated: "2018-05-11"
 
 # Using the general-purpose endpoint
 
-The {{site.data.keyword.toneanalyzershort}} general-purpose endpoint analyzes the tone of written communications, from short email messages to longer documents. It can help you understand the emotional and language tones of your communications. For detailed information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+The {{site.data.keyword.toneanalyzershort}} general-purpose endpoint analyzes the tone of written communications, from short email messages to longer documents. It can help you understand the emotional and language tones of your communications. For more information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
 {: shortdesc}
 
-> **Note:** Request logging is disabled for the {{site.data.keyword.toneanalyzershort}} service. Regardless of whether you set the `X-Watson-Learning-Opt-Out` request header, the service neither logs nor retains data from requests and responses.
+> **Note:** Request logging is disabled for the {{site.data.keyword.toneanalyzershort}} service. Regardless of whether you set the `X-Watson-Learning-Opt-Out` request header, the service does not log or retain data from requests and responses.
 
 ## Requesting a tone analysis
 {: #request}
@@ -91,8 +91,8 @@ The methods accept the following parameters.
     <td>
       The version of the API that you want to use as a date in the format
       <code>YYYY-MM-DD</code>; for example, specify <code>2017-09-21</code>
-      for September 21, 2017 (the latest version). For information about all
-      available versions, see the
+      for September 21, 2017 (the latest version). For more information about
+      all available versions, see the
       [Release notes](/docs/services/tone-analyzer/release-notes.html).
     </td>
   </tr>
@@ -202,7 +202,7 @@ curl -X GET --user {username}:{password}
 ```
 {: pre}
 
-For additional examples, see the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html).
+For more examples, see the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html).
 
 ### Specifying the character set
 {: #charset}
@@ -219,7 +219,7 @@ Content-Type: text/plain;charset=utf-8
 ```
 {: codeblock}
 
-By using the `charset` parameter, you can avoid potential problems associated with non-ASCII or non-printable characters. If you pass UTF-8 data without specifying the character set, special characters can result in incorrect results or in HTTP 4*nn* or 5*nn* errors.
+By using the `charset` parameter, you can avoid potential problems that are associated with non-ASCII or non-printable characters. If you pass UTF-8 data without specifying the character set, special characters can result in incorrect results or in HTTP 400- or 500-level errors.
 
 To prevent similar errors when using cURL, always pass the content via the `--data-binary` option of the `curl` command to preserve any UTF-8 encoding for the content. If you use the `--data` option to pass the content as ASCII, the command can process the input, which can cause problems for data encoded in UTF-8.
 
@@ -235,7 +235,7 @@ To analyze JSON input with the `POST` request method, you pass the method a JSON
 ```
 {: codeblock}
 
-The following example shows the contents of the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> file that is used with the examples in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html). The file includes a single paragraph of text written by one person. (The following text includes line breaks for readability; do not include them in actual input.)
+The following example shows the contents of the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> file that is used with the examples in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html). The file includes a single paragraph of text that is written by one person. (The following text includes line breaks for readability; do not include them in actual input.)
 
 ```javascript
 {
@@ -282,7 +282,7 @@ The following example shows the high-level structure of the `ToneAnalysis` objec
 
 ### Tone and score results
 
-The `tones` fields that are returned for both document- and sentence-level analyses contain an array of `ToneScore` objects that provides results for the dominant tones, those whose scores are at least 0.5. The array is empty if no tone has a score that meets this threshold. Each `ToneScore` object provides the following information about a qualifying tone:
+The `tones` fields that are returned for both document- and sentence-level analyses contain an array of `ToneScore` objects that provides results for the dominant tones. Such tones have scores of at least 0.5. The array is empty if no tone has a score that meets this threshold. Each `ToneScore` object provides the following information about a qualifying tone:
 
 -   `score` (double) is the score for the tone in the range of 0.5 to 1. A score greater than 0.75 indicates a high likelihood that the tone is perceived in the content.
 -   `tone_id` (string) is the unique, non-localized identifier of the tone; for descriptions of the tones, see [General-purpose tones](#tones).
@@ -307,7 +307,7 @@ The following example shows the structure of the `ToneScore` object:
 ### Example response
 {: #exampleResponse}
 
-The following output is returned for the [Example requests](#exampleRequests). (The same output is returned for the first example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html).) The response includes results for the full document and for each individual sentence. All reported tones have a score of at least 0.5; those with a score of at least 0.75 are very likely to be perceived in the content.
+The following output is returned for the [Example requests](#exampleRequests). (The same output is returned for the first example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html).) The response includes results for the full document and for each individual sentence. All reported tones have a score of at least 0.5. Tones with a score of at least 0.75 are likely to be perceived in the content.
 
 ```javascript
 {
@@ -372,7 +372,7 @@ The following output is returned for the [Example requests](#exampleRequests). (
 ## General-purpose tones
 {: #tones}
 
-The following table describes the general-purpose tones that the service can return. A tone whose score is less than 0.5 is omitted, indicating that the emotion is unlikely to be perceived in the content. A score greater than 0.75 indicates a high likelihood that the tone will be perceived.
+The following table describes the general-purpose tones that the service can return. A tone whose score is less than 0.5 is omitted, indicating that the emotion is unlikely to be perceived in the content. A score greater than 0.75 indicates a high likelihood that the tone is perceived.
 
 <table>
   <caption>Table 2. General-purpose tones</caption>
@@ -393,7 +393,7 @@ The following table describes the general-purpose tones that the service can ret
     <td>Fear<br/><code>fear</code></td>
     <td>
       Fear is a response to impending danger. It is a survival mechanism that
-      is triggered as a reaction to some negative stimulus. Fear may be a mild
+      is triggered as a reaction to some negative stimulus. Fear can be a mild
       caution or an extreme phobia. (An emotional tone.)
     </td>
   </tr>
@@ -409,7 +409,7 @@ The following table describes the general-purpose tones that the service can ret
     <td>Sadness<br/><code>sadness</code></td>
     <td>
       Sadness indicates a feeling of loss and disadvantage. When a person is
-      quiet, less energetic, and withdrawn, it may be inferred that they feel
+      quiet, less energetic, and withdrawn, it can be inferred that they feel
       sadness. (An emotional tone.)
     </td>
   </tr>

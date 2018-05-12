@@ -20,13 +20,13 @@ lastupdated: "2018-05-10"
 # Information security
 {: #information-security}
 
-IBM is committed to providing our clients and partners with innovative data privacy, security and governance solutions.
+IBM is committed to providing our clients and partners with innovative data privacy, security, and governance solutions.
 {: shortdesc}
 
 **Notice:**
-Clients are responsible for ensuring their own compliance with various laws and regulations, including the European Union General Data Protection Regulation. Clients are solely responsible for obtaining advice of competent legal counsel as to the identification and interpretation of any relevant laws and regulations that may affect the clients’ business and any actions the clients may need to take to comply with such laws and regulations.
+Clients are responsible for ensuring their own compliance with various laws and regulations, including the European Union General Data Protection Regulation. Clients are solely responsible for obtaining advice of competent legal counsel as to the identification and interpretation of any relevant laws and regulations that might affect the clients’ business and any actions the clients might need to take to comply with such laws and regulations.
 
-The products, services, and other capabilities described herein are not suitable for all client situations and may have restricted availability. IBM does not provide legal, accounting or auditing advice or represent or warrant that its services or products will ensure that clients are in compliance with any law or regulation.
+The products, services, and other capabilities described herein are not suitable for all client situations and might have restricted availability. IBM does not provide legal, accounting or auditing advice or represent or warrant that its services or products will ensure that clients are in compliance with any law or regulation.
 
 ## European Union General Data Protection Regulation (GDPR)
 {: #gdpr}
