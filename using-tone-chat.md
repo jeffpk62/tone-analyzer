@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -64,7 +64,7 @@ To analyze tone with the customer-engagement endpoint, you call the `POST /v3/to
     <td style="text-align:center">Header</td>
     <td style="text-align:center">String</td>
     <td>
-      The language of the input content:
+      The language of the input content.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           <code>en</code> (English, the default)
@@ -85,7 +85,7 @@ To analyze tone with the customer-engagement endpoint, you call the `POST /v3/to
     <td style="text-align:center">Header</td>
     <td style="text-align:center">String</td>
     <td>
-      The desired language of the response:
+      The requested language of the response.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           <code>ar</code> (Arabic)

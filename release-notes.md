@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -27,23 +27,23 @@ The following sections document the new features and changes that were included 
 ## 13 March 2018
 {: #March2018}
 
-**Service version:** `3.5.3`<br/> **Interface version:** `2017-09-21`
+**Service version** - `3.5.3`<br/> **Interface version** - `2017-09-21`
 
 The service was updated to add French (`fr`) input content in addition to English for the customer-engagement endpoint, `/v3/tone_chat`. You use the `Content-Language` request header to specify a language; the default is US English.
 
 ## 28 September 2017
 {: #September2017b}
 
-**Service version:** `3.4.1`<br/> **Interface version:** `2017-09-21`
+**Service version** - `3.4.1`<br/> **Interface version** - `2017-09-21`
 
 The throttling limit on the maximum number of requests that an individual {{site.data.keyword.Bluemix_notm}} username can submit increased to 1200 requests per minute. The service returns HTTP response code 429 *Too many requests* if a user exceeds that limit.
 
 ## 25 September 2017
 {: #September2017a}
 
-**Service version:** `3.4.1`<br/> **Interface version:** `2017-09-21`
+**Service version** - `3.4.1`<br/> **Interface version** - `2017-09-21`
 
--   The general-purpose endpoint (the `/v3/tone` method) changed:
+-   The general-purpose endpoint (the `/v3/tone` method) changed.
 
     -   Supports French (`fr`) input content in addition to English.
     -   No longer returns social tones.
@@ -55,7 +55,7 @@ The throttling limit on the maximum number of requests that an individual {{site
 
 -   The service now returns HTTP response code 200 instead of 400 for partially correct input in the following cases:
 
-    -   For the `/v3/tone` method, if you submit more than 128 KB or 1000 sentences of input content, the service returns a `warning` field as part of its response. The service analyzes the first 1000 sentences for document-level analysis and, as it does currently, only the first 100 sentences for sentence-level analysis. Earlier versions of the service returned response code 400 for the request if you exceeded either limit. Note also that the service now analyzes sentences that have fewer than three words.
+    -   For the `/v3/tone` method, if you submit more than 128 KB or 1000 sentences of input content, the service returns a `warning` field as part of its response. The service analyzes the first 1000 sentences for document-level analysis. It analyzes only the first 100 sentences for sentence-level analysis. Earlier versions of the service returned response code 400 for the request if you exceeded either limit. Also, the service now analyzes sentences that have fewer than three words.
     -   For the `/v3/tone_chat` method, if you submit more than 50 utterances, the service returns a `warning` field for the overall content at the `utterances_tone` level of the response; it analyzes only the first 50 utterances. If you submit a single utterance that contains more than 500 characters, the service returns an `error` field for that utterance and does not analyze the utterance. Earlier versions of the service returned response code 400 if you exceeded either limit. If all utterances of the input have more than 500 characters, the service still returns response code 400 for the request.
 
 -   The service now throttles the number of requests that it accepts from a single user. The service returns HTTP response code 429 *Too many requests* if it receives more than 600 requests per minute from an individual {{site.data.keyword.Bluemix_notm}} username.
@@ -63,7 +63,7 @@ The throttling limit on the maximum number of requests that an individual {{site
 -   The following changes apply to both the general-purpose and customer-engagement endpoints:
 
     -   The interface version that is specified with the `version` parameter is `2017-09-21` to use the latest version of the service.
-    -   The documentation was updated to note that the service can produce localized output in various languages. Use the `Accept-Language` request header to specify the desired language.
+    -   The documentation was updated to note that the service can produce localized output in various languages. Use the `Accept-Language` request header to specify the language.
 
 ## Older releases
 
@@ -80,21 +80,21 @@ The throttling limit on the maximum number of requests that an individual {{site
 ### 6 July 2017
 {: #July2017b}
 
-**Service version:** `3.3.6`<br/> **Interface version:** `2016-05-19`
+**Service version** - `3.3.6`<br/> **Interface version** - `2016-05-19`
 
 The service was updated for a small defect fix to the customer-engagement endpoint.
 
 ### 1 July 2017
 {: #July2017a}
 
-**Service version:** `3.3.5`<br/> **Interface version:** `2016-05-19`
+**Service version** - `3.3.5`<br/> **Interface version** - `2016-05-19`
 
 The customer-engagement endpoint of the {{site.data.keyword.toneanalyzershort}} service is now generally available (GA). All calls to the endpoint are now charged at the same rate as calls to the general-purpose endpoint.
 
 ### 8 May 2017
 {: #May2017}
 
-**Service version:** `3.3.4`<br/> **Interface version:** `2016-05-19`
+**Service version** - `3.3.4`<br/> **Interface version** - `2016-05-19`
 
 IBM updated the emotion tone and customer-care engagement tone score models by further expanding the training data set. The models now have greater precision on the benchmark data set.
 
