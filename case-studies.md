@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -43,7 +43,7 @@ Predict customer satisfaction from the tone of the question and response. IBM as
 ### Results
 {: #supportForumsResults}
 
-The service can predict Kudos with 66-percent accuracy. IBM found the following correlations between the tones that a forum response returns and whether that reply receives Kudos:
+The service can predict Kudos with 66-percent accuracy. IBM found the following correlations between the tones of a forum response and whether that reply receives Kudos:
 
 -   The more confident a response is, the more likely it is to earn Kudos (correlation of 0.23 between a high-value score on confidence and Kudos).
 -   The more tentative a response is, the less likely it is to earn Kudos (negative correlation of -0.27 between a high-value score on tentative and Kudos).
@@ -82,7 +82,7 @@ TED is a nonprofit organization that runs global conferences with the slogan "Id
 ### Goals
 {: #tedTalksGoals}
 
-Discover which tone patterns in TED Talks lead to applause and which patterns do not. Also predict applause based on the tone of a sentence.
+Discover which tone patterns in TED Talks lead to applause and which patterns do not. Also, predict applause based on the tone of a sentence.
 
 ### Actions
 {: #tedTalksActions}
@@ -106,7 +106,7 @@ The service can predict applause with 75-percent accuracy. IBM found the followi
 ## Predicting Twitter retweets and likes
 {: #twitterRetweets}
 
-Establishing a brand on Twitter is becoming a requirement for companies to succeed. An essential part of establishing you or your company as worth being followed is creating tweets that garner many likes and retweets.
+Establishing a brand on Twitter is becoming a requirement for companies to succeed. An essential part of establishing you or your company as worth following is creating tweets that garner many likes and retweets.
 
 ### Goals
 {: #twitterRetweetsGoals}
@@ -140,7 +140,7 @@ Correlate the tone of an individual's profile with the tone of a potential match
 
 -   Crawled approximately 50,000 user profiles.
 -   Analyzed each profile with the {{site.data.keyword.toneanalyzershort}} service.
--   Defined potential matches as those who communicated through the site.
+-   Defined potential matches as those users who communicated through the site.
 -   Compared the tone analysis of potential matches to find correlations.
 -   Developed a statistical model from the tone similarity of the profiles to predict whether two users would communicate. Then, compared the model to multiple baselines that consider other attributes such as demographics.
 

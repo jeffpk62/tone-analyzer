@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -50,10 +50,10 @@ For more information about the pricing plans available for the service, see the 
 
 Some interesting use cases of the service are
 
--   *Social listening and audience monitoring:* Monitor social media to understand what customers are saying about your brand in real time. For example, you might determine that your customers in Chicago are sad after the Bulls lost or happy during the Taste of Chicago festival. (General-purpose endpoint)
--   *Personalized marketing:* Determine whom to target with personalized messaging and when. For example, a travel company might target happy consumers with "treat yourself" messaging, sad consumers with "escape" messaging, and angry consumers with "relax" messaging. (General-purpose endpoint)
--   *Chat bots:* Enable an automated agent to detect customer tones and craft suitable responses. For example, you might respond to sadness with "I'm sorry you are upset about this problem" or to satisfaction with "I'm glad you are satisfied with our service." (Customer-engagement endpoint)
--   *Customer-engagement monitoring and quality assurance:* Monitor the overall tone of agent and customer communications, detect anomalies, and highlight opportunities to train agents on how to better communicate. (Customer-engagement endpoint)
+-   *Social listening and audience monitoring* - Monitor social media to understand what customers are saying about your brand in real time. For example, you might determine that your customers in Chicago are sad after the Bulls lost or happy during the Taste of Chicago festival. (General-purpose endpoint)
+-   *Personalized marketing* - Determine whom to target with personalized messaging and when. For example, a travel company might target happy consumers with "treat yourself" messaging, sad consumers with "escape" messaging, and angry consumers with "relax" messaging. (General-purpose endpoint)
+-   *Chat bots* - Enable an automated agent to detect customer tones and craft suitable responses. For example, you might respond to sadness with "I'm sorry you are upset about this problem" or to satisfaction with "I'm glad you are satisfied with our service." (Customer-engagement endpoint)
+-   *Customer-engagement monitoring and quality assurance* - Monitor the overall tone of agent and customer communications, detect anomalies, and highlight opportunities to train agents on how to better communicate. (Customer-engagement endpoint)
 
 You can also use the {{site.data.keyword.toneanalyzershort}} service to analyze user input with other {{site.data.keyword.ibmwatson_notm}} services such as [{{site.data.keyword.conversationfull}}](https://console.bluemix.net/docs/services/conversation/index.html) or [{{site.data.keyword.speechtotextfull}}](https://console.bluemix.net/docs/services/speech-to-text/index.html). For instance, the [Conversation Food Coach ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://food-coach.ng.bluemix.net/){: new_window} application uses the {{site.data.keyword.conversationshort}} service to coach users to make healthy food choices based on their responses about the food that they eat. For more information, see this [Watson blog post ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/watson/blog/2016/10/17/creating-a-compassionate-conversational-agent-using-watson-tone-analyzer-and-watson-conversation-services/){: new_window}.
 
