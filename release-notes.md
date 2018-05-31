@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-25"
+lastupdated: "2018-05-31"
 
 ---
 
@@ -27,8 +27,8 @@ The following sections document the new features and changes that were included 
 ## 25 May 2018
 {: #May2018}
 
-**Service version** - `3.5.3`<br/> **Interface version** - `2017-09-21`
-
+**Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
+,
 For applications that are hosted in Sydney (**au-syd**), the service now supports a new API authentication process for service instances. {{site.data.keyword.Bluemix}} is in the process of migrating to token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service.
 
 In the Sydney region, you use IAM access tokens with the {{site.data.keyword.toneanalyzershort}} service for
