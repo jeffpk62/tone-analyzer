@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-31"
+lastupdated: "2018-06-01"
 
 ---
 
@@ -34,7 +34,7 @@ For applications that are hosted in Sydney (**au-syd**), the service now support
 In the Sydney region, you use IAM access tokens with the {{site.data.keyword.toneanalyzershort}} service for
 
 -   *New service instances* that you create after May 25. For more information, see [Authenticating with IAM tokens](/docs/services/watson/getting-started-iam.html).
--   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 25 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group](/docs/account/instance_migration.html).
+-   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that you created before May 25 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group](/docs/account/instance_migration.html).
 
 All new and existing service instances in other regions continue to use service credentials (`{username}:{password}`) for authentication. IAM access tokens will be enabled for applications that are hosted in other regions soon.
 
