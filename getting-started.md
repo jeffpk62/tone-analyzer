@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-25"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -27,7 +27,7 @@ The {{site.data.keyword.toneanalyzershort}} service analyzes the tone of input c
 
 > **Important:** The tutorial uses service instance credentials to authenticate to the {{site.data.keyword.toneanalyzershort}} service. In some regions, new service instances instead use {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) tokens for authentication. Authenticate by using the approach that is right for your region and service instance.
 
-For more information about where the service uses IAM access tokens and how to use them for authentication, see the May 25 service update in the [Release notes](/docs/services/tone-analyzer/release-notes.html#May2018).
+For more information about where the service uses IAM access tokens and how to use them for authentication, see the June 11 and May 25 service updates in the [Release notes](/docs/services/tone-analyzer/release-notes.html).
 
 ## Before you begin
 {: #prerequisites}

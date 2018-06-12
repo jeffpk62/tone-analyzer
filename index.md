@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-25"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-05-25"
 # About
 {: #about}
 
-> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on May 25, 2018. In some regions, new service instances use {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) tokens for authentication. For more information, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).*
+> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on June 11, 2018. In addition to Sydney and AP North, the service now uses {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) tokens for authentication for applications that are hosted in Washington, DC (US East). For more information, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).*
 
 The {{site.data.keyword.toneanalyzerfull}} service uses linguistic analysis to detect emotional and language tones in written text. The service can analyze tone at both the document and sentence levels. You can use the service to understand how your written communications are perceived and then to improve the tone of your communications. Businesses can use the service to learn the tone of their customers' communications and to respond appropriately to each customer, or to understand and improve their customer conversations in general.
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -24,12 +24,17 @@ The following sections document the new features and changes that were included 
 
 > **Note:** The release notes now document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
 
+## 11 June 2018
+{: #June2018}
+
+For applications that are hosted in Washington, DC (US East), the service now supports token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service. For more information about using IAM tokens with existing and new applications, see the [25 May 2018](#May2018) release update.
+
 ## 25 May 2018
 {: #May2018}
 
 **Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
-,
-For applications that are hosted in Sydney (**au-syd**), the service now supports a new API authentication process for service instances. {{site.data.keyword.Bluemix}} is in the process of migrating to token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service.
+
+For applications that are hosted in Sydney and AP North (**au-syd**), the service now supports a new API authentication process for service instances. {{site.data.keyword.Bluemix}} is in the process of migrating to token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service.
 
 In the Sydney region, you use IAM access tokens with the {{site.data.keyword.toneanalyzershort}} service for
 
@@ -84,15 +89,9 @@ In your application, check the access token's expiration time before you use it 
 
 The service was updated to add French (`fr`) input content in addition to English for the customer-engagement endpoint, `/v3/tone_chat`. You use the `Content-Language` request header to specify a language; the default is US English.
 
-## 28 September 2017
-{: #September2017b}
-
-**Service version** - `3.4.1`<br/> **Interface version** - `2017-09-21`
-
-The throttling limit on the maximum number of requests that an individual {{site.data.keyword.Bluemix_notm}} username can submit increased to 1200 requests per minute. The service returns HTTP response code 429 *Too many requests* if a user exceeds that limit.
-
 ## Older releases
 
+-   [28 September 2017](#September2017b)
 -   [25 September 2017](#September2017a)
 -   [6 July 2017](#July2017b)
 -   [1 July 2017](#July2017a)
@@ -103,6 +102,13 @@ The throttling limit on the maximum number of requests that an individual {{site
 -   [18 October 2016](#October2016b)
 -   [3 October 2016](#October2016a)
 -   [19 May 2016](#May2016)
+
+### 28 September 2017
+{: #September2017b}
+
+**Service version** - `3.4.1`<br/> **Interface version** - `2017-09-21`
+
+The throttling limit on the maximum number of requests that an individual {{site.data.keyword.Bluemix_notm}} username can submit increased to 1200 requests per minute. The service returns HTTP response code 429 *Too many requests* if a user exceeds that limit.
 
 ### 25 September 2017
 {: #September2017a}
