@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-11"
+lastupdated: "2018-06-14"
 
 ---
 
@@ -24,63 +24,38 @@ The following sections document the new features and changes that were included 
 
 > **Note:** The release notes now document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
 
+## New API authentication process
+{: #new-authentication}
+
+The {{site.data.keyword.toneanalyzershort}} service has a new API authentication process for service instances that are hosted in the following regions as of the indicated dates:
+
+-   Washington, DC (US East) as of June 11, 2018
+-   Sydney and AP North (**au-syd**) as of June 4, 2018
+
+{{site.data.keyword.Bluemix}} is migrating to token-based Identity and Access Management (IAM) authentication. With some service instances, you authenticate to the API by using IAM.
+
+-   *For new service instances that you create after the date indicated previously*, you use IAM for authentication. You can pass either a bearer token or an API key. Tokens support authenticated requests without embedding service credentials in every call. API keys use basic authentication.
+
+    When you use any of the Watson SDKs, you can pass the API key and let the SDK manage the lifecycle of the tokens. For more information and examples, see [Authentication ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/curl.html?curl#authentication){: new_window} in the API reference.
+-   *For existing service instances that you created before the indicated date*, you continue to authenticate by providing the username and password for the service instance. Eventually, you will need to migrate these service instances to IAM authentication. Updates will be provided about migration process and dates. For more information about migration, see [Migrating Cloud Foundry service instances to a resource group](https://console.{DomainName}/docs/resources/instance_migration.html).
+
+To learn which authentication process to use with your service instance, view the service credentials by clicking the instance on the {{site.data.keyword.Bluemix_notm}} [Dashboard ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/dashboard/apps?watson){: new_window}.
+
+All new and existing service instances in other regions continue to use service credentials (`{username}:{password}`) for authentication. IAM access tokens will be enabled for applications that are hosted in other regions soon.
+
 ## 11 June 2018
 {: #June2018}
 
-For applications that are hosted in Washington, DC (US East), the service now supports token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service. For more information about using IAM tokens with existing and new applications, see the [25 May 2018](#May2018) release update.
+**Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
+
+For service instances and applications that are hosted in Washington, DC (US East), the service now supports a new API authentication process. For more information, see [New API authentication process](#new-authentication).
 
 ## 25 May 2018
 {: #May2018}
 
 **Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
 
-For applications that are hosted in Sydney and AP North (**au-syd**), the service now supports a new API authentication process for service instances. {{site.data.keyword.Bluemix}} is in the process of migrating to token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service.
-
-In the Sydney region, you use IAM access tokens with the {{site.data.keyword.toneanalyzershort}} service for
-
--   *New service instances* that you create after May 25. For more information, see [Authenticating with IAM tokens](/docs/services/watson/getting-started-iam.html).
--   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that you created before May 25 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group](/docs/resources/instance_migration.html).
-
-All new and existing service instances in other regions continue to use service credentials (`{username}:{password}`) for authentication. IAM access tokens will be enabled for applications that are hosted in other regions soon.
-
-### Using an IAM access token to authenticate
-
-When you use IAM access tokens, you authenticate before you send a request to the {{site.data.keyword.toneanalyzershort}} service.
-
-1.  Get an API key from IBM Cloud. Use that key to generate an IAM access token. For more information, see [How to get an IAM token by using a {{site.data.keyword.watson}} service API key](/docs/services/watson/getting-started-iam.html#iamtoken).
-1.  Pass the IAM access token to the {{site.data.keyword.toneanalyzershort}} service by using the `Authorization` header. In the header, indicate that the access token is a `Bearer` token by specifying `Authorization: Bearer {access_token}`.
-
-    The following simple cURL example for a request to the general-purpose endpoint specifies the access token:
-
-    ```bash
-    curl -X POST
-    --header "Authorization: Bearer eyJhbGciOiJIUz......sgrKIi8hdFs"
-    --header "Content-Type: application/json"
-    --data-binary @tone.json
-    "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21"
-    ```
-    {: pre}
-
-    For more information, see [Using a token to authenticate](/docs/services/watson/getting-started-iam.html#use_token).
-
-### Refreshing an IAM access token
-
-IAM access tokens that you generate have the following structure. You use the value of the `access_token` field to make an authenticated request to the service.
-
-```javascript
-{
-  "access_token": "eyJhbGciOiJIUz......sgrKIi8hdFs",
-  "refresh_token": "SPrXw5tBE3......KBQ+luWQVY=",
-  "token_type": "Bearer",
-  "expires_in": 3600,
-  "expiration": 1473188353
-}
-```
-{: codeblock}
-
-Access tokens have a limited time to live. The `expires_in` field indicates how long the token lasts, in this case one hour. The `expiration` field shows when the token expires as a UNIX timestamp that specifies the number of seconds since January 1, 1970 (midnight UTC/GMT).
-
-In your application, check the access token's expiration time before you use it to make an authenticated request. If it is expired, you must refresh the access token before you can use it. You use the value of the `refresh_token` field to refresh the access token. For more information, see [Refreshing a token](/docs/services/watson/getting-started-iam.html#refresh_token).
+For service instances and applications that are hosted in Sydney and AP North (**au-syd**), the service now supports a new API authentication process. For more information, see [New API authentication process](#new-authentication).
 
 ## 13 March 2018
 {: #March2018}

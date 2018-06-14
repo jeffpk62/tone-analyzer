@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-11"
+lastupdated: "2018-06-14"
 
 ---
 
@@ -20,14 +20,14 @@ lastupdated: "2018-06-11"
 # About
 {: #about}
 
-> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on June 11, 2018. In addition to Sydney and AP North, the service now uses {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) tokens for authentication for applications that are hosted in Washington, DC (US East). For more information, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).*
+> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on June 11, 2018. In addition to Sydney and AP North, the service now uses {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) authentication for applications that are hosted in Washington, DC (US East). For more information, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).*
 
 The {{site.data.keyword.toneanalyzerfull}} service uses linguistic analysis to detect emotional and language tones in written text. The service can analyze tone at both the document and sentence levels. You can use the service to understand how your written communications are perceived and then to improve the tone of your communications. Businesses can use the service to learn the tone of their customers' communications and to respond appropriately to each customer, or to understand and improve their customer conversations in general.
 {: shortdesc}
 
 You submit JSON, plain text, or HTML input that contains your written content to the service. The service accepts up to 128 KB of text, which is about 1000 sentences. The service returns JSON results that report the tone of your input. You can use these results to improve the perception and effectiveness of your communications, ensuring that your writing conveys the tone and style that you want for your intended audience. The following diagram shows the basic flow of calls to the service.
 
-![Submit content to the Tone Analyzer service and use the results to improve your communications.](images/tone-analyzer.png)
+![Submit content to the Tone Analyzer service and use the results to improve your communications.](images/tone-analyzer.svg)
 
 ## Tone Analyzer endpoints
 
