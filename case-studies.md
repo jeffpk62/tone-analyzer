@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -149,4 +149,4 @@ Correlate the tone of an individual's profile with the tone of a potential match
 
 Tone similarity between profiles can make a 45-percent improvement in predicting whether two users communicate as compared to predictors that dating websites regularly use. IBM discovered a strong overall correlation between tone similarity and the number of messages that are exchanged, as shown in the following image.
 
-![A strong correlation between the tones analyzed and the number of messages exchanged.](images/case-study.png)
+![A strong correlation between the tones analyzed and the number of messages exchanged.](images/case-study.svg)
