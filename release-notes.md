@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-14"
+lastupdated: "2018-06-15"
 
 ---
 
@@ -30,7 +30,7 @@ The following sections document the new features and changes that were included 
 The {{site.data.keyword.toneanalyzershort}} service has a new API authentication process for service instances that are hosted in the following regions as of the indicated dates:
 
 -   Washington, DC (US East) as of June 11, 2018
--   Sydney and AP North (**au-syd**) as of June 4, 2018
+-   Sydney and AP North (**au-syd**) as of May 25, 2018
 
 {{site.data.keyword.Bluemix}} is migrating to token-based Identity and Access Management (IAM) authentication. With some service instances, you authenticate to the API by using IAM.
 
