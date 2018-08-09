@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-08-09
 
 ---
 
@@ -240,7 +240,7 @@ The following output is returned for the [Example request](#exampleRequest). (Th
       "utterance_text": "Hello, I'm having a problem with your product.",
       "tones": [
         {
-          "score": 0.718352,
+          "score": 0.686361,
           "tone_id": "polite",
           "tone_name": "Polite"
         }
@@ -249,14 +249,20 @@ The following output is returned for the [Example request](#exampleRequest). (Th
     {
       "utterance_id": 1,
       "utterance_text": "OK, let me know what's going on, please.",
-      "tones": []
+      "tones": [
+        {
+          "score": 0.92724,
+          "tone_id": "polite",
+          "tone_name": "Polite"
+        }
+      ]
     },
     {
       "utterance_id": 2,
       "utterance_text": "Well, nothing is working :(",
       "tones": [
         {
-          "score": 0.997149,
+          "score": 0.997795,
           "tone_id": "sad",
           "tone_name": "sad"
         }
@@ -267,12 +273,12 @@ The following output is returned for the [Example request](#exampleRequest). (Th
       "utterance_text": "Sorry to hear that.",
       "tones": [
         {
-          "score": 0.689109,
+          "score": 0.730982,
           "tone_id": "polite",
           "tone_name": "Polite"
         },
         {
-          "score": 0.663203,
+          "score": 0.672499,
           "tone_id": "sympathetic",
           "tone_name": "Sympathetic"
         }
