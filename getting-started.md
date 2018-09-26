@@ -39,7 +39,16 @@ The {{site.data.keyword.toneanalyzershort}} service analyzes the tone of input c
     1.  From the [{{site.data.keyword.Bluemix_notm}} dashboard ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/dashboard/apps){: new_window}, click on your {{site.data.keyword.toneanalyzershort}} service instance to go to the {{site.data.keyword.toneanalyzershort}} service dashboard page.
     1.  On the **Manage** page, click **Show** to view your credentials.
     1.  Copy the `apikey` and `url` values.
--   Make sure that you have cURL. The examples use cURL to call methods of the HTTP interface. Install the version for your operating system from [curl.haxx.se ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window}. Install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
+-   Make sure that you have cURL.
+    -   The examples use cURL to call methods of the HTTP interface. Install the version for your operating system from [curl.haxx.se ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window}. Install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
+
+**Note:** When you enter a command, replace `{api_key}` with your actual API key. Omit the braces, which indicate a variable value, from the command. An actual value resembles the following example:
+
+```bash
+curl -X POST --user "apikey:L_HALhLVIksh1b73l97LSs6R_3gLo4xkujAaxm7i-b9x"
+. . .
+```
+{:pre}
 
 ## Step 1: Using the general-purpose endpoint via the POST request method
 {: #generalPurposePost}
