@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-14"
+lastupdated: "2018-11-02"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-06-14"
 # About
 {: #about}
 
-> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on June 11, 2018. In addition to Sydney and AP North, the service now uses {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) authentication for applications that are hosted in Washington, DC (US East). For more information, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).*
+> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on October 30, 2018. The service now uses {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) authentication in all locations. (The service continues to use Cloud Foundry service credentials in the Frankfurt location; this location will migrate to IAM authentication as soon as possible.) For more information, see the [October 30 2018 service update](/docs/services/tone-analyzer/release-notes.html#October2018) in the release notes.*
 
 The {{site.data.keyword.toneanalyzerfull}} service uses linguistic analysis to detect emotional and language tones in written text. The service can analyze tone at both the document and sentence levels. You can use the service to understand how your written communications are perceived and then to improve the tone of your communications. Businesses can use the service to learn the tone of their customers' communications and to respond appropriately to each customer, or to understand and improve their customer conversations in general.
 {: shortdesc}

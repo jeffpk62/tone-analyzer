@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-15"
+lastupdated: "2018-11-01"
 
 ---
 
@@ -45,9 +45,5 @@ The {{site.data.keyword.toneanalyzershort}} service supports a number of SDKs fo
 For more information about working with {{site.data.keyword.watson}} Developer Cloud services and {{site.data.keyword.Bluemix_notm}}, see the following pages:
 
 -   For an introduction to working with {{site.data.keyword.watson}} services and {{site.data.keyword.Bluemix_notm}}, see [Getting started with {{site.data.keyword.watson}} and {{site.data.keyword.Bluemix_notm}}](/docs/services/watson/index.html).
--   For a language-independent introduction to developing {{site.data.keyword.watson}} services applications in {{site.data.keyword.Bluemix_notm}}, see [{{site.data.keyword.Bluemix_notm}} development approaches](/docs/services/watson/getting-started-bluemix.html).
--   Some service instances use {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) for authentication. Other service instances continue to use service credentials for authentication.
-    -   For more information about where and how the service uses IAM authentication, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).
-    -   For more information about using IAM tokens with {{site.data.keyword.watson}} services, see [Authenticating with IAM tokens](/docs/services/watson/getting-started-iam.html).
-    -   For more information about using service credentials with {{site.data.keyword.watson}} services, see [Service credentials for {{site.data.keyword.watson}} services](/docs/services/watson/getting-started-credentials.html).
+-   All new service instances use {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) for authentication. Older service instances might continue to use the `{username}` and `{password}` from their existing Cloud Foundry service credentials for authentication. For more information about authenticating to the service, see the [30 October 2018 service update](/docs/services/tone-analyzer/release-notes.html#October2018) in the release notes.
 -   Request logging is disabled for the {{site.data.keyword.toneanalyzershort}} service. The service does not log or retain data from requests and responses, regardless of whether the `X-Watson-Learning-Opt-Out` request header is set.
