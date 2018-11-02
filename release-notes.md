@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-15"
+lastupdated: "2018-11-02"
 
 ---
 
@@ -22,50 +22,54 @@ lastupdated: "2018-06-15"
 The following sections document the new features and changes that were included for each release of the {{site.data.keyword.toneanalyzershort}} service. The changes do not break existing code.
 {: shortdesc}
 
-> **Note:** The release notes now document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
+> **Note:** The release notes document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
 
-## New API authentication process
-{: #new-authentication}
+## 30 October 2018
+{: #October2018}
 
-The {{site.data.keyword.toneanalyzershort}} service has a new API authentication process for service instances that are hosted in the following regions as of the indicated dates:
+**Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
 
--   Washington, DC (US East) as of June 11, 2018
--   Sydney and AP North (**au-syd**) as of May 25, 2018
+The {{site.data.keyword.toneanalyzershort}} service has migrated to token-based Identity and Access Management (IAM) authentication for all locations. All {{site.data.keyword.Bluemix}} services now use IAM authentication. The {{site.data.keyword.toneanalyzershort}} service migrated in each location on the following dates:
 
-{{site.data.keyword.Bluemix}} is migrating to token-based Identity and Access Management (IAM) authentication. With some service instances, you authenticate to the API by using IAM.
+-   Dallas (**us-south**): October 30, 2018
+-   Frankfurt (**eu-de**): In progress
+-   Washington, DC (**us-east**): June 11, 2018
+-   Sydney (**au-syd**): May 25, 2018
 
--   *For new service instances that you create after the date indicated previously*, you use IAM for authentication. You can pass either a bearer token or an API key. Tokens support authenticated requests without embedding service credentials in every call. API keys use basic authentication.
+**Important:** The service continues to use Cloud Foundry service credentials for authentication in the Frankfurt location. This location will migrate to IAM authentication as soon as possible.
 
-    When you use any of the {{site.data.keyword.watson}} SDKs, you can pass the API key and let the SDK manage the lifecycle of the tokens. For more information and examples, see [Authentication ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/curl.html?curl#authentication){: new_window} in the API reference.
--   *For existing service instances that you created before the indicated date*, you continue to authenticate by providing the username and password for the service instance. Eventually, you will need to migrate these service instances to IAM authentication. Updates will be provided about migration process and dates. For more information about migration, see [Migrating Cloud Foundry service instances to a resource group](https://console.{DomainName}/docs/resources/instance_migration.html).
+The migration to IAM authentication affects new and existing service instances differently:
 
-To learn which authentication process to use with your service instance, view the service credentials by clicking the instance on the {{site.data.keyword.Bluemix_notm}} [Dashboard ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/dashboard/apps?watson){: new_window}.
+-   *All new service instances that you create in any location* now use IAM authentication to access the service. You can pass either a bearer token or an API key: Tokens support authenticated requests without embedding service credentials in every call; API keys use HTTP basic authentication. When you use any of the {{site.data.keyword.watson}} SDKs, you can pass the API key and let the SDK manage the lifecycle of the tokens.
+-   *Existing service instances that you created in a location before the indicated migration date*  continue to use the `{username}` and `{password}` from their previous Cloud Foundry service credentials for authentication until you update them to use IAM authentication. Because the {{site.data.keyword.toneanalyzershort}} service is stateless, you can perform the following steps to convert an existing service instance to use IAM authentication:
 
-All new and existing service instances in other regions continue to use service credentials (`{username}:{password}`) for authentication. IAM access tokens will be enabled for applications that are hosted in other regions soon.
+    1.  Delete and re-create the service instance.
+    1.  Modify your application code to use IAM authentication.
+
+For more information, see the following documentation:
+
+-   To learn which authentication mechanism your service instance uses, view your service credentials by clicking the instance on the {{site.data.keyword.Bluemix_notm}} [Dashboard ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/dashboard/apps?watson){: new_window}.
+-   For more information about using IAM tokens with Watson services, see [Authenticating with IAM tokens](/docs/services/watson/getting-started-iam.html).
+-   For more information about using IAM API keys with Watson services, see [IAM service API keys](/docs/services/watson/apikey-bp.html).
+-   For examples that use IAM authentication, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
 
 ## 11 June 2018
 {: #June2018}
 
 **Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
 
-For service instances and applications that are hosted in Washington, DC (US East), the service now supports a new API authentication process. For more information, see [New API authentication process](#new-authentication).
+For service instances and applications that are hosted in Washington, DC (**us east**), the service now supports a new API authentication process. For more information, see the [30 October 2018 service update](#October2018).
 
 ## 25 May 2018
 {: #May2018}
 
 **Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
 
-For service instances and applications that are hosted in Sydney and AP North (**au-syd**), the service now supports a new API authentication process. For more information, see [New API authentication process](#new-authentication).
-
-## 13 March 2018
-{: #March2018}
-
-**Service version** - `3.5.3`<br/> **Interface version** - `2017-09-21`
-
-The service was updated to add French (`fr`) input content in addition to English for the customer-engagement endpoint, `/v3/tone_chat`. You use the `Content-Language` request header to specify a language; the default is US English.
+For service instances and applications that are hosted in Sydney (**au-syd**), the service now supports a new API authentication process. For more information, see the [30 October 2018 service update](#October2018).
 
 ## Older releases
 
+-   [13 March 2018](#March2018)
 -   [28 September 2017](#September2017b)
 -   [25 September 2017](#September2017a)
 -   [6 July 2017](#July2017b)
@@ -77,6 +81,13 @@ The service was updated to add French (`fr`) input content in addition to Englis
 -   [18 October 2016](#October2016b)
 -   [3 October 2016](#October2016a)
 -   [19 May 2016](#May2016)
+
+### 13 March 2018
+{: #March2018}
+
+**Service version** - `3.5.3`<br/> **Interface version** - `2017-09-21`
+
+The service was updated to add French (`fr`) input content in addition to English for the customer-engagement endpoint, `/v3/tone_chat`. You use the `Content-Language` request header to specify a language; the default is US English.
 
 ### 28 September 2017
 {: #September2017b}
