@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-01"
+lastupdated: "2018-11-04"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-11-01"
 # Overview for developers
 {: #overviewDevelopers}
 
-You can access the capabilities of the {{site.data.keyword.toneanalyzershort}} service via an HTTP Representational State Transfer (REST) API. Several Software Development Kits (SDKs) are also available to simplify application development in various languages and environments. The following sections provide an overview of application development with the service.
+You can access the capabilities of the {{site.data.keyword.toneanalyzershort}} service via an HTTP Representational State Transfer (REST) API. Several Software Development Kits (SDKs) are also available to simplify application development in various languages. The following sections provide an overview of application development with the service.
 {: shortdesc}
 
 ## Programming with the service
@@ -34,10 +34,10 @@ To analyze the tone of an individual's text, you pass the input text to the serv
 ## Using Software Development Kits
 {: #sdks}
 
-The {{site.data.keyword.toneanalyzershort}} service supports a number of SDKs for simplified application development. The SDKs are available for many popular programming languages and platforms, including Node.js, Java, Python, and Ruby. All SDKs are available from the [watson-developer-cloud namespace ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/watson-developer-cloud){: new_window} on GitHub.
+SDKs are available for the {{site.data.keyword.toneanalyzershort}} service to simplify application development. {{site.data.keyword.watson}} SDKs are available for many popular programming languages and platforms.
 
--   For a complete list of SDKs and information about using them, see [{{site.data.keyword.watson}} SDKs](/docs/services/watson/getting-started-sdks.html).
--   For detailed information about the methods of the Node, Java, Python, and Ruby SDKs, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+-   For a complete list of SDKs and links to the SDKs on GitHub, see [Using SDKs](/docs/services/watson/getting-started-sdks.html).
+-   For detailed information about all methods of the Node, Java, Python, and Ruby SDKs for the {{site.data.keyword.toneanalyzershort}} service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
 
 ## Learning more about application development
 {: #learn}
