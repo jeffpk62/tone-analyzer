@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-02"
+lastupdated: "2018-11-08"
 
 ---
 
@@ -121,4 +121,4 @@ The service's response indicates the most prevalent tones that are detected for 
 
 -   For more information about the `/v3/tone` method, see [Using the general-purpose endpoint](/docs/services/tone-analyzer/using-tone.html).
 -   For more information about the `/v3/tone_chat` method, see [Using the customer-engagement endpoint](/docs/services/tone-analyzer/using-tone-chat.html).
--   For more information about the methods of the service's interface, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+-   For more information about the methods of the service's interface, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/apidocs/tone-analyzer){: new_window}.
