@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-02"
+lastupdated: "2018-11-08"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-11-02"
 # About
 {: #about}
 
-> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on October 30, 2018. The service now uses {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) authentication in all locations. (The service continues to use Cloud Foundry service credentials in the Frankfurt location; this location will migrate to IAM authentication as soon as possible.) For more information, see the [October 30 2018 service update](/docs/services/tone-analyzer/release-notes.html#October2018) in the release notes.*
+> **Service update:** *The {{site.data.keyword.toneanalyzershort}} service was updated on November 7, 2018. The service is now available in the IBM Cloud Tokyo location. For more information, see the [7 November 2018 service update](/docs/services/tone-analyzer/release-notes.html#November2018) in the release notes.*
 
 The {{site.data.keyword.toneanalyzerfull}} service uses linguistic analysis to detect emotional and language tones in written text. The service can analyze tone at both the document and sentence levels. You can use the service to understand how your written communications are perceived and then to improve the tone of your communications. Businesses can use the service to learn the tone of their customers' communications and to respond appropriately to each customer, or to understand and improve their customer conversations in general.
 {: shortdesc}

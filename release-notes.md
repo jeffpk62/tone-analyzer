@@ -24,6 +24,13 @@ The following sections document the new features and changes that were included 
 
 > **Note:** The release notes document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
 
+## 7 November 2018
+{: #November2018}
+
+**Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
+
+The {{site.data.keyword.toneanalyzershort}} service is now available in the IBM Cloud Tokyo location (**jp-tok**). Like all locations, Tokyo uses token-based Identity and Access Management (IAM) authentication. All new services instances that you create in this location use IAM authentication.
+
 ## 30 October 2018
 {: #October2018}
 
@@ -60,15 +67,9 @@ For more information, see the following documentation:
 
 For service instances and applications that are hosted in Washington, DC (**us east**), the service now supports a new API authentication process. For more information, see the [30 October 2018 service update](#October2018).
 
-## 25 May 2018
-{: #May2018}
-
-**Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
-
-For service instances and applications that are hosted in Sydney (**au-syd**), the service now supports a new API authentication process. For more information, see the [30 October 2018 service update](#October2018).
-
 ## Older releases
 
+-   [25 May 2018](#May2018)
 -   [13 March 2018](#March2018)
 -   [28 September 2017](#September2017b)
 -   [25 September 2017](#September2017a)
@@ -81,6 +82,13 @@ For service instances and applications that are hosted in Sydney (**au-syd**), t
 -   [18 October 2016](#October2016b)
 -   [3 October 2016](#October2016a)
 -   [19 May 2016](#May2016)
+
+### 25 May 2018
+{: #May2018}
+
+**Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
+
+For service instances and applications that are hosted in Sydney (**au-syd**), the service now supports a new API authentication process. For more information, see the [30 October 2018 service update](#October2018).
 
 ### 13 March 2018
 {: #March2018}
