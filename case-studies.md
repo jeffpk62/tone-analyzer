@@ -10,6 +10,9 @@ lastupdated: "2018-06-12"
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:pre: .pre}
+{:important: .important}
+{:note: .note}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:javascript: .ph data-hd-programlang='javascript'}
