@@ -2,13 +2,16 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-08"
+lastupdated: "2018-11-15"
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -34,11 +37,11 @@ The {{site.data.keyword.toneanalyzershort}} service analyzes the tone of input c
 
 -   {: download} If you're seeing this, you created your service instance. Now get your credentials.
 - Create an instance of the service:
-    1.  Go to the [{{site.data.keyword.toneanalyzershort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/catalog/services/tone-analyzer){: new_window} page in the {{site.data.keyword.Bluemix_notm}} Catalog.
+    1.  Go to the [{{site.data.keyword.toneanalyzershort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/tone-analyzer){: new_window} page in the {{site.data.keyword.Bluemix_notm}} Catalog.
     1.  Sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.
     1.  Click **Create**.
 -   Copy the credentials to authenticate to your service instance:
-    1.  From the [{{site.data.keyword.Bluemix_notm}} dashboard ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/dashboard/apps){: new_window}, click on your {{site.data.keyword.toneanalyzershort}} service instance to go to the {{site.data.keyword.toneanalyzershort}} service dashboard page.
+    1.  From the [{{site.data.keyword.Bluemix_notm}} dashboard ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/dashboard/apps){: new_window}, click on your {{site.data.keyword.toneanalyzershort}} service instance to go to the {{site.data.keyword.toneanalyzershort}} service dashboard page.
     1.  On the **Manage** page, click **Show** to view your credentials.
     1.  Copy the `apikey` and `url` values.
 -   Make sure that you have the `curl` command.
@@ -121,4 +124,4 @@ The service's response indicates the most prevalent tones that are detected for 
 
 -   For more information about the `/v3/tone` method, see [Using the general-purpose endpoint](/docs/services/tone-analyzer/using-tone.html).
 -   For more information about the `/v3/tone_chat` method, see [Using the customer-engagement endpoint](/docs/services/tone-analyzer/using-tone-chat.html).
--   For more information about the methods of the service's interface, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/apidocs/tone-analyzer){: new_window}.
+-   For more information about the methods of the service's interface, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
