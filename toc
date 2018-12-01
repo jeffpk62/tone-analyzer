@@ -33,7 +33,7 @@ Tone Analyzer
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [API reference](https://console.bluemix.net/apidocs/tone-analyzer)
+    [API reference](https://bluemix.net/apidocs/tone-analyzer)
     information-security.md
 
     {: .topicgroup}
