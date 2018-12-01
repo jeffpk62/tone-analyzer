@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-15"
+lastupdated: "2018-11-28"
 
 ---
 
@@ -28,9 +28,11 @@ lastupdated: "2018-11-15"
 The {{site.data.keyword.toneanalyzershort}} service analyzes the tone of input content. This tutorial shows commands that analyze different sample content. The examples demonstrate both the general-purpose and the customer-engagement endpoints.
 {: shortdesc}
 
-**Important:** The tutorial uses {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) API keys for authentication. Older service instances might continue to use the `{username}` and `{password}` from their existing Cloud Foundry service credentials for authentication. Authenticate by using the approach that is right for your service instance. For more information about the service's use of IAM authentication, see the [30 October 2018 service update](/docs/services/tone-analyzer/release-notes.html#October2018) in the release notes.
+The tutorial uses {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) API keys for authentication. Older service instances might continue to use the `{username}` and `{password}` from their existing Cloud Foundry service credentials for authentication. Authenticate by using the approach that is right for your service instance. For more information about the service's use of IAM authentication, see the [30 October 2018 service update](/docs/services/tone-analyzer/release-notes.html#October2018) in the release notes.
+{: important}
 
-**Important:** The service continues to use Cloud Foundry service credentials in the Frankfurt location. This location will migrate to IAM authentication as soon as possible.
+The service continues to use Cloud Foundry service credentials in the Frankfurt location. This location will migrate to IAM authentication as soon as possible.
+{: note}
 
 ## Before you begin
 {: #prerequisites}
@@ -43,11 +45,11 @@ The {{site.data.keyword.toneanalyzershort}} service analyzes the tone of input c
 -   Copy the credentials to authenticate to your service instance:
     1.  From the [{{site.data.keyword.Bluemix_notm}} dashboard ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/dashboard/apps){: new_window}, click on your {{site.data.keyword.toneanalyzershort}} service instance to go to the {{site.data.keyword.toneanalyzershort}} service dashboard page.
     1.  On the **Manage** page, click **Show** to view your credentials.
-    1.  Copy the `apikey` and `url` values.
+    1.  Copy the `API Key` and `URL` values.
 -   Make sure that you have the `curl` command.
     -   The examples use the `curl` command to call methods of the HTTP interface. Install the version for your operating system from [curl.haxx.se ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window}. Install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
 
-**Note:** When you enter a command, replace `{apikey}` with your actual API key. Omit the braces, which indicate a variable value, from the command. An actual value resembles the following example:
+When you enter a command, replace `{apikey}` with your actual API key. Omit the braces, which indicate a variable value, from the command. An actual value resembles the following example:
 
 ```bash
 curl -X POST --user "apikey:L_HALhLVIksh1b73l97LSs6R_3gLo4xkujAaxm7i-b9x"
