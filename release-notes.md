@@ -25,7 +25,8 @@ lastupdated: "2018-11-15"
 The following sections document the new features and changes that were included for each release of the {{site.data.keyword.toneanalyzershort}} service. The changes do not break existing code.
 {: shortdesc}
 
-> **Note:** The release notes document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
+The release notes document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
+{: note}
 
 ## 7 November 2018
 {: #November2018}
@@ -46,7 +47,8 @@ The {{site.data.keyword.toneanalyzershort}} service has migrated to token-based 
 -   Washington, DC (**us-east**): June 11, 2018
 -   Sydney (**au-syd**): May 25, 2018
 
-**Important:** The service continues to use Cloud Foundry service credentials for authentication in the Frankfurt location. This location will migrate to IAM authentication as soon as possible.
+The service continues to use Cloud Foundry service credentials for authentication in the Frankfurt location. This location will migrate to IAM authentication as soon as possible.
+{: important}
 
 The migration to IAM authentication affects new and existing service instances differently:
 

@@ -25,7 +25,8 @@ lastupdated: "2018-11-15"
 The {{site.data.keyword.toneanalyzershort}} customer-engagement endpoint analyzes the tone of customer service and support conversations. It can help you better understand your interactions with customers and improve your communications in general or for specific customers. For more information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
 {: shortdesc}
 
-> **Note:** Request logging is disabled for the {{site.data.keyword.toneanalyzershort}} service. Regardless of whether you set the `X-Watson-Learning-Opt-Out` request header, the service does not log or retain data from requests and responses.
+Request logging is disabled for the {{site.data.keyword.toneanalyzershort}} service. Regardless of whether you set the `X-Watson-Learning-Opt-Out` request header, the service does not log or retain data from requests and responses.
+{: note}
 
 ## Requesting a tone analysis
 {: #request}
@@ -134,7 +135,8 @@ To analyze tone with the customer-engagement endpoint, you call the `POST /v3/to
 
 If you submit more than 50 utterances, the service returns a `warning` field for the overall content at the `utterances_tone` level of its response; it analyzes only the first 50 utterances. If you submit a single utterance that contains more than 500 characters, the service returns an `error` field for that utterance and does not analyze the utterance. In both cases, the request still succeeds with HTTP response code 200.
 
-> **Note:** The service returns response code 400 if all utterances of the input have more than 500 characters.
+The service returns response code 400 if all utterances of the input have more than 500 characters.
+{: note}
 
 ### Example request
 {: #exampleRequest}
