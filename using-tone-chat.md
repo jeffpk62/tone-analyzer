@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-15"
+lastupdated: "2018-12-06"
 
 ---
 
@@ -144,7 +144,7 @@ The service returns response code 400 if all utterances of the input have more t
 The following example `curl` command calls the customer-engagement endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> and a version of `2017-09-21`:
 
 ```bash
-curl -X POST --user "apikey:{apikey}"
+curl -X POST -u "apikey:{apikey}"
 --header "Content-Type: application/json"
 --data-binary @./tone-chat.json
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone_chat?version=2017-09-21"

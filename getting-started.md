@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-28"
+lastupdated: "2018-12-06"
 
 ---
 
@@ -52,7 +52,7 @@ The service continues to use Cloud Foundry service credentials in the Frankfurt 
 When you enter a command, replace `{apikey}` with your actual API key. Omit the braces, which indicate a variable value, from the command. An actual value resembles the following example:
 
 ```bash
-curl -X POST --user "apikey:L_HALhLVIksh1b73l97LSs6R_3gLo4xkujAaxm7i-b9x"
+curl -X POST -u "apikey:L_HALhLVIksh1b73l97LSs6R_3gLo4xkujAaxm7i-b9x"
 . . .
 ```
 {:pre}
@@ -68,7 +68,7 @@ The following commands call the `POST /v3/tone` method to analyze the contents o
     -   Modify `{path_to_file}` to specify the location of the `tone.json` file.
 
     ```bash
-    curl -X POST --user "apikey:{apikey}" \
+    curl -X POST -u "apikey:{apikey}" \
     --header "Content-Type: application/json" \
     --data-binary @{path_to_file}tone.json \
     "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21"
@@ -78,7 +78,7 @@ The following commands call the `POST /v3/tone` method to analyze the contents o
 1.  Issue the following command to analyze the tone of the overall content only by setting the `sentences` parameter to `false`.
 
     ```bash
-    curl -X POST --user "apikey:{apikey}" \
+    curl -X POST -u "apikey:{apikey}" \
     --header "Content-Type: application/json" \
     --data-binary @{path_to_file}tone.json \
     "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21&sentences=false" \
@@ -95,7 +95,7 @@ The interface also offers a `GET /v3/tone` method. The `GET` method provides the
 1.  The following example specifies the text of the file `tone.json` via the `text` parameter; as shown, you must URL-encode the text. The command omits the `sentences` parameter, so it returns the same output as the first `POST` example shown previously. (The example includes line breaks for readability; do not include them in an actual command.)
 
     ```bash
-    curl -X GET --user "apikey:{apikey}" \
+    curl -X GET -u "apikey:{apikey}" \
     "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21
     &text=Team%2C%20I%20know%20that%20times%20are%20tough%21%20Product%20sales%20have
     %20been%20disappointing%20for%20the%20past%20three%20quarters.%20We%20have%20a%20
@@ -113,7 +113,7 @@ The following command calls the `POST /v3/tone_chat` method to analyze the conte
 1.  Issue the following command to analyze the tone of the exchange in the sample file.
 
     ```bash
-    curl -X POST --user "apikey:{apikey}" \
+    curl -X POST -u "apikey:{apikey}" \
     --header "Content-Type: application/json" \
     --data-binary @{path_to_file}tone-chat.json \
     "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone_chat?version=2017-09-21"
