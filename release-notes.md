@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-15"
+lastupdated: "2018-12-10"
 
 ---
 
@@ -28,8 +28,15 @@ The following sections document the new features and changes that were included 
 The release notes document the *service version* and *interface version* for each update. You specify the *interface version* with the `version` query parameter to use new features and functionality made available with that update. The service returns both versions with the `X-Service-Api-Version` response header.
 {: note}
 
+## 18 November 2018
+{: #November2018b}
+
+**Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
+
+The {{site.data.keyword.toneanalyzershort}} service is now available in the IBM Cloud London location (**eu-gb**). Like all locations, London uses token-based Identity and Access Management (IAM) authentication. All new services instances that you create in this location use IAM authentication.
+
 ## 7 November 2018
-{: #November2018}
+{: #November2018a}
 
 **Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
 
@@ -65,15 +72,9 @@ For more information, see the following documentation:
 -   For more information about using IAM API keys with Watson services, see [IAM service API keys](/docs/services/watson/apikey-bp.html).
 -   For examples that use IAM authentication, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
 
-## 11 June 2018
-{: #June2018}
-
-**Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
-
-For service instances and applications that are hosted in Washington, DC (**us east**), the service now supports a new API authentication process. For more information, see the [30 October 2018 service update](#October2018).
-
 ## Older releases
 
+-   [11 June 2018](#June2018)
 -   [25 May 2018](#May2018)
 -   [13 March 2018](#March2018)
 -   [28 September 2017](#September2017b)
@@ -87,6 +88,13 @@ For service instances and applications that are hosted in Washington, DC (**us e
 -   [18 October 2016](#October2016b)
 -   [3 October 2016](#October2016a)
 -   [19 May 2016](#May2016)
+
+### 11 June 2018
+{: #June2018}
+
+**Service version** - `3.5.4`<br/> **Interface version** - `2017-09-21`
+
+For service instances and applications that are hosted in Washington, DC (**us east**), the service now supports a new API authentication process. For more information, see the [30 October 2018 service update](#October2018).
 
 ### 25 May 2018
 {: #May2018}
