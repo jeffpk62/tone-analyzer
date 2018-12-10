@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-06"
+lastupdated: "2018-12-10"
 
 ---
 
@@ -141,7 +141,7 @@ The service returns response code 400 if all utterances of the input have more t
 ### Example request
 {: #exampleRequest}
 
-The following example `curl` command calls the customer-engagement endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> and a version of `2017-09-21`:
+The following example `curl` command calls the customer-engagement endpoint with the input file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a> and a version of `2017-09-21`:
 
 ```bash
 curl -X POST -u "apikey:{apikey}"
@@ -169,7 +169,7 @@ You pass the method a JSON `ToneChatInput` object with the following format. The
 ```
 {: codeblock}
 
-The following example shows the contents of the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> file. The file includes a brief exchange between a <code>customer</code> and an <code>agent</code>.
+The following example shows the contents of the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a> file. The file includes a brief exchange between a <code>customer</code> and an <code>agent</code>.
 
 ```javascript
 {
