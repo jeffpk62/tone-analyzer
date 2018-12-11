@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-10"
+lastupdated: "2018-12-11"
 
 ---
 
@@ -28,7 +28,7 @@ lastupdated: "2018-12-10"
 The {{site.data.keyword.toneanalyzershort}} service analyzes the tone of input content. This tutorial shows commands that analyze different sample content. The examples demonstrate both the general-purpose and the customer-engagement endpoints.
 {: shortdesc}
 
-The tutorial uses {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) API keys for authentication. Older service instances might continue to use the `{username}` and `{password}` from their existing Cloud Foundry service credentials for authentication. Authenticate by using the approach that is right for your service instance. For more information about the service's use of IAM authentication, see the [30 October 2018 service update](/docs/services/tone-analyzer/release-notes.html#October2018) in the release notes.
+The tutorial uses {{site.data.keyword.cloud}} Identity and Access Management (IAM) API keys for authentication. Older service instances might continue to use the `{username}` and `{password}` from their existing Cloud Foundry service credentials for authentication. Authenticate by using the approach that is right for your service instance. For more information about the service's use of IAM authentication, see the [30 October 2018 service update](/docs/services/tone-analyzer/release-notes.html#October2018) in the release notes.
 {: important}
 
 The service continues to use Cloud Foundry service credentials in the Frankfurt location. This location will migrate to IAM authentication as soon as possible.
@@ -39,11 +39,11 @@ The service continues to use Cloud Foundry service credentials in the Frankfurt 
 
 -   {: download} If you're seeing this, you created your service instance. Now get your credentials.
 - Create an instance of the service:
-    1.  Go to the [{{site.data.keyword.toneanalyzershort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/tone-analyzer){: new_window} page in the {{site.data.keyword.Bluemix_notm}} Catalog.
-    1.  Sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.
+    1.  Go to the [{{site.data.keyword.toneanalyzershort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/tone-analyzer){: new_window} page in the {{site.data.keyword.cloud_notm}} Catalog.
+    1.  Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
     1.  Click **Create**.
 -   Copy the credentials to authenticate to your service instance:
-    1.  From the [{{site.data.keyword.Bluemix_notm}} dashboard ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/dashboard/apps){: new_window}, click on your {{site.data.keyword.toneanalyzershort}} service instance to go to the {{site.data.keyword.toneanalyzershort}} service dashboard page.
+    1.  From the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/dashboard/apps){: new_window}, click on your {{site.data.keyword.toneanalyzershort}} service instance to go to the {{site.data.keyword.toneanalyzershort}} service dashboard page.
     1.  On the **Manage** page, click **Show** to view your credentials.
     1.  Copy the `API Key` and `URL` values.
 -   Make sure that you have the `curl` command.
