@@ -57,6 +57,7 @@ When you enter a command, replace `{apikey}` and `{url}` with your actual API ke
 ```bash
 curl -X POST -u "apikey:L_HALhLVIksh1b73l97LSs6R_3gLo4xkujAaxm7i-b9x"
 . . .
+"https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21"
 ```
 {:pre}
 {: hide-dashboard}
