@@ -69,7 +69,7 @@ The following commands call the `POST /v3/tone` method to analyze the contents o
 
 1.  Download the sample file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
 1.  Issue the following command to analyze the tone of the overall content and of each individual sentence.
-    -   {: hide-dashboard} Replace `{apikey}` and `{url}` `with your information.
+    -   {: hide-dashboard} Replace `{apikey}` and `{url}` with your information.
     -   Modify `{path_to_file}` to specify the location of the `tone.json` file.
 
     ```bash
