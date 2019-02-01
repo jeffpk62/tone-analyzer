@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-02-01"
 
 ---
 
@@ -29,7 +29,7 @@ Request logging is disabled for the {{site.data.keyword.toneanalyzershort}} serv
 {: note}
 
 ## Requesting a tone analysis
-{: #request}
+{: #request-tone}
 
 To analyze tone with the general-purpose endpoint, you call one of the two versions of the service's `tone` method:
 
@@ -251,7 +251,7 @@ The following example shows the contents of the <a target="_blank" href="https:/
 {: codeblock}
 
 ## JSON response content
-{: #JSONresponse}
+{: #JSONresponse-tone}
 
 The service returns a JSON `ToneAnalysis` object that always contains a `document_tone` field. This field contains a `DocumentAnalysis` object that provides the analysis of the full input document. It contains a single field, `tones`, that provides the results of the analysis for each qualifying tone of the document.
 
@@ -289,7 +289,7 @@ The following example shows the high-level structure of the `ToneAnalysis` objec
 The `tones` fields that are returned for both document- and sentence-level analyses contain an array of `ToneScore` objects that provides results for the dominant tones. Such tones have scores of at least 0.5. The array is empty if no tone has a score that meets this threshold. Each `ToneScore` object provides the following information about a qualifying tone:
 
 -   `score` (double) is the score for the tone in the range of 0.5 to 1. A score greater than 0.75 indicates a high likelihood that the tone is perceived in the content.
--   `tone_id` (string) is the unique, non-localized identifier of the tone; for descriptions of the tones, see [General-purpose tones](#tones).
+-   `tone_id` (string) is the unique, non-localized identifier of the tone; for descriptions of the tones, see [General-purpose tones](#tones-tone).
 -   `tone_name` (string) is the user-visible, localized name of the tone.
 
 The following example shows the structure of the `ToneScore` object:
@@ -309,7 +309,7 @@ The following example shows the structure of the `ToneScore` object:
 {: codeblock}
 
 ### Example response
-{: #exampleResponse}
+{: #exampleResponse-tone}
 
 The following output is returned for the [Example requests](#exampleRequests). (The same output is returned for the first example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html).) The response includes results for the full document and for each individual sentence. All reported tones have a score of at least 0.5. Tones with a score of at least 0.75 are likely to be perceived in the content.
 
@@ -374,7 +374,7 @@ The following output is returned for the [Example requests](#exampleRequests). (
 {: codeblock}
 
 ## General-purpose tones
-{: #tones}
+{: #tones-tone}
 
 The following table describes the general-purpose tones that the service can return. A tone whose score is less than 0.5 is omitted, indicating that the emotion is unlikely to be perceived in the content. A score greater than 0.75 indicates a high likelihood that the tone is perceived.
 

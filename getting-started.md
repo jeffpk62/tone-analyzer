@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-13"
+  years: 2015, 2019
+lastupdated: "2019-02-01"
 
 ---
 
@@ -90,7 +90,7 @@ The following commands call the `POST /v3/tone` method to analyze the contents o
     ```
     {: pre}
 
-For an example of the method's output, see [Example response](/docs/services/tone-analyzer/using-tone.html#exampleResponse).
+For an example of the method's output, see [Example response](/docs/services/tone-analyzer/using-tone.html#exampleResponse-tone).
 
 ## Step 2: Using the general-purpose endpoint via the GET request method
 {: #generalPurposeGet}
@@ -125,7 +125,7 @@ The following command calls the `POST /v3/tone_chat` method to analyze the conte
     ```
     {: pre}
 
-The service's response indicates the most prevalent tones that are detected for each utterance of the input. To view the content of the response for this request, see [Example response](/docs/services/tone-analyzer/using-tone-chat.html#exampleResponse).
+The service's response indicates the most prevalent tones that are detected for each utterance of the input. To view the content of the response for this request, see [Example response](/docs/services/tone-analyzer/using-tone-chat.html#exampleResponse-tone-chat).
 
 ## Next steps
 
