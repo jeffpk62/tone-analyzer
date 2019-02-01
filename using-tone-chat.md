@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-02-01"
 
 ---
 
@@ -29,7 +29,7 @@ Request logging is disabled for the {{site.data.keyword.toneanalyzershort}} serv
 {: note}
 
 ## Requesting a tone analysis
-{: #request}
+{: #request-tone-chat}
 
 To analyze tone with the customer-engagement endpoint, you call the `POST /v3/tone_chat` method with the following parameters.
 
@@ -196,7 +196,7 @@ The following example shows the contents of the <a target="_blank" href="https:/
 {: codeblock}
 
 ## JSON response content
-{: #JSONresponse}
+{: #JSONresponse-tone-chat}
 
 The service returns a JSON `UtteranceAnalyses` object that contains a single field, `utterances_tone`. This field contains an array of `UtteranceAnalysis` objects, each of which provides the following information about an utterance of the input content:
 
@@ -207,7 +207,7 @@ The service returns a JSON `UtteranceAnalyses` object that contains a single fie
 Each `ToneChatScore` object provides the following information about a qualifying tone:
 
 -   `score` (double) is the score for the tone in the range of 0.5 to 1. A score greater than 0.75 indicates a high likelihood that the tone is perceived in the utterance.
--   `tone_id` (string) is the unique, non-localized identifier of the tone; for descriptions of the tones, see [Customer-engagement tones](#tones).
+-   `tone_id` (string) is the unique, non-localized identifier of the tone; for descriptions of the tones, see [Customer-engagement tones](#tones-tone-chat).
 -   `tone_name` (string) is the user-visible, localized name of the tone.
 
 The following example shows the structure of the `UtteranceAnalyses` object:
@@ -233,7 +233,7 @@ The following example shows the structure of the `UtteranceAnalyses` object:
 {: codeblock}
 
 ### Example response
-{: #exampleResponse}
+{: #exampleResponse-tone-chat}
 
 The following output is returned for the [Example request](#exampleRequest). (The same output is returned for the example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html#customerEngagement).) All reported tones have a score of at least 0.5. Tones with a score of at least 0.75 are likely to be perceived by participants in the conversation.
 
@@ -295,7 +295,7 @@ The following output is returned for the [Example request](#exampleRequest). (Th
 {: codeblock}
 
 ## Customer-engagement tones
-{: #tones}
+{: #tones-tone-chat}
 
 The service can return scores for the following seven tones.
 
