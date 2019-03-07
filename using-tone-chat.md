@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-03-06"
 
 ---
 
@@ -47,8 +47,9 @@ To analyze tone with the customer-engagement endpoint, you call the `POST /v3/to
     <td style="text-align:center">Body</td>
     <td style="text-align:center">JSON object</td>
     <td>
-      A JSON <code>ToneChatInput</code> object that contains the content
-      to be analyzed. See <a href="#JSONrequest">Specifying JSON input</a>.
+      A JSON <code>ToneChatInput</code> object that contains the
+      content that is to be analyzed. For more information, see
+      [Specifying JSON input](#JSONrequest).
     </td>
   </tr>
   <tr>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-03-06"
 
 ---
 
@@ -53,8 +53,9 @@ The methods accept the following parameters.
     <td>
       JSON, plain text, or HTML input that contains the content to
       be analyzed. For JSON input, provide an object of type
-      <code>ToneInput</code>; see <a href="#JSONinput">Specifying JSON
-        input</a>. <em>Not supported for <code>GET</code> requests.</em>
+      <code>ToneInput</code>. For more information, see
+      [Specifying JSON input](#JSONinput). <em>Not supported for
+      <code>GET</code> requests.</em>
     </td>
   </tr>
   <tr>
