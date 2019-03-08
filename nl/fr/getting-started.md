@@ -25,7 +25,7 @@ lastupdated: "2017-10-12"
 Le service {{site.data.keyword.toneanalyzershort}} analyse le ton du contenu en entrée. Ce tutoriel illustre des commandes qui analysent des échantillons de contenu différents. Les exemples décrivent le noeud final générique ainsi que le noeud final d'interaction avec les clients.
 {: shortdesc}
 
-## Avant de commancer
+## Avant de commencer
 {: #prerequisites}
 
 - Créez une instance du service :
