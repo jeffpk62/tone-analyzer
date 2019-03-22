@@ -24,6 +24,7 @@ Tone Analyzer
     {: .navgroup id="howto"}
     using-tone.md
     using-tone-chat.md
+    ha-dr.md
 
     {: topicgroup}
     Service background
