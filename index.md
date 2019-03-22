@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-14"
 
 subcollection: tone-analyzer
 
@@ -69,3 +69,8 @@ The {{site.data.keyword.toneanalyzershort}} service algorithmically calculates t
 {: #languages}
 
 The `/v3/tone` and `/v3/tone_chat` methods can analyze content in English (`en`) and French (`fr`). Both methods can respond with localized content in various languages. For more information, see [Using the general-purpose endpoint](/docs/services/tone-analyzer/using-tone.html) and [Using the customer-engagement endpoint](/docs/services/tone-analyzer/using-tone-chat.html).
+
+## HIPAA
+{: hipaa}
+
+US Health Insurance Portability and Accountability Act (HIPAA) support does not apply to the {{site.data.keyword.toneanalyzershort}} service. The service is stateless. It stores no user data on {{site.data.keyword.cloud_notm}}.
