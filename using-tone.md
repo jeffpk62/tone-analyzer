@@ -23,6 +23,7 @@ subcollection: tone-analyzer
 {:swift: .ph data-hd-programlang='swift'}
 
 # Using the general-purpose endpoint
+{: #utgpe}
 
 The {{site.data.keyword.toneanalyzershort}} general-purpose endpoint analyzes the tone of written communications, from short email messages to longer documents. It can help you understand the emotional and language tones of your communications. For more information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
 {: shortdesc}
@@ -100,7 +101,7 @@ The methods accept the following parameters.
       <code>YYYY-MM-DD</code>; for example, specify <code>2017-09-21</code>
       for September 21, 2017 (the latest version). For more information about
       all available versions, see the
-      [Release notes](/docs/services/tone-analyzer/release-notes.html).
+      [Release notes](/docs/services/tone-analyzer?topic=tone-analyzer-rnrn).
     </td>
   </tr>
   <tr>
@@ -209,7 +210,7 @@ curl -X GET -u "apikey:{apikey}"
 ```
 {: pre}
 
-For more examples, see the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html).
+For more examples, see the [Getting started tutorial](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted).
 
 ### Specifying the character set
 {: #charset}
@@ -242,7 +243,7 @@ To analyze JSON input with the `POST` request method, you pass the method a JSON
 ```
 {: codeblock}
 
-The following example shows the contents of the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a> file that is used with the examples in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html). The file includes a single paragraph of text that is written by one person. (The following text includes line breaks for readability; do not include them in actual input.)
+The following example shows the contents of the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a> file that is used with the examples in the [Getting started tutorial](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted). The file includes a single paragraph of text that is written by one person. (The following text includes line breaks for readability; do not include them in actual input.)
 
 ```javascript
 {
@@ -288,6 +289,7 @@ The following example shows the high-level structure of the `ToneAnalysis` objec
 {: codeblock}
 
 ### Tone and score results
+{: #uttsr}
 
 The `tones` fields that are returned for both document- and sentence-level analyses contain an array of `ToneScore` objects that provides results for the dominant tones. Such tones have scores of at least 0.5. The array is empty if no tone has a score that meets this threshold. Each `ToneScore` object provides the following information about a qualifying tone:
 
@@ -314,7 +316,7 @@ The following example shows the structure of the `ToneScore` object:
 ### Example response
 {: #exampleResponse-tone}
 
-The following output is returned for the [Example requests](#exampleRequests). (The same output is returned for the first example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html).) The response includes results for the full document and for each individual sentence. All reported tones have a score of at least 0.5. Tones with a score of at least 0.75 are likely to be perceived in the content.
+The following output is returned for the [Example requests](#exampleRequests). (The same output is returned for the first example in the [Getting started tutorial](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted).) The response includes results for the full document and for each individual sentence. All reported tones have a score of at least 0.5. Tones with a score of at least 0.75 are likely to be perceived in the content.
 
 ```javascript
 {

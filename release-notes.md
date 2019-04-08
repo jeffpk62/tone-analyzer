@@ -23,6 +23,7 @@ subcollection: tone-analyzer
 {:swift: .ph data-hd-programlang='swift'}
 
 # Release notes
+{: #rnrn}
 
 The following sections document the new features and changes that were included for each release of the {{site.data.keyword.toneanalyzershort}} service. The changes do not break existing code.
 {: shortdesc}
@@ -53,22 +54,23 @@ The {{site.data.keyword.toneanalyzershort}} service is now available in the {{si
 The {{site.data.keyword.toneanalyzershort}} service is now available in the {{site.data.keyword.cloud_notm}} Tokyo location (**jp-tok**). Like all locations, Tokyo uses token-based IAM authentication. All new services instances that you create in this location use IAM authentication.
 
 ## Older releases
+{: #rnor}
 
--   [30 October 2018](#October2018)
--   [11 June 2018](#June2018)
--   [25 May 2018](#May2018)
--   [13 March 2018](#March2018)
--   [28 September 2017](#September2017b)
--   [25 September 2017](#September2017a)
--   [6 July 2017](#July2017b)
--   [1 July 2017](#July2017a)
--   [8 May 2017](#May2017)
--   [17 April 2017](#April2017)
--   [15 March 2017](#March2017)
--   [1 December 2016](#December2016)
--   [18 October 2016](#October2016b)
--   [3 October 2016](#October2016a)
--   [19 May 2016](#May2016)
+  - [30 October 2018](#30-october-2018)
+  - [11 June 2018](#11-june-2018)
+  - [25 May 2018](#25-may-2018)
+  - [13 March 2018](#13-march-2018)
+  - [28 September 2017](#28-september-2017)
+  - [25 September 2017](#25-september-2017)
+  - [6 July 2017](#6-july-2017)
+  - [1 July 2017](#1-july-2017)
+  - [8 May 2017](#8-may-2017)
+  - [17 April 2017](#17-april-2017)
+  - [15 March 2017](#15-march-2017)
+  - [1 December 2016](#1-december-2016)
+  - [18 October 2016](#18-october-2016)
+  - [3 October 2016](#3-october-2016)
+  - [19 May 2016](#19-may-2016)
 
 ### 30 October 2018
 {: #October2018}
@@ -96,8 +98,8 @@ The migration to IAM authentication affects new and existing service instances d
 For more information, see the following documentation:
 
 -   To learn which authentication mechanism your service instance uses, view your service credentials by clicking the instance on the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/dashboard/apps){: new_window}.
--   For more information about using IAM tokens with Watson services, see [Authenticating with IAM tokens](/docs/services/watson/getting-started-iam.html).
--   For more information about using IAM API keys with Watson services, see [IAM service API keys](/docs/services/watson/apikey-bp.html).
+-   For more information about using IAM tokens with Watson services, see [Authenticating with IAM tokens](/docs/services/watson?topic=watson-iam).
+-   For more information about using IAM API keys with Watson services, see [IAM service API keys](/docs/services/watson?topic=watson-api-key-bp).
 -   For examples that use IAM authentication, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
 
 ### 11 June 2018
