@@ -33,7 +33,7 @@ subcollection: tone-analyzer
 The {{site.data.keyword.toneanalyzershort}} service analyzes the tone of input content. This tutorial shows commands that analyze different sample content. The examples demonstrate both the general-purpose and the customer-engagement endpoints.
 {: shortdesc}
 
-The tutorial uses {{site.data.keyword.cloud}} Identity and Access Management (IAM) API keys for authentication. Older service instances might continue to use the `{username}` and `{password}` from their existing Cloud Foundry service credentials for authentication. Authenticate by using the approach that is right for your service instance. For more information about the service's use of IAM authentication, see the [Release notes](/docs/services/tone-analyzer/release-notes.html).
+The tutorial uses {{site.data.keyword.cloud}} Identity and Access Management (IAM) API keys for authentication. Older service instances might continue to use the `{username}` and `{password}` from their existing Cloud Foundry service credentials for authentication. Authenticate by using the approach that is right for your service instance. For more information about the service's use of IAM authentication, see the [Release notes](/docs/services/tone-analyzer?topic=tone-analyzer-rnrn).
 {: important}
 
 ## Before you begin
@@ -89,7 +89,7 @@ The following commands call the `POST /v3/tone` method to analyze the contents o
     ```
     {: pre}
 
-For an example of the method's output, see [Example response](/docs/services/tone-analyzer/using-tone.html#exampleResponse-tone).
+For an example of the method's output, see [Example response](/docs/services/tone-analyzer?topic=tone-analyzer-utgpe#exampleResponse-tone).
 
 ## Step 2: Using the general-purpose endpoint via the GET request method
 {: #generalPurposeGet}
@@ -124,10 +124,11 @@ The following command calls the `POST /v3/tone_chat` method to analyze the conte
     ```
     {: pre}
 
-The service's response indicates the most prevalent tones that are detected for each utterance of the input. To view the content of the response for this request, see [Example response](/docs/services/tone-analyzer/using-tone-chat.html#exampleResponse-tone-chat).
+The service's response indicates the most prevalent tones that are detected for each utterance of the input. To view the content of the response for this request, see [Example response](/docs/services/tone-analyzer?topic=tone-analyzer-utco#exampleResponse-tone-chat).
 
 ## Next steps
+{: #gsns}
 
--   For more information about the `/v3/tone` method, see [Using the general-purpose endpoint](/docs/services/tone-analyzer/using-tone.html).
--   For more information about the `/v3/tone_chat` method, see [Using the customer-engagement endpoint](/docs/services/tone-analyzer/using-tone-chat.html).
+-   For more information about the `/v3/tone` method, see [Using the general-purpose endpoint](/docs/services/tone-analyzer?topic=tone-analyzer-utgpe).
+-   For more information about the `/v3/tone_chat` method, see [Using the customer-engagement endpoint](/docs/services/tone-analyzer?topic=tone-analyzer-utco).
 -   For more information about the methods of the service's interface, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.

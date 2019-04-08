@@ -23,27 +23,29 @@ subcollection: tone-analyzer
 {:swift: .ph data-hd-programlang='swift'}
 
 # The science behind the service
+{: #ssbts}
 
 The {{site.data.keyword.toneanalyzerfull}} service is based on the theory of psycholinguistics, a field of research that explores the relationship between linguistic behavior and psychological theories. The service uses linguistic analysis and the correlation between the linguistic features of written text and emotional and language tones to develop scores for each of these tone dimensions.
 {: shortdesc}
 
 Psycholinguistics researchers work to understand whether the words that people use in their day-to-day lives reflect who they are, how they feel, and how they think. After several decades of research, it is now accepted in psychology, marketing, and other fields that language reflects more than just what people want to say. The frequency with which people use certain types of words can provide clues to their personality, thinking style, social connections, and emotional states.
 
-For example, people exhibit various tones in their daily communications: joyful or sad, open or conservative, analytical or informal ([Gou and others, 2014](/docs/services/tone-analyzer/references.html#bib-gou), and [Jian and others, 2014](/docs/services/tone-analyzer/references.html#bib-jian)). These tones can impact the perception of a person's online identity and the effectiveness of their communications in different contexts.
+For example, people exhibit various tones in their daily communications: joyful or sad, open or conservative, analytical or informal ([Gou and others, 2014](/docs/services/tone-analyzer?topic=tone-analyzer-references#bib-gou), and [Jian and others, 2014](/docs/services/tone-analyzer?topic=tone-analyzer-references#bib-jian)). These tones can impact the perception of a person's online identity and the effectiveness of their communications in different contexts.
 
-Moreover, in business email communications, people are likely to perceive negative emotions with greater intensity than they do positive emotions ([Byron, 2008](/docs/services/tone-analyzer/references.html#bib-byron)). And in social media, people present different online identities that impact the impression that others have of them ([DiMicco and Millen, 2007](/docs/services/tone-analyzer/references.html#bib-dimicco)).
+Moreover, in business email communications, people are likely to perceive negative emotions with greater intensity than they do positive emotions ([Byron, 2008](/docs/services/tone-analyzer?topic=tone-analyzer-references#bib-byron)). And in social media, people present different online identities that impact the impression that others have of them ([DiMicco and Millen, 2007](/docs/services/tone-analyzer?topic=tone-analyzer-references#bib-dimicco)).
 
 Many people naturally read a message and judge the tones that are conveyed by the sender. But can a computer detect the tones that are disclosed by a message accurately and automatically? This question is one of the many challenging issues to which researchers in the artificial intelligence and cognitive sciences fields are seeking answers. First with the {{site.data.keyword.personalityinsightsshort}} service and now with the {{site.data.keyword.toneanalyzershort}} service, IBM is answering this question.
 
 ## Overview of related research
+{: #sorr}
 
 Research shows a strong and statistically significant correlation between word choice and personality, emotions, attitudes, intrinsic needs, values, and thought processes. Several researchers found that people vary in how often they use certain categories of words when they write for blogs, essays, and tweets. Researchers found that these communication mediums can help predict different aspects of personality:
 
--   [Fast and Funder (2008)](/docs/services/tone-analyzer/references.html#bib-fast)
--   [Gill and others (2009)](/docs/services/tone-analyzer/references.html#bib-gill)
--   [Golbeck and others (2011)](/docs/services/tone-analyzer/references.html#bib-golbeck)
--   [Hirsh and Peterson (2009)](/docs/services/tone-analyzer/references.html#bib-hirsh)
--   [Yarkoni (2010)](/docs/services/tone-analyzer/references.html#bib-yarkoni)
+-   [Fast and Funder (2008)](/docs/services/tone-analyzer?topic=tone-analyzer-references#bib-fast)
+-   [Gill and others (2009)](/docs/services/tone-analyzer?topic=tone-analyzer-references#bib-gill)
+-   [Golbeck and others (2011)](/docs/services/tone-analyzer?topic=tone-analyzer-references#bib-golbeck)
+-   [Hirsh and Peterson (2009)](/docs/services/tone-analyzer?topic=tone-analyzer-references#bib-hirsh)
+-   [Yarkoni (2010)](/docs/services/tone-analyzer?topic=tone-analyzer-references#bib-yarkoni)
 
 Most of these prior works are based on finding psychologically meaningful word categories from word usage in writing. This research serves as the basis for IBM's work on the {{site.data.keyword.toneanalyzershort}} service. Relying on the scientific findings from psycholinguistics research, IBM is working to infer people's personality characteristics, their thinking and writing styles, their emotions, and their intrinsic needs and values from the words that they write. IBM uses its machine-learning models to evaluate these characteristics by assessing various features of a person's writing.
 
@@ -56,6 +58,7 @@ The general-purpose endpoint analyzes written content for a set of tones that is
 -   **Language tone** is calculated from linguistic analysis based on learned features.
 
 ### Measuring the quality of the service
+{: #smqs}
 
 IBM measured the quality of the {{site.data.keyword.toneanalyzershort}} service along the dimensions of tone from the previous section:
 
@@ -70,6 +73,7 @@ IBM measured the quality of the {{site.data.keyword.toneanalyzershort}} service 
 Overall, the differences between the predicted and ground-truth labels are not statistically significant. This result indicates that the service performs well.
 
 ## The customer-engagement model
+{: #scem}
 
 The customer-engagement endpoint identifies tones from the customer-care domain. To select the tones to evaluate with the customer-engagement model, IBM first conducted a study to identify which dimensions of tone are perceived as important in the domain:
 
@@ -80,12 +84,14 @@ The customer-engagement endpoint identifies tones from the customer-care domain.
 These steps identified seven important tone dimensions for the customer-care domain: frustration, satisfaction, excitement, politeness, impoliteness, sadness, and sympathy.
 
 ### Data collection
+{: #sdc}
 
 IBM used Twitter customer-support forums as the source of conversational data for its analysis of tone in the customer-care domain. Many companies use Twitter as a channel for providing support to their customers. Agents are hired and trained to monitor tweets that mention the company, to direct help requests, and to provide fast support to address customers' needs.
 
 To collect as many conversations as possible, IBM selected 62 brands with dedicated customer-service accounts on Twitter. IBM chose these brands to cover a large variety of industries, geographical locations, and organizational scales. Overall, IBM collected 2.6 million user requests between June 1 and August 1, 2016.
 
 ### Data annotation
+{: #sda}
 
 IBM sifted the collected data set to retain only those conversations that received at least one reply and that involved only one customer and one agent. IBM also removed from the data set all non-English conversations and conversations that contained requests or answers with images. To preserve users' and companies' privacy, IBM replaced all *@mentions* in each conversation with *@customer*, *@[industry]_company* (for example, *@ecommerce_company* or *@telecommunication_company*), *@competitor_company*, or *@other_users*.
 
@@ -96,6 +102,7 @@ Five different annotators labeled each conversation. IBM used only US-based anno
 IBM used the average of the five annotators' scores as the final label for each utterance. IBM then used a score of 1 as the threshold for converting the labels to binary values. IBM chose 1 as the threshold based on observations of the label distributions and on the performance of the models with different thresholds. The final results produced the following distribution of utterances: 9536 frustrated, 10,806 satisfied, 6107 excited, 63,853 polite, 1688 impolite, 24,954 sad, and 10,475 sympathetic.
 
 ### Learning tone models
+{: #sltm}
 
 Based on these customer-engagement conversations, IBM trained a machine-learning model based on the Support Vector Machine (SVM) to predict tone for new customer-care utterances. For the machine-learning model, IBM leveraged several categories of features:
 

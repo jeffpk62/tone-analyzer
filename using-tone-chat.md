@@ -23,6 +23,7 @@ subcollection: tone-analyzer
 {:swift: .ph data-hd-programlang='swift'}
 
 # Using the customer-engagement endpoint
+{: #utco}
 
 The {{site.data.keyword.toneanalyzershort}} customer-engagement endpoint analyzes the tone of customer service and support conversations. It can help you better understand your interactions with customers and improve your communications in general or for specific customers. For more information about the interface, including the Node.js, Java, and Python SDKs that are available for calling the service, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
 {: shortdesc}
@@ -63,7 +64,7 @@ To analyze tone with the customer-engagement endpoint, you call the `POST /v3/to
       <code>YYYY-MM-DD</code>; for example, specify <code>2017-09-21</code>
       for September 21, 2017 (the latest version). For more information about
       all available versions, see the
-      [Release notes](/docs/services/tone-analyzer/release-notes.html).
+      [Release notes](/docs/services/tone-analyzer?topic=tone-analyzer-rnrn).
     </td>
   </tr>
   <tr>
@@ -238,7 +239,7 @@ The following example shows the structure of the `UtteranceAnalyses` object:
 ### Example response
 {: #exampleResponse-tone-chat}
 
-The following output is returned for the [Example request](#exampleRequest). (The same output is returned for the example in the [Getting started tutorial](/docs/services/tone-analyzer/getting-started.html#customerEngagement).) All reported tones have a score of at least 0.5. Tones with a score of at least 0.75 are likely to be perceived by participants in the conversation.
+The following output is returned for the [Example request](#exampleRequest). (The same output is returned for the example in the [Getting started tutorial](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted#customerEngagement).) All reported tones have a score of at least 0.5. Tones with a score of at least 0.75 are likely to be perceived by participants in the conversation.
 
 ```javascript
 {
