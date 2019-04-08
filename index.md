@@ -70,7 +70,7 @@ The {{site.data.keyword.toneanalyzershort}} service algorithmically calculates t
 ## Language support
 {: #languages}
 
-The `/v3/tone` and `/v3/tone_chat` methods can analyze content in English (`en`) and French (`fr`). Both methods can respond with localized content in various languages. For more information, see [Using the general-purpose endpoint](/docs/services/tone-analyzer?topic=tone-analyzer-using-the-general-purpose-endpoint) and [Using the customer-engagement endpoint](/docs/services/tone-analyzer?topic=tone-analyzer-utco).
+The `/v3/tone` and `/v3/tone_chat` methods can analyze content in English (`en`) and French (`fr`). Both methods can respond with localized content in various languages. For more information, see [Using the general-purpose endpoint](/docs/services/tone-analyzer?topic=tone-analyzer-utgpe) and [Using the customer-engagement endpoint](/docs/services/tone-analyzer?topic=tone-analyzer-utco).
 
 ## HIPAA
 {: #hipaa}
