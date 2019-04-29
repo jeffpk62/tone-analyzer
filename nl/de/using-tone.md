@@ -1,14 +1,19 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-09-21"
+  years: 2015, 2019
+lastupdated: "2019-03-07"
+
+subcollection: tone-analyzer
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,14 +23,18 @@ lastupdated: "2017-09-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Endpunkt für allgemeine Zwecke verwenden
+{: #utgpe}
 
-Der Endpunkt für allgemeine Zwecke von {{site.data.keyword.toneanalyzershort}} analysiert den Ton schriftlicher Kommunikation, von kurzen E-Mail-Nachrichten bis hin zu langen Dokumenten. Er kann Ihnen das Verständnis der emotionalen und der Sprachtöne Ihrer Kommunikation erleichtern. Detaillierte Informationen zu der Schnittstelle, einschließlich der für den Aufruf des Service verfügbaren Node.js, Java und Python SDKs, finden Sie in der [API-Referenz ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+Der Endpunkt für allgemeine Zwecke von {{site.data.keyword.toneanalyzershort}} analysiert den Ton schriftlicher Kommunikation, von kurzen E-Mail-Nachrichten bis hin zu längeren Dokumenten. Er kann Ihnen das Verständnis der emotionalen und der Sprachtöne Ihrer Kommunikation erleichtern. Weitere Informationen zu der Schnittstelle, einschließlich der für den Aufruf des Service verfügbaren Node.js-, Java- und Python-SDKs, finden Sie in der [API-Referenz ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
 {: shortdesc}
 
-## Tonanalyse anfordern
-{: #request}
+Die Anforderungsprotokollierung ist für den Service {{site.data.keyword.toneanalyzershort}} inaktiviert. Unabhängig davon, ob der Anforderungsheader `X-Watson-Learning-Opt-Out` definiert wurde, protokolliert der Service die Daten von Anforderungen und der entsprechenden Antworten nicht und bewahrt diese Daten auch nicht auf.
+{: note}
 
-Zur Analyse von Tönen mit dem Endpunkt für allgemeine Zwecke können Sie eine von zwei Methoden `tone` des Service aufrufen:
+## Tonanalyse anfordern
+{: #request-tone}
+
+Zur Analyse von Tönen mit dem Endpunkt für allgemeine Zwecke können Sie eine von zwei Versionen der Methode `tone` des Service aufrufen:
 
 -   Die Methode `POST /v3/tone` akzeptiert Eingabeinhalt in JSON, Klartext oder HTML über den erforderlichen Hauptteil der Anforderung. Verwenden Sie diese Version der Methode für längere Texte oder für Texte, die Sie nicht in der URL verfügbar machen wollen.
 -   Die Methode `GET /v3/tone` akzeptiert Eingabeinhalt über ihren erforderlichen Abfrageparameter `text`. Verwenden Sie diese Version der Methode für einfache Texte, die sich leicht in der URL unterbringen lassen.
@@ -45,10 +54,9 @@ Die Methoden akzeptieren die folgenden Parameter.
     <td style="text-align:center">Hauptteil</td>
     <td style="text-align:center">JSON-Objekt | Zeichenfolge</td>
     <td>
-      Eingabe in JSON, Klartext oder HTML, die den zu analysierenden Inhalt enthält.
-      Stellen Sie bei einer JSON-Eingabe ein Objekt vom Typ
-      <code>ToneInput</code> bereit (siehe <a href="#JSONinput">JSON-Eingabe
-        angeben</a>). <em>Wird bei <code>GET</code>-Anforderungen nicht unterstützt.</em>
+      Eingabe in JSON, Klartext oder HTML, die den zu analysierenden Inhalt enthält. Stellen Sie für eine JSON-Eingabe ein Objekt vom Typ
+      <code>ToneInput</code> bereit. Weitere Informationen hierzu finden Sie in
+      [JSON-Eingabe angeben](#JSONinput). <em>Wird bei <code>GET</code>-Anforderungen nicht unterstützt.</em>
     </td>
   </tr>
   <tr>
@@ -66,7 +74,7 @@ Die Methoden akzeptieren die folgenden Parameter.
     <td style="text-align:center">Header</td>
     <td style="text-align:center">Zeichenfolge</td>
     <td>
-      Der Inhaltstyp der Anforderung:
+      Der Inhaltstyp der Anforderung.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           <code>text/plain</code> für Klartext
@@ -87,9 +95,11 @@ Die Methoden akzeptieren die folgenden Parameter.
     <td style="text-align:center">Abfrage</td>
     <td style="text-align:center">Zeichenfolge</td>
     <td>
-      Die angeforderte Version des Antwortformats als Datum im Format
-      <code>JJJJ-MM-TT</code>. Geben Sie z. B. <code>2017-09-21</code>
-      für den 21. September 2017 an.
+      Die Version der API, die Sie als Datum im Format
+      <code>JJJJ-MM-TT</code> verwenden wollen; Beispiel: Geben Sie <code>2017-09-21</code>
+      für den 21. September 2017 (aktuellste Version) an. Weitere Informationen zu allen
+      verfügbaren Versionen finden Sie in den
+      [Releaseinformationen](/docs/services/tone-analyzer?topic=tone-analyzer-rnrn).
     </td>
   </tr>
   <tr>
@@ -97,13 +107,13 @@ Die Methoden akzeptieren die folgenden Parameter.
     <td style="text-align:center">Header</td>
     <td style="text-align:center">Zeichenfolge</td>
     <td>
-      Die Sprache des Eingabeinhalts:
+      Die Sprache des Eingabeinhalts.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           <code>en</code> (Englisch, die Standardeinstellung)
         </li>
         <li style="margin:0px; padding:0px">
-            <code>fr</code> (Französisch)
+          <code>fr</code> (Französisch)
         </li>
       </ul>
       Regionale Varianten werden als deren übergeordnete Sprache aufgefasst. Beispielsweise
@@ -118,40 +128,40 @@ Die Methoden akzeptieren die folgenden Parameter.
     <td style="text-align:center">Header</td>
     <td style="text-align:center">Zeichenfolge</td>
     <td>
-      Die gewünschte Sprache der Antwort:
+      Die angeforderte Sprache der Antwort.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
-          ar (Arabisch)
+          <code>ar</code> (Arabisch)
         </li>
         <li style="margin:0px; padding:0px">
-          de (Deutsch)
+          <code>de</code> (Deutsch)
         </li>
         <li style="margin:0px; padding:0px">
-          en (Englisch, die Standardeinstellung)
+          <code>en</code> (Englisch, die Standardeinstellung)
         </li>
         <li style="margin:0px; padding:0px">
-          es (Spanisch)
+          <code>es</code> (Spanisch)
         </li>
         <li style="margin:0px; padding:0px">
-          fr (Französisch)
+          <code>fr</code> (Französisch)
         </li>
         <li style="margin:0px; padding:0px">
-          it (Italienisch)
+          <code>it</code> (Italienisch)
         </li>
         <li style="margin:0px; padding:0px">
-          ja (Japanisch)
+          <code>ja</code> (Japanisch)
         </li>
         <li style="margin:0px; padding:0px">
-          ko (Koreanisch)
+          <code>ko</code> (Koreanisch)
         </li>
         <li style="margin:0px; padding:0px">
-          pt-br (Portugiesisch (Brasilien))
+          <code>pt-br</code> (Brasilianisches Portugiesisch)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-cn (Vereinfachtes Chinesisch)
+          <code>zh-cn</code> (Vereinfachtes Chinesisch)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-tw (Traditionelles Chinesisch)
+          <code>zh-tw</code> (Traditionelles Chinesisch)
         </li>
       </ul>
       Bei Argumenten, die aus zwei Zeichen bestehen, werden regionale Varianten als
@@ -178,10 +188,10 @@ Die Methoden akzeptieren die folgenden Parameter.
 ### Beispielanforderungen
 {: #exampleRequests}
 
-Der folgende cURL-Beispielbefehl ruft mithilfe der HTTP-Anforderungsmethode `POST` den Endpunkt für allgemeine Zwecke mit der Eingabedatei <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link" class="style-scope doc-content"></a> und der Version `2017-09-21` auf. Im Beispiel wird eine Analyse für das gesamte Dokument und für die einzelnen Sätze angefordert.
+Der folgende Beispielbefehl `curl` ruft mithilfe der HTTP-Anforderungsmethode `POST` den Endpunkt für allgemeine Zwecke mit der Eingabedatei <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link"></a> und der Version `2017-09-21` auf. Im Beispiel wird eine Analyse für das gesamte Dokument und für die einzelnen Sätze angefordert.
 
 ```bash
-curl -X POST --user "{username}":"{password}"
+curl -X POST -u "apikey:{apikey}"
 --header "Content-Type: application/json"
 --data-binary @./tone.json
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21"
@@ -191,14 +201,14 @@ curl -X POST --user "{username}":"{password}"
 Der folgende Beispielbefehl entspricht dem vorherigen Beispiel, verwendet jedoch die HTTP-Abrufanforderung `GET`:
 
 ```bash
-curl -X GET --user "{username}":"{password}"
+curl -X GET -u "apikey:{apikey}"
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21&text=Team%2C%20I%20know%20that
 %20times%20are%20tough%21%20Product%20sales%20have%20been%20disappointing%20for%20the%20past%20three%20quarters.
 %20We%20have%20a%20competitive%20product%2C%20but%20we%20need%20to%20do%20a%20better%20job%20of%20selling%20it%21"
 ```
 {: pre}
 
-Weitere Beispiele finden Sie im [Lernprogramm zur Einführung](/docs/services/tone-analyzer/getting-started.html).
+Weitere Beispiele finden Sie im [Lernprogramm zur Einführung](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted).
 
 ### Zeichensatz angeben
 {: #charset}
@@ -215,9 +225,9 @@ Content-Type: text/plain;charset=utf-8
 ```
 {: codeblock}
 
-Mit der Verwendung des Parameters `charset` können Sie potenzielle Probleme mit Nicht-ASCII-Zeichen oder nicht druckbaren Zeichen vermeiden. Bei der Übergabe von UTF 8-Daten ohne Angabe des Zeichensatzes können Sonderzeichen falsche Ergebnisse oder Fehler in HTTP 4*nn* oder 5*nn* zur Folge haben.
+Mit der Verwendung des Parameters `charset` können Sie potenzielle Probleme mit Nicht-ASCII-Zeichen oder nicht druckbaren Zeichen vermeiden. Bei der Übergabe von UTF-8-Daten ohne Angabe des Zeichensatzes können Sonderzeichen zu falschen Ergebnissen oder zu HTTP-Level-400- oder HTTP-Level-500-Fehlern führen.
 
-Übergeben Sie zur Vermeidung ähnlicher Fehler bei Verwendung von cURL den Inhalt stets mit der Option `--data-binary` des Befehls `curl`, um alle UTF-8-Codierungen des Inhalts zu erhalten. Wenn Sie den Inhalt mit der Option `--data` als ASCII übergeben, kann der Befehl den Inhalt verarbeiten, was Probleme für Daten in UTF-8-Codierung auslösen kann.
+Übergeben Sie zur Vermeidung ähnlicher Fehler bei Verwendung des Befehls `curl` den Inhalt stets mit der Option `--data-binary` des Befehls `curl`, um alle UTF-8-Codierungen des Inhalts zu erhalten. Wenn Sie den Inhalt mit der Option `--data` als ASCII übergeben, kann der Befehl den Inhalt verarbeiten, was Probleme für Daten in UTF-8-Codierung auslösen kann.
 
 ## JSON-Eingabe angeben
 {: #JSONinput}
@@ -231,7 +241,7 @@ Zur Analyse einer JSON-Eingabe mit der Anforderungsmethode `POST` übergeben Sie
 ```
 {: codeblock}
 
-Das folgende Beispiel zeigt den Inhalt der Datei <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link" class="style-scope doc-content"></a>, die bei den Beispielen im [Lernprogramm zur Einführung](/docs/services/tone-analyzer/getting-started.html) verwendet wird. Die Datei enthält einen einzigen Absatz mit Text, der von einer einzigen Person verfasst ist. (Zur besseren Lesbarkeit enthält der folgende Text Zeilenumbrüche, die Sie jedoch nicht in eine echte Eingabe einbauen dürfen.)
+Das folgende Beispiel zeigt den Inhalt der Datei <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link"></a>, die bei den Beispielen im [Lernprogramm zur Einführung](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted) verwendet wird. Die Datei enthält einen einzigen Textabsatz, der von einer einzigen Person verfasst wird. (Zur besseren Lesbarkeit enthält der folgende Text Zeilenumbrüche, die Sie jedoch nicht in eine echte Eingabe einbauen dürfen.)
 
 ```javascript
 {
@@ -243,7 +253,7 @@ Das folgende Beispiel zeigt den Inhalt der Datei <a target="_blank" href="https:
 {: codeblock}
 
 ## Inhalt von JSON-Antworten
-{: #JSONresponse}
+{: #JSONresponse-tone}
 
 Der Service gibt das JSON-Objekt `ToneAnalysis` zurück, das immer ein Feld namens `document_tone` enthält. Dieses Feld enthält ein Objekt namens `DocumentAnalysis`, das die Analyse des gesamten Eingabedokuments bereitstellt. Es enthält ein einziges Feld namens `tones`, das die Ergebnisse der Analyse der einzelnen qualifizierenden Töne des Dokuments bereitstellt.
 
@@ -277,11 +287,12 @@ Das folgende Beispiel zeigt die allgemeine Struktur des Objekts `ToneAnalysis`:
 {: codeblock}
 
 ### Töne und Bewertungsergebnisse
+{: #uttsr}
 
-Die `tones`-Felder, die bei den Analysen auf Dokument- und Satzebene zurückgegeben werden, enthalten ein Array von `ToneScore`-Objekten, die Ergebnisse zu den vorherrschenden Tönen bereitstellen, deren Wert mindestens 0,5 beträgt. Wenn kein Ton eine Bewertung hat, die diesem Schwellenwert entspricht, ist das Array leer. Jedes `ToneScore`-Objekt stellt die folgenden Informationen zu einem qualifizierenden Ton bereit:
+Die `tones`-Felder, die bei den Analysen auf Dokument- und Satzebene zurückgegeben werden, enthalten ein Array von `ToneScore`-Objekten, das Ergebnisse zu den vorherrschenden Tönen bereitstellt. Diese Töne verfügen über Bewertungen mit einem Wert von mindestens 0,5. Wenn kein Ton eine Bewertung hat, die diesem Schwellenwert entspricht, ist das Array leer. Jedes `ToneScore`-Objekt stellt die folgenden Informationen zu einem qualifizierenden Ton bereit:
 
 -   `score` (Doppelbyte) ist der Wert für den Ton im Bereich von 0,5 bis 1. Ein Wert größer als 0,75 gibt an, dass der Ton mit großer Wahrscheinlichkeit im Inhalt wahrgenommen wird.
--   `tone_id` (Zeichenfolge) ist eine eindeutige, nicht lokalisierte ID für den Ton. Beschreibungen der Töne finden Sie im Abschnitt [Töne für allgemeine Zwecke](#tones).
+-   `tone_id` (Zeichenfolge) ist eine eindeutige, nicht lokalisierte ID für den Ton. Beschreibungen der Töne finden Sie im Abschnitt [Töne für allgemeine Zwecke](#tones-tone).
 -   `tone_name` (Zeichenfolge) ist der für den Benutzer sichtbare, lokalisierte Name des Tons.
 
 Das folgende Beispiel zeigt die Struktur des Objekts `ToneScore`:
@@ -301,9 +312,9 @@ Das folgende Beispiel zeigt die Struktur des Objekts `ToneScore`:
 {: codeblock}
 
 ### Beispielantwort
-{: #exampleResponse}
+{: #exampleResponse-tone}
 
-Die folgende Ausgabe wird für die [Beispielanforderungen](#exampleRequests) zurückgegeben. (Dieselbe Ausgabe wird für das erste Beispiel im [Lernprogramm zur Einführung](/docs/services/tone-analyzer/getting-started.html) zurückgegeben). Die Antwort umfasst Ergebnisse für das vollständige Dokument und für jeden einzelnen Satz. Alle berichteten Töne haben einen Wert von mindestens 0,5. Töne mit einem Wert von mindestens 0,75 werden mit großer Wahrscheinlichkeit im Inhalt wahrgenommen.
+Die folgende Ausgabe wird für die [Beispielanforderungen](#exampleRequests) zurückgegeben. (Dieselbe Ausgabe wird für das erste Beispiel im [Lernprogramm zur Einführung](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted) zurückgegeben). Die Antwort umfasst Ergebnisse für das vollständige Dokument und für jeden einzelnen Satz. Alle berichteten Töne haben eine Bewertung von mindestens 0,5. Töne mit einer Bewertung von mindestens 0,75 werden mit großer Wahrscheinlichkeit im Inhalt wahrgenommen.
 
 ```javascript
 {
@@ -366,9 +377,9 @@ Die folgende Ausgabe wird für die [Beispielanforderungen](#exampleRequests) zur
 {: codeblock}
 
 ## Töne für allgemeine Zwecke
-{: #tones}
+{: #tones-tone}
 
-In der folgenden Tabelle werden die Töne für allgemeine Zwecke beschrieben, die der Service zurückgeben kann. Ein Ton, dessen Wert weniger als 0,5 beträgt, wird weggelassen. Dies zeigt an, dass die Emotion wahrscheinlich nicht im Inhalt wahrgenommen wird. Ein Wert größer als 0,75 gibt an, dass der Ton mit großer Wahrscheinlichkeit wahrgenommen wird.
+In der folgenden Tabelle werden die Töne für allgemeine Zwecke beschrieben, die der Service zurückgeben kann. Ein Ton, dessen Wert weniger als 0,5 beträgt, wird weggelassen. Dies zeigt an, dass die Emotion wahrscheinlich nicht im Inhalt wahrgenommen wird. Eine Bewertung größer als 0,75 gibt an, dass der Ton mit großer Wahrscheinlichkeit wahrgenommen wird.
 
 <table>
   <caption>Tabelle 2. Töne für allgemeine Zwecke</caption>
@@ -397,7 +408,8 @@ In der folgenden Tabelle werden die Töne für allgemeine Zwecke beschrieben, di
     <td>Freude<br/><code>joy</code></td>
     <td>
       Freude (oder Glück) hat die Schattierungen Vergnügen, Zufriedenheit
-      und Lust. Freude bringt ein Gefühl von Wohlbefinden, innerem Frieden, Liebe,
+      und Lust.
+      Freude bringt ein Gefühl von Wohlbefinden, innerem Frieden, Liebe,
       Sicherheit und Behagen. (Ein emotionaler Ton.)
     </td>
   </tr>
@@ -405,7 +417,7 @@ In der folgenden Tabelle werden die Töne für allgemeine Zwecke beschrieben, di
     <td>Traurigkeit<br/><code>sadness</code></td>
     <td>
       Traurigkeit zeigt ein Gefühl von Verlorenheit und Benachteiligung an. Wenn
-      eine Person still, antriebslos und zurückgezogen ist, kann man ableiten,
+      eine Person still, antriebslos und zurückgezogen ist, kann abgeleitet werden,
       dass sie Traurigkeit empfindet. (Ein emotionaler Ton.)
     </td>
   </tr>
@@ -422,7 +434,8 @@ In der folgenden Tabelle werden die Töne für allgemeine Zwecke beschrieben, di
     <td>
       Ein zuversichtlicher Ton zeigt den Grad der Sicherheit einer Person an. Eine
       zuversichtliche Person kann als selbstsicher, gefasst, hoffnungsvoll oder egoistisch
-      wahrgenommen werden. (Ein Sprachton.)
+      wahrgenommen werden.
+      (Ein Sprachton.)
     </td>
   </tr>
   <tr>

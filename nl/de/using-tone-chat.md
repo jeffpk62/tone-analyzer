@@ -1,14 +1,19 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-28"
+  years: 2015, 2019
+lastupdated: "2019-03-07"
+
+subcollection: tone-analyzer
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,18 +23,21 @@ lastupdated: "2017-10-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Endpunkt für Kundenengagement verwenden
+{: #utco}
 
-Mit dem Endpunkt für Kundenengagement von {{site.data.keyword.toneanalyzershort}} wird der Ton von Konversationen des Kundenservice und der Kundenunterstützung analysiert. Er kann dazu beitragen, dass Sie Ihre Interaktionen mit Kunden besser verstehen und Ihre Kommunikation insgesamt oder mit bestimmten Kunden verbessern. Detaillierte Informationen zu der Schnittstelle, einschließlich der für den Aufruf des Service verfügbaren Node.js, Java und Python SDKs, finden Sie in der [API-Referenz ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+Mit dem Endpunkt für das Kundenengagement von {{site.data.keyword.toneanalyzershort}} wird der Ton von Konversationen des Kundenservice und der Kundenunterstützung analysiert. Er kann dazu beitragen, dass Sie Ihre Interaktionen mit Kunden besser verstehen und Ihre Kommunikation insgesamt oder mit bestimmten Kunden verbessern. Weitere Informationen zu der Schnittstelle, einschließlich der für den Aufruf des Service verfügbaren Node.js-, Java- und Python-SDKs, finden Sie in der [API-Referenz ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
 {: shortdesc}
 
-## Tonanalyse anfordern
-{: #request}
+Die Anforderungsprotokollierung ist für den Service {{site.data.keyword.toneanalyzershort}} inaktiviert. Unabhängig davon, ob der Anforderungsheader `X-Watson-Learning-Opt-Out` definiert wurde, protokolliert der Service die Daten von Anforderungen und der entsprechenden Antworten nicht und bewahrt diese Daten auch nicht auf.
+{: note}
 
-Zur Tonanalyse mit dem Endpunkt für Kundenengagement rufen Sie die Methode `POST /v3/tone_chat` mit den folgenden Parametern auf.
+## Tonanalyse anfordern
+{: #request-tone-chat}
+
+Zur Tonanalyse mit dem Endpunkt für das Kundenengagement rufen Sie die Methode `POST /v3/tone_chat` mit den folgenden Parametern auf.
 
 <table>
-  <caption>Tabelle 1. Parameter der Methode <code>POST /v3/tone_chat</code>
-</caption>
+  <caption>Tabelle 1. Parameter der Methode <code>POST /v3/tone_chat</code></caption>
   <tr>
     <th style="text-align:left; width:20%">Parameter</th>
     <th style="text-align:center; width:12%">Typ</th>
@@ -41,8 +49,9 @@ Zur Tonanalyse mit dem Endpunkt für Kundenengagement rufen Sie die Methode `POS
     <td style="text-align:center">Hauptteil</td>
     <td style="text-align:center">JSON-Objekt</td>
     <td>
-      Ein JSON-Objekt namens <code>ToneChatInput</code>, das den Inhalt enthält, der analysiert
-      werden soll. Weitere Informationen finden Sie im Abschnitt <a href="#JSONrequest">JSON-Eingabe angeben</a>.
+      Ein JSON-Objekt <code>ToneChatInput</code>, das den zu analysierenden
+      Inhalt enthält. Weitere Informationen hierzu finden Sie in
+      [JSON-Eingabe angeben](#JSONrequest).
     </td>
   </tr>
   <tr>
@@ -50,9 +59,32 @@ Zur Tonanalyse mit dem Endpunkt für Kundenengagement rufen Sie die Methode `POS
     <td style="text-align:center">Abfrage</td>
     <td style="text-align:center">Zeichenfolge</td>
     <td>
-      Die angeforderte Version der Schnittstelle als Datum im Format
-      <code>JJJJ-MM-TT</code>. Geben Sie z. B. <code>2017-09-21</code>
-      für den 21. September 2017 an.
+      Die Version der API, die Sie als Datum im Format
+      <code>JJJJ-MM-TT</code> verwenden wollen; Beispiel: Geben Sie <code>2017-09-21</code>
+      für den 21. September 2017 (aktuellste Version) an. Weitere Informationen zu allen
+      verfügbaren Versionen finden Sie in den
+      [Releaseinformationen](/docs/services/tone-analyzer?topic=tone-analyzer-rnrn).
+    </td>
+  </tr>
+  <tr>
+    <td><code>Content-Language</code><br/><em>Optional</em></td>
+    <td style="text-align:center">Header</td>
+    <td style="text-align:center">Zeichenfolge</td>
+    <td>
+      Die Sprache des Eingabeinhalts.
+      <ul style="margin:0px 0px 0px 20px; padding:0px">
+        <li style="margin:0px; padding:0px">
+          <code>en</code> (Englisch, die Standardeinstellung)
+        </li>
+        <li style="margin:0px; padding:0px">
+            <code>fr</code> (Französisch)
+        </li>
+      </ul>
+      Regionale Varianten werden als deren übergeordnete Sprache aufgefasst. Beispielsweise
+      wird <code>en-US</code> als <code>en</code> interpretiert. Der Eingabeinhalt
+      muss der angegebenen Sprache entsprechen. Übergeben Sie keinen Inhalt, der
+      beide Sprachen enthält. Sie können verschiedene Sprachen für die Eingabe und
+      die Antwort verwenden.
     </td>
   </tr>
   <tr>
@@ -60,57 +92,62 @@ Zur Tonanalyse mit dem Endpunkt für Kundenengagement rufen Sie die Methode `POS
     <td style="text-align:center">Header</td>
     <td style="text-align:center">Zeichenfolge</td>
     <td>
-      Die gewünschte Sprache der Antwort:
+      Die angeforderte Sprache der Antwort.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
-          ar (Arabisch)
+          <code>ar</code> (Arabisch)
         </li>
         <li style="margin:0px; padding:0px">
-          de (Deutsch)
+          <code>de</code> (Deutsch)
         </li>
         <li style="margin:0px; padding:0px">
-          en (Englisch, die Standardeinstellung)
+          <code>en</code> (Englisch, die Standardeinstellung)
         </li>
         <li style="margin:0px; padding:0px">
-          es (Spanisch)
+          <code>es</code> (Spanisch)
         </li>
         <li style="margin:0px; padding:0px">
-          fr (Französisch)
+          <code>fr</code> (Französisch)
         </li>
         <li style="margin:0px; padding:0px">
-          it (Italienisch)
+          <code>it</code> (Italienisch)
         </li>
         <li style="margin:0px; padding:0px">
-          ja (Japanisch)
+          <code>ja</code> (Japanisch)
         </li>
         <li style="margin:0px; padding:0px">
-          ko (Koreanisch)
+          <code>ko</code> (Koreanisch)
         </li>
         <li style="margin:0px; padding:0px">
-          pt-br (Portugiesisch (Brasilien))
+          <code>pt-br</code> (Brasilianisches Portugiesisch)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-cn (Vereinfachtes Chinesisch)
+          <code>zh-cn</code> (Vereinfachtes Chinesisch)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-tw (Traditionelles Chinesisch)
+          <code>zh-tw</code> (Traditionelles Chinesisch)
         </li>
       </ul>
+      Bei Argumenten, die aus zwei Zeichen bestehen, werden regionale Varianten als
+      deren übergeordnete Sprache aufgefasst. Beispielsweise wird <code>en-US</code> als
+      <code>en</code> interpretiert. Sie können verschiedene Sprachen für die Eingabe und
+      die Antwort verwenden.
     </td>
   </tr>
 </table>
 
 Wenn Sie mehr als 50 Äußerungen übergeben, gibt der Service auf der Ebene `warning` seiner Antwort ein Feld `warning` für den Gesamtinhalt zurück. Er analysiert nur die ersten 50 Äußerungen. Wenn Sie eine einzelne Äußerung übergeben, die mehr als 500 Zeichen enthält, gibt der Service ein Feld `error` für diese Äußerung zurück und analysiert sie nicht. In beiden Fällen ist die Anforderung dennoch mit dem HTTP-Antwortcode 200 erfolgreich.
 
-> **Hinweis:** Der Service gibt den Antwortcode 400 zurück, wenn alle Äußerungen der Eingabe mehr als 500 Zeichen aufweisen.
+Der Service gibt den Antwortcode 400 zurück, wenn alle Äußerungen der Eingabe mehr als 500 Zeichen aufweisen.
+{: note}
 
 ### Beispielanforderung
 {: #exampleRequest}
 
-Der folgende cURL-Beispielbefehl ruft den Endpunkt für Kundenengagement mit der Eingabedatei <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link" class="style-scope doc-content"></a> und der Version `2017-09-21` auf:
+Der folgende Beispielbefehl `curl` ruft den Endpunkt für das Kundenengagement mit der Eingabedatei <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link"></a> und der Version `2017-09-21` auf:
 
 ```bash
-curl -X POST --user "{username}":"{password}"
+curl -X POST -u "apikey:{apikey}"
 --header "Content-Type: application/json"
 --data-binary @./tone-chat.json
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone_chat?version=2017-09-21"
@@ -120,7 +157,7 @@ curl -X POST --user "{username}":"{password}"
 ## JSON-Eingabe angeben
 {: #JSONrequest}
 
-Sie übergeben an die Methode ein JSON-Objekt namens `ToneChatInput` im folgenden Format. Das Feld `utterances` stellt ein Array von `utterance`-Objekten bereit. Dabei ist `text` eine erforderliche Zeichenfolge, mit der eine Äußerung, die ein Benutzer in der zu analysierenden Konversation gemacht hat, bereitgestellt wird, und `user` ist eine optionale Zeichenfolge, die den Benutzer angibt, der die Äußerung gemacht hat.
+Sie übergeben an die Methode ein JSON-Objekt namens `ToneChatInput` im folgenden Format. Im Feld `utterances` ist ein Array mit `utterance`-Objekten angegeben. Das Feld `text` enthält die erforderliche Zeichenfolge, die eine Äußerung angibt, die von einem Benutzer zu der zu analysierenden Konversation beigetragen wurde. Im Feld `user` ist eine optionale Zeichenfolge enthalten, die den Benutzer identifiziert, der die Äußerung beigetragen hat.
 
 ```javascript
 {
@@ -135,7 +172,7 @@ Sie übergeben an die Methode ein JSON-Objekt namens `ToneChatInput` im folgende
 ```
 {: codeblock}
 
-Das folgende Beispiel zeigt den Inhalt der Datei <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link" class="style-scope doc-content"></a>. Die Datei enthält einen kurzen Austausch zwischen einem Kunden (<code>customer</code>) und einem Mitarbeiter (<code>agent</code>).
+Das folgende Beispiel zeigt den Inhalt der Datei <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link"></a>. Die Datei enthält einen kurzen Austausch zwischen einem Kunden (<code>customer</code>) und einem Mitarbeiter (<code>agent</code>).
 
 ```javascript
 {
@@ -162,21 +199,21 @@ Das folgende Beispiel zeigt den Inhalt der Datei <a target="_blank" href="https:
 {: codeblock}
 
 ## Inhalt von JSON-Antworten
-{: #JSONresponse}
+{: #JSONresponse-tone-chat}
 
 Der Service gibt das JSON-Objekt `UtteranceAnalyses` zurück, das als einziges Feld `utterances_tone` enthält. Dieses Feld enthält ein Array von `UtteranceAnalysis`-Objekten, von denen jedes die folgenden Informationen zu einer Äußerung aus dem Eingabeinhalt bereitstellt:
 
 -   `utterance_id` (Ganzzahl) stellt die eindeutige ID für die Äußerung bereit. Die erste Äußerung hat die ID 0 und die ID jeder nachfolgenden Äußerung wird um einen Schritt erhöht.
 -   `utterance_text` (Zeichenfolge) stellt den Text der Äußerung bereit.
--   `tones` ist ein Array von `ToneChatScore`-Objekten, die Ergebnisse zu den vorherrschenden Tönen bereitstellen, deren Wert mindestens 0,5 beträgt. Wenn die Äußerung keinen Ton mit einer Bewertung hat, die diesem Schwellenwert entspricht, ist das Array leer. 
+-   `tones` ist ein Array von `ToneChatScore`-Objekten, das Ergebnisse zu den vorherrschenden Tönen bereitstellt. Diese Töne verfügen über Bewertungen mit einem Wert von mindestens 0,5. Wenn die Äußerung keinen Ton mit einer Bewertung hat, die diesem Schwellenwert entspricht, ist das Array leer.
 
 Jedes `ToneChatScore`-Objekt stellt die folgenden Informationen zu einem qualifizierenden Ton bereit:
 
 -   `score` (Doppelbyte) ist der Wert für den Ton im Bereich von 0,5 bis 1. Ein Wert größer als 0,75 gibt an, dass der Ton mit großer Wahrscheinlichkeit in der Äußerung wahrgenommen wird.
--   `tone_id` (Zeichenfolge) ist eine eindeutige, nicht lokalisierte ID für den Ton. Beschreibungen der Töne finden Sie im Abschnitt [Töne für Kundenengagement](#tones).
+-   `tone_id` (Zeichenfolge) ist eine eindeutige, nicht lokalisierte ID für den Ton. Beschreibungen der Töne finden Sie im Abschnitt [Töne für das Kundenengagement](#tones-tone-chat).
 -   `tone_name` (Zeichenfolge) ist der für den Benutzer sichtbare, lokalisierte Name des Tons.
 
-Das folgende Beispiel zeigt die Struktur des Objekts `UtterancesAnalyses`:
+Das folgende Beispiel zeigt die Struktur des Objekts `UtteranceAnalyses`:
 
 ```javascript
 {
@@ -199,9 +236,9 @@ Das folgende Beispiel zeigt die Struktur des Objekts `UtterancesAnalyses`:
 {: codeblock}
 
 ### Beispielantwort
-{: #exampleResponse}
+{: #exampleResponse-tone-chat}
 
-Die folgende Ausgabe wird für die [Beispielanforderung](#exampleRequest) zurückgegeben. (Dieselbe Ausgabe wird für das Beispiel im [Lernprogramm zur Einführung](/docs/services/tone-analyzer/getting-started.html#customerEngagement) zurückgegeben). Alle berichteten Töne haben einen Wert von mindestens 0,5. Töne mit einem Wert von mindestens 0,75 werden mit großer Wahrscheinlichkeit von den Teilnehmern der Konversation wahrgenommen.
+Die folgende Ausgabe wird für die [Beispielanforderung](#exampleRequest) zurückgegeben. (Dieselbe Ausgabe wird für das Beispiel im [Lernprogramm zur Einführung](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted#customerEngagement) zurückgegeben). Alle berichteten Töne haben eine Bewertung von mindestens 0,5. Töne mit einer Bewertung von mindestens 0,75 werden mit großer Wahrscheinlichkeit von den Teilnehmern der Konversation wahrgenommen.
 
 ```javascript
 {
@@ -211,7 +248,7 @@ Die folgende Ausgabe wird für die [Beispielanforderung](#exampleRequest) zurüc
       "utterance_text": "Hello, I'm having a problem with your product.",
       "tones": [
         {
-          "score": 0.718352,
+          "score": 0.686361,
           "tone_id": "polite",
           "tone_name": "Polite"
         }
@@ -220,14 +257,20 @@ Die folgende Ausgabe wird für die [Beispielanforderung](#exampleRequest) zurüc
     {
       "utterance_id": 1,
       "utterance_text": "OK, let me know what's going on, please.",
-      "tones": []
+      "tones": [
+        {
+          "score": 0.92724,
+          "tone_id": "polite",
+          "tone_name": "Polite"
+        }
+      ]
     },
     {
       "utterance_id": 2,
       "utterance_text": "Well, nothing is working :(",
       "tones": [
         {
-          "score": 0.997149,
+          "score": 0.997795,
           "tone_id": "sad",
           "tone_name": "sad"
         }
@@ -238,12 +281,12 @@ Die folgende Ausgabe wird für die [Beispielanforderung](#exampleRequest) zurüc
       "utterance_text": "Sorry to hear that.",
       "tones": [
         {
-          "score": 0.689109,
+          "score": 0.730982,
           "tone_id": "polite",
           "tone_name": "Polite"
         },
         {
-          "score": 0.663203,
+          "score": 0.672499,
           "tone_id": "sympathetic",
           "tone_name": "Sympathetic"
         }
@@ -254,13 +297,13 @@ Die folgende Ausgabe wird für die [Beispielanforderung](#exampleRequest) zurüc
 ```
 {: codeblock}
 
-## Töne für Kundenengagement
-{: #tones}
+## Töne für das Kundenengagement
+{: #tones-tone-chat}
 
 Der Service kann Bewertungen für die folgenden sieben Töne zurückgeben.
 
 <table style="width:90%">
-  <caption>Tabelle 2. Töne für Kundenengagement</caption>
+  <caption>Tabelle 2. Töne für das Kundenengagement</caption>
   <tr>
     <th style="text-align:left; width:20%">Ton / ID</th>
     <th style="text-align:left">Beschreibung</th>

@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="tone-analyzer" audience="service" href="/docs/services/tone-analyzer/getting-started.html" path="services/tone-analyzer"}
+{: .toc subcollection="tone-analyzer" audience="service" arm="347" href="/docs/services/tone-analyzer/getting-started.html" path="services/tone-analyzer"}
 Tone Analyzer
 
     {: .navgroup id="learn"}
@@ -11,8 +11,8 @@ Tone Analyzer
 
     {: .topicgroup}
     데모
-        [일반 목적](https://tone-analyzer-demo.ng.bluemix.net/)
-        [고객 참여](http://customer-engagement-analytics.mybluemix.net/)
+        [범용](https://tone-analyzer-demo.ng.bluemix.net/)
+        [고객 참여](https://customer-engagement-demo.ng.bluemix.net/)
 
     {: .topicgroup}
     추가 리소스
@@ -24,6 +24,7 @@ Tone Analyzer
     {: .navgroup id="howto"}
     using-tone.md
     using-tone-chat.md
+    ha-dr.md
 
     {: topicgroup}
     서비스 배경
@@ -33,16 +34,9 @@ Tone Analyzer
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [API 참조](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/)
-
-    {: .topicgroup}
-    Watson SDKs
-        [Java SDK](https://github.com/watson-developer-cloud/java-sdk)
-        [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk)
-        [Python SDK](https://github.com/watson-developer-cloud/python-sdk)
-        [Swift SDK](https://github.com/watson-developer-cloud/ios-sdk)
-        [Unity SDK](https://github.com/watson-developer-cloud/unity-sdk)
-
+    [API 참조](https://cloud.ibm.com/apidocs/tone-analyzer)
+    information-security.md
+    /watson/watson-using-sdks
     [Watson GitHub 저장소](https://github.com/watson-developer-cloud/)
     {: .navgroup-end}
 
@@ -52,6 +46,6 @@ Tone Analyzer
     {: .topicgroup}
     개발자 커뮤니티
         [StackOverflow](http://stackoverflow.com/questions/tagged/tone-analyzer)
-        [developerWorks Answers](https://developer.ibm.com/answers/topics/tone-analyzer/)
+        [IBM Developer Answers](https://developer.ibm.com/answers/topics/tone-analyzer/)
         [WDC Slack 채널](http://wdc-slack-inviter.mybluemix.net/)
     {: .navgroup-end}

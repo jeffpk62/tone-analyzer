@@ -1,14 +1,19 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-09-21"
+  years: 2015, 2019
+lastupdated: "2019-03-07"
+
+subcollection: tone-analyzer
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,12 +23,16 @@ lastupdated: "2017-09-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Utilización del punto final de finalidad general
+{: #utgpe}
 
-El punto final de finalidad general de {{site.data.keyword.toneanalyzershort}} analiza el tono de las comunicaciones escritas, desde breves mensajes de correo electrónico hasta documentos más largos. Le puede ayudar a comprender los tonos emocionales e idiomáticos de sus comunicaciones. Para obtener información detallada sobre la interfaz, incluidos los SDK Node.js, Java y Python que están disponibles para llamar al servicio, reviste la [Consulta de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+El punto final de finalidad general de {{site.data.keyword.toneanalyzershort}} analiza el tono de las comunicaciones escritas, desde mensajes breves de correo electrónico a documentos más largos. Le puede ayudar a comprender los tonos emocionales e idiomáticos de sus comunicaciones. Para obtener más información sobre la interfaz, incluidos los SDK Node.js, Java y Python que están disponibles para llamar al servicio, reviste la [Consulta de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
 {: shortdesc}
 
+El registro de solicitudes está inhabilitado para el servicio {{site.data.keyword.toneanalyzershort}}. Independientemente de si se establece la cabecera de solicitud `X-Watson-Learning-Opt-Out`, el servicio no registra ni retiene datos de las solicitudes y respuestas.
+{: note}
+
 ## Solicitud de un análisis de tono
-{: #request}
+{: #request-tone}
 
 Para analizar el tono con el punto final de finalidad general, debe efectuar una llamada a una de las dos versiones del método `tone` del servicio:
 
@@ -41,14 +50,14 @@ Los métodos aceptan los parámetros siguientes.
     <th style="text-align:left">Descripción</th>
   </tr>
   <tr>
-    <td><code>Body</code><br/><em>Obligatorio para <code>POST</code></em></td>
+    <td><code>Cuerpo</code><br/><em>Obligatorio para <code>POST</code></em></td>
     <td style="text-align:center">Cuerpo</td>
     <td style="text-align:center">Objeto JSON | Serie</td>
     <td>
       Entrada JSON, texto sin formato o HTML con el contenido que se
       va a analizar. Para la entrada JSON, especifique un objeto de tipo
-      <code>ToneInput</code>; consulte <a href="#JSONinput">Especificación
-        de la entrada JSON</a>. <em>No recibe soporte para solicitudes <code>GET</code>.</em>
+      <code>ToneInput</code>. Para obtener más información, consulte
+      [Cómo especificar entrada JSON](#JSONinput). <em>No recibe soporte para solicitudes <code>GET</code>.</em>
     </td>
   </tr>
   <tr>
@@ -65,7 +74,7 @@ Los métodos aceptan los parámetros siguientes.
     <td style="text-align:center">Cabecera</td>
     <td style="text-align:center">Serie</td>
     <td>
-      El tipo de contenido de la solicitud:
+      El tipo de contenido de la solicitud.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           <code>text/plain</code> para texto sin formato
@@ -86,9 +95,11 @@ Los métodos aceptan los parámetros siguientes.
     <td style="text-align:center">Consulta</td>
     <td style="text-align:center">Serie</td>
     <td>
-      La versión solicitada del formato de respuesta como una fecha con el formato
+      La versión de la API que desea utilizar como una fecha en formato
       <code>AAAA-MM-DD</code>; por ejemplo, especifique <code>2017-09-21</code>
-      para el 21 de septiembre de 2017.
+      para indicar el 21 de septiembre de 2017 (la última versión). Para obtener más información acerca de
+      todas las versiones disponibles, consulte las
+      [Notas del release](/docs/services/tone-analyzer?topic=tone-analyzer-rnrn).
     </td>
   </tr>
   <tr>
@@ -96,13 +107,13 @@ Los métodos aceptan los parámetros siguientes.
     <td style="text-align:center">Cabecera</td>
     <td style="text-align:center">Serie</td>
     <td>
-      El idioma del contenido de la entrada:
+      El idioma del contenido de la entrada.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           <code>en</code> (inglés, valor predeterminado)
         </li>
         <li style="margin:0px; padding:0px">
-            <code>fr</code> (francés)
+          <code>fr</code> (francés)
         </li>
       </ul>
       Las variantes regionales se tratan como su idioma padre; por ejemplo,
@@ -116,40 +127,40 @@ Los métodos aceptan los parámetros siguientes.
     <td style="text-align:center">Cabecera</td>
     <td style="text-align:center">Serie</td>
     <td>
-      El idioma deseado de la respuesta:
+      El idioma solicitado de la respuesta.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
-          ar (árabe)
+          <code>ar</code> (árabe)
         </li>
         <li style="margin:0px; padding:0px">
-          de (alemán)
+          <code>de</code> (alemán)
         </li>
         <li style="margin:0px; padding:0px">
-          en (inglés, valor predeterminado)
+          <code>en</code> (inglés, valor predeterminado)
         </li>
         <li style="margin:0px; padding:0px">
-          es (español)
+          <code>es</code> (español)
         </li>
         <li style="margin:0px; padding:0px">
-          fr (francés)
+          <code>fr</code> (francés)
         </li>
         <li style="margin:0px; padding:0px">
-          it (italiano)
+          <code>it</code> (italiano)
         </li>
         <li style="margin:0px; padding:0px">
-          ja (japonés)
+          <code>ja</code> (japonés)
         </li>
         <li style="margin:0px; padding:0px">
-          ko (coreano)
+          <code>ko</code> (coreano)
         </li>
         <li style="margin:0px; padding:0px">
-          pt-br (portugués de Brasil)
+          <code>pt-br</code> (portugués de Brasil)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-cn (chino simplificado)
+          <code>zh-cn</code> (chino simplificado)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-tw (chino tradicional)
+          <code>zh-tw</code> (chino tradicional)
         </li>
       </ul>
       Para los argumentos de dos caracteres, las variantes regionales se tratan como su idioma padre; por ejemplo, <code>en-US</code> se interpreta como <code>en</code>. Puede utilizar diferentes idiomas para la entrada y la respuesta.
@@ -171,10 +182,10 @@ No envíe más de 128 KB de contenido total de entrada y no más de 1000 frases 
 ### Solicitudes de ejemplo
 {: #exampleRequests}
 
-El siguiente mandato cURL de ejemplo utiliza el método de solicitud `POST` de HTTP para llamar al punto final de finalidad general con el archivo de entrada <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a> y una versión de `2017-09-21`. El ejemplo solicita un análisis del documento completo y de las frases individuales.
+El siguiente mandato `curl` de ejemplo utiliza el método de solicitud `POST` de HTTP para llamar al punto final de finalidad general con el archivo de entrada <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a> y una versión de `2017-09-21`. El ejemplo solicita un análisis del documento completo y de las frases individuales.
 
 ```bash
-curl -X POST --user "{username}":"{password}"
+curl -X POST -u "apikey:{apikey}"
 --header "Content-Type: application/json"
 --data-binary @./tone.json
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21"
@@ -184,35 +195,35 @@ curl -X POST --user "{username}":"{password}"
 El siguiente mandato de ejemplo es equivalente al ejemplo anterior, pero utiliza el método de solicitud `GET` de HTTP:
 
 ```bash
-curl -X GET --user "{username}":"{password}"
+curl -X GET -u "apikey:{apikey}"
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21&text=Team%2C%20I%20know%20that
 %20times%20are%20tough%21%20Product%20sales%20have%20been%20disappointing%20for%20the%20past%20three%20quarters.
 %20We%20have%20a%20competitive%20product%2C%20but%20we%20need%20to%20do%20a%20better%20job%20of%20selling%20it%21"
 ```
 {: pre}
 
-Para ver más ejemplos, consulte la [Guía de aprendizaje de iniciación](/docs/services/tone-analyzer/getting-started.html).
+Para ver más ejemplos, consulte la [Guía de aprendizaje de iniciación](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted).
 
-### Especificación del juego de caracteres
+### Cómo especificar el juego de caracteres
 {: #charset}
 
-De forma predeterminada, el servicio utiliza los siguientes juegos de caracteres para el contenido de la entrada:
+De forma predeterminada, el servicio utiliza los siguientes juegos de caracteres para el contenido de entrada:
 
--   *Para texto sin formato y contenido HTML, * el servicio utiliza el juego de caracteres International Standards Organization (ISO)-8859-1 (en realidad, el juego de caracteres ASCII) de la especificación HTTP versión 1.1.
--   *Para contenido JSON, * el servicio siempre utiliza el juego de caracteres Unicode Transformation Format (UTF)-8 de la sección 8.1 de International Engineering Task Force (IETF) [Request for Comment (RFC) 7159 ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://tools.ietf.org/html/rfc7159#section-8.1){: new_window}.
+-   *Para texto sin formato y contenido HTML,* el servicio utiliza el juego de caracteres International Standards Organization (ISO)-8859-1 (en realidad, el juego de caracteres ASCII) de la especificación HTTP versión 1.1.
+-   *Para contenido JSON,* el servicio en realidad utiliza siempre el juego de caracteres Unicode Transformation Format (UTF)-8 según la sección 8.1 de International Engineering Task Force (IETF) [Request for Comment (RFC) 7159 ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://tools.ietf.org/html/rfc7159#section-8.1){: new_window}.
 
-Cuando envíe texto sin formato o contenido HTML, incluya el parámetro `charset` con la cabecera `Content-Type` para indicar la codificación de los caracteres del texto de entrada. En el ejemplo siguiente se especifica la codificación de caracteres UTF-8 para la entrada de texto sin formato:
+Cuando envíe texto sin formato o contenido HTML, incluya el parámetro `charset` con la cabecera `Content-Type` para indicar la codificación de caracteres del texto de entrada. En el ejemplo siguiente se especifica la codificación de caracteres UTF-8 para la entrada de texto sin formato:
 
 ```
 Content-Type: text/plain;charset=utf-8
 ```
 {: codeblock}
 
-Con el parámetro `charset` puede evitar posibles problemas asociados con caracteres que no sean ASCII o no imprimibles. Si pasa datos UTF-8 sin especificar el juego de caracteres, los caracteres especiales pueden generar resultados incorrectos o errores HTTP 4*nn* o 5*nn*.
+Al utilizar el parámetro `charset`, puede evitar posibles problemas asociados con caracteres no ASCII o no imprimibles. Si pasa datos UTF-8 sin especificar el juego de caracteres, los caracteres especiales pueden dar lugar a resultados incorrectos o de nivel 400- o 500 de HTTP.
 
-Para evitar errores similares cuando se utiliza cURL, pase siempre el contenido mediante la opción `--data-binary` del mandato `curl` para conservar la codificación UTF-8 del contenido. Si utiliza la opción `--data` para pasar el contenido como ASCII, el mandato puede procesar la entrada, lo que puede causar problemas para datos codificados en UTF-8.
+Para evitar errores similares al utilizar el mandato `curl`, pase siempre el contenido mediante la opción `--data-binary` del mandato `curl` para conservar la codificación UTF-8 del contenido. Si utiliza la opción `--data` para pasar el contenido como ASCII, el mandato puede procesar la entrada, lo que puede provocar problemas para los datos codificados en UTF-8.
 
-## Especificación de la entrada JSON
+## Cómo especificar entrada JSON
 {: #JSONinput}
 
 Para analizar entrada JSON con el método de solicitud `POST`, pase al método un objeto JSON `ToneInput` con el siguiente formato simple:
@@ -224,7 +235,7 @@ Para analizar entrada JSON con el método de solicitud `POST`, pase al método u
 ```
 {: codeblock}
 
-En el ejemplo siguiente se muestra el contenido del archivo <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a> que se utiliza en los ejemplos de la [Guía de aprendizaje de iniciación](/docs/services/tone-analyzer/getting-started.html). El archivo incluye un solo párrafo de texto escrito por una persona. (El texto siguiente incluye saltos de página para facilitar su lectura; no los incluya en la entrada real.)
+En el ejemplo siguiente se muestra el contenido del archivo <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a> que se utiliza en los ejemplos de la [Guía de aprendizaje de iniciación](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted). El archivo incluye un solo párrafo de texto escrito por una persona. (El texto siguiente incluye saltos de página para facilitar su lectura; no los incluya en la entrada real.)
 
 ```javascript
 {
@@ -236,7 +247,7 @@ En el ejemplo siguiente se muestra el contenido del archivo <a target="_blank" h
 {: codeblock}
 
 ## Contenido de la respuesta JSON
-{: #JSONresponse}
+{: #JSONresponse-tone}
 
 El servicio devuelve un objeto JSON `ToneAnalysis` que siempre contiene un campo `document_tone`. Este campo contiene un objeto `DocumentAnalysis` que proporciona el análisis del documento de entrada completo. Contiene un solo campo, `tones`, que proporciona los resultados del análisis de cada tono del documento que califica.
 
@@ -270,11 +281,12 @@ En el ejemplo siguiente se muestra la estructura general del objeto `ToneAnalysi
 {: codeblock}
 
 ### Tono y resultados de la puntuación
+{: #uttsr}
 
-Los campos `tones` que se devuelven para análisis tanto a nivel de documento como de frase contienen una matriz de objetos `ToneScore` que proporciona resultados para los tonos dominantes (aquellos cuya puntuación es al menos 0.5). La matriz está vacía si ningún tono tiene una puntuación que cumpla este umbral. Cada objeto `ToneScore` proporciona la información siguiente sobre un tono que califica:
+Los campos `tones` que se devuelven para análisis tanto a nivel de documento como de frase contienen una matriz de objetos `ToneScore` que proporciona resultados para los tonos dominantes. Estos tonos tienen puntuaciones de al menos 0.5. La matriz está vacía si ningún tono tiene una puntuación que cumpla este umbral. Cada objeto `ToneScore` proporciona la información siguiente sobre un tono que califica:
 
 -   `score` (double) es la puntuación correspondiente al tono comprendido entre 0.5 y 1. Una puntuación mayor que 0.75 indica una alta probabilidad de que el tono se perciba en el contenido.
--   `tone_id` (sting) es el identificador exclusivo y no localizado del tono; para ver descripciones de los tonos, consulte [Tonos de finalidad general](#tones).
+-   `tone_id` (string) es el identificador exclusivo y no localizado del tono; para ver descripciones de los tonos, consulte [Tonos de finalidad general](#tones-tone).
 -   `tone_name` (string) es el nombre del tono localizado que ve el usuario.
 
 En el ejemplo siguiente se muestra la estructura del objeto `ToneScore`:
@@ -294,9 +306,9 @@ En el ejemplo siguiente se muestra la estructura del objeto `ToneScore`:
 {: codeblock}
 
 ### Respuesta de ejemplo
-{: #exampleResponse}
+{: #exampleResponse-tone}
 
-Se devuelve la siguiente salida para las [Solicitudes de ejemplo](#exampleRequests). (Se devuelve la misma salida para el primer ejemplo de la [Guía de aprendizaje de iniciación](/docs/services/tone-analyzer/getting-started.html)). La respuesta incluye resultados correspondientes a todo el documento y a cada frase individual. Todos los tonos notificados tienen una puntuación de al menos 0.5; los que tienen una puntuación de al menos 0.75 tienen una alta probabilidad de ser percibidos en el contenido.
+Se devuelve la siguiente salida para las [Solicitudes de ejemplo](#exampleRequests). (Se devuelve la misma salida para el primer ejemplo de la [Guía de aprendizaje de iniciación](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted)). La respuesta incluye resultados correspondientes a todo el documento y a cada frase individual. Todos los tonos notificados tienen una puntuación de al menos 0.5. Los tonos con una puntuación de al menos 0.75 tienen una alta probabilidad de ser percibidos en el contenido.
 
 ```javascript
 {
@@ -359,7 +371,7 @@ Se devuelve la siguiente salida para las [Solicitudes de ejemplo](#exampleReques
 {: codeblock}
 
 ## Tonos de finalidad general
-{: #tones}
+{: #tones-tone}
 
 En la tabla siguiente se describen los tonos de finalidad general que puede devolver el servicio. Los tonos con una puntuación inferior a 0.5 se omiten, lo que indica que es poco probable que la emoción se perciba en el contenido. Una puntuación superior a 0.75 indica una alta probabilidad de que el tono se perciba.
 
@@ -391,19 +403,19 @@ En la tabla siguiente se describen los tonos de finalidad general que puede devo
   <tr>
     <td>Tristeza<br/><code>sadness</code></td>
     <td>
-      La tristeza indica un sentimiento de pérdida y desventaja. Cuando una persona está callada o menor enérgica o se muestra introvertida, se puede inferir que siente tristeza. (Un tono emocional.)
+      La tristeza indica un sentimiento de pérdida y desventaja. Cuando una persona está callada o menos enérgica o se muestra introvertida, se puede inferir que siente tristeza. (Un tono emocional.)
     </td>
   </tr>
   <tr>
-    <td>Análisis<br/><code>analytical</code></td>
+    <td>Analítico<br/><code>analytical</code></td>
     <td>
       Un tono analítico indica el razonamiento y la actitud analítica de una persona frente a temas. Una persona analítica podría percibirse como intelectual, racional, sistemática, insensible o impersonal. (Un tono del lenguaje.)
     </td>
   </tr>
   <tr>
-    <td>Confianza<br/><code>confident</code></td>
+    <td>Seguro de uno mismo<br/><code>confident</code></td>
     <td>
-      Un tono de confianza indica el grado de seguridad de una persona. Una persona segura podría percibirse como segura, serena, optimista o egoísta.
+      Un tono de autoconfianza indica el grado de seguridad de una persona. Una persona segura podría percibirse como segura, serena, optimista o egoísta.
       (Un tono del lenguaje.)
     </td>
   </tr>
