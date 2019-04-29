@@ -1,14 +1,19 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-09-21"
+  years: 2015, 2019
+lastupdated: "2019-03-07"
+
+subcollection: tone-analyzer
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,12 +23,16 @@ lastupdated: "2017-09-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 使用通用端点
+{: #utgpe}
 
-{{site.data.keyword.toneanalyzershort}} 通用端点分析书面通信的语气，包括简短的电子邮件到较长的文档。它可以帮助您了解通信的情绪语气和语言语气。有关接口的详细信息（包括可用于调用服务的 Node.js、Java 和 Python SDK），请参阅 [API 参考 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}。
+{{site.data.keyword.toneanalyzershort}} 通用端点分析书面通信的语气，包括简短的电子邮件到较长的文档。它可以帮助您了解通信的情绪语气和语言语气。有关接口的更多信息（包括可用于调用服务的 Node.js、Java 和 Python SDK），请参阅 [API 参考 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/tone-analyzer){: new_window}。
 {: shortdesc}
 
+针对 {{site.data.keyword.toneanalyzershort}} 服务禁用了请求日志记录。无论是否设置了 `X-Watson-Learning-Opt-Out` 请求头，服务都不会记录或保留来自请求和响应的数据。
+{: note}
+
 ## 请求语气分析
-{: #request}
+{: #request-tone}
 
 要使用通用端点来分析语气，可调用服务的 `tone` 方法的以下两个版本之一：
 
@@ -45,7 +54,7 @@ lastupdated: "2017-09-21"
     <td style="text-align:center">正文</td>
     <td style="text-align:center">JSON 对象 | 字符串</td>
     <td>
-包含要分析的内容的 JSON、纯文本或 HTML 输入。对于 JSON 输入，请提供类型为 <code>ToneInput</code> 的对象；请参阅<a href="#JSONinput">指定 JSON 输入</a>。<em><code>GET</code> 请求不支持。</em></td>
+包含要分析的内容的 JSON、纯文本或 HTML 输入。对于 JSON 输入，请提供类型为 <code>ToneInput</code> 的对象。有关更多信息，请参阅[指定 JSON 输入](#JSONinput)。<em><code>GET</code> 请求不支持。</em></td>
   </tr>
   <tr>
     <td><code>text</code><br/><em>对于 <code>GET</code> 而言是必需的</em></td>
@@ -60,8 +69,7 @@ lastupdated: "2017-09-21"
     <td style="text-align:center">头</td>
     <td style="text-align:center">字符串</td>
     <td>
-      请求的内容类型：
-      <ul style="margin:0px 0px 0px 20px; padding:0px">
+请求的内容类型。<ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           纯文本为 <code>text/plain</code>
         </li>
@@ -80,20 +88,19 @@ lastupdated: "2017-09-21"
     <td style="text-align:center">查询</td>
     <td style="text-align:center">字符串</td>
     <td>
-所请求的响应格式版本，格式为 <code>YYYY-MM-DD</code> 的日期；例如，指定 <code>2017-09-21</code> 表示 2017 年 9 月 21 日。</td>
+      想要用作 <code>YYYY-MM-DD</code> 格式的日期的 API 版本；例如，指定 <code>2017-09-21</code> 以表示 2017 年 9 月 21 日（最新版本）。有关所有可用版本的更多信息，请参阅[发行说明](/docs/services/tone-analyzer?topic=tone-analyzer-rnrn)。</td>
   </tr>
   <tr>
     <td><code>Content-Language</code><br/><em>可选</em></td>
     <td style="text-align:center">头</td>
     <td style="text-align:center">字符串</td>
     <td>
-      输入内容的语言：
-      <ul style="margin:0px 0px 0px 20px; padding:0px">
+      输入内容的语言。<ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           <code>en</code>（英语，缺省值）
         </li>
         <li style="margin:0px; padding:0px">
-            <code>fr</code>（法语）</li>
+          <code>fr</code>（法语）</li>
       </ul>
 区域变体将被视为其父语言；例如，<code>en-US</code> 将解释为 <code>en</code>。输入内容必须与指定的语言匹配。请勿提交包含这两种语言的内容。您可以对输入和响应使用不同的语言。</td>
   </tr>
@@ -102,30 +109,30 @@ lastupdated: "2017-09-21"
     <td style="text-align:center">头</td>
     <td style="text-align:center">字符串</td>
     <td>
-      想要的响应语言：
-      <ul style="margin:0px 0px 0px 20px; padding:0px">
+      请求的响应语言。<ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
-ar（阿拉伯语）</li>
+          <code>ar</code>（阿拉伯语）</li>
         <li style="margin:0px; padding:0px">
-de（德语）</li>
+          <code>de</code>（德语）</li>
         <li style="margin:0px; padding:0px">
-en（英语，缺省值）</li>
+          <code>en</code>（英语，缺省值）
+        </li>
         <li style="margin:0px; padding:0px">
-es（西班牙语）</li>
+          <code>es</code>（西班牙语）</li>
         <li style="margin:0px; padding:0px">
-fr（法语）</li>
+          <code>fr</code>（法语）</li>
         <li style="margin:0px; padding:0px">
-it（意大利语）</li>
+          <code>it</code>（意大利语）</li>
         <li style="margin:0px; padding:0px">
-ja（日语）</li>
+          <code>ja</code>（日语）</li>
         <li style="margin:0px; padding:0px">
-ko（韩语）</li>
+          <code>ko</code>（韩语）</li>
         <li style="margin:0px; padding:0px">
-pt-br（巴西葡萄牙语）</li>
+          <code>pt-br</code>（巴西葡萄牙语）</li>
         <li style="margin:0px; padding:0px">
-zh-cn（简体中文）</li>
+          <code>zh-cn</code>（简体中文）</li>
         <li style="margin:0px; padding:0px">
-zh-tw（繁体中文）</li>
+          <code>zh-tw</code>（繁体中文）</li>
       </ul>
 对于双字符自变量，区域变体将被视为其父语言；例如，<code>en-US</code> 将解释为 <code>en</code>。您可以对输入和响应使用不同的语言。</td>
   </tr>
@@ -143,10 +150,10 @@ zh-tw（繁体中文）</li>
 ### 示例请求
 {: #exampleRequests}
 
-以下示例 cURL 命令使用 HTTP `POST` 请求方法，搭配输入文件 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标" class="style-scope doc-content"></a> 和 `2017-09-21` 的版本来调用通用端点。该示例请求不仅对完整文档进行分析，还对单个句子进行分析。
+以下示例 `curl` 命令使用 HTTP `POST` 请求方法，搭配输入文件 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标"></a> 和版本 `2017-09-21` 来调用通用端点。该示例请求不仅对完整文档进行分析，还对单个句子进行分析。
 
 ```bash
-curl -X POST --user "{username}":"{password}"
+curl -X POST -u "apikey:{apikey}"
 --header "Content-Type: application/json"
 --data-binary @./tone.json
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21"
@@ -156,14 +163,14 @@ curl -X POST --user "{username}":"{password}"
 以下示例命令等同于先前的示例，但使用 HTTP `GET` 请求方法：
 
 ```bash
-curl -X GET --user "{username}":"{password}"
+curl -X GET -u "apikey:{apikey}"
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21&text=Team%2C%20I%20know%20that
 %20times%20are%20tough%21%20Product%20sales%20have%20been%20disappointing%20for%20the%20past%20three%20quarters.
 %20We%20have%20a%20competitive%20product%2C%20but%20we%20need%20to%20do%20a%20better%20job%20of%20selling%20it%21"
 ```
 {: pre}
 
-要获取其他示例，请参阅[入门教程](/docs/services/tone-analyzer/getting-started.html)。
+要获取更多示例，请参阅[入门教程](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted)。
 
 ### 指定字符集
 {: #charset}
@@ -180,9 +187,9 @@ Content-Type: text/plain;charset=utf-8
 ```
 {: codeblock}
 
-通过使用 `charset` 参数，可以避免与非 ASCII 或不可打印字符相关联的潜在问题。如果在未指定字符集的情况下传递 UTF-8 数据，那么特殊字符可能会导致不正确的结果，或导致 HTTP 4*nn* 或 5*nn* 错误。
+通过使用 `charset` 参数，可以避免与非 ASCII 或不可打印字符相关联的潜在问题。如果在未指定字符集的情况下传递 UTF-8 数据，那么特殊字符可能会导致不正确的结果，或者生成 HTTP 400 或 500 级别错误。
 
-为防止使用 cURL 时出现类似错误，请始终通过 `curl` 命令的 `--data-binary` 选项传递内容，以保留内容的任何 UTF-8 编码。如果使用 `--data` 选项将内容作为 ASCII 传递，那么该命令可以处理输入，但可能会导致以 UTF-8 编码的数据出现问题。
+要避免在使用 `curl` 命令时发生类似错误，请始终通过 `curl` 命令的 `--data-binary` 选项传递内容，以保留内容的任何 UTF-8 编码。如果使用 `--data` 选项将内容作为 ASCII 传递，那么该命令可以处理输入，但可能会导致以 UTF-8 编码的数据出现问题。
 
 ## 指定 JSON 输入
 {: #JSONinput}
@@ -196,7 +203,7 @@ Content-Type: text/plain;charset=utf-8
 ```
 {: codeblock}
 
-以下示例显示了 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标" class="style-scope doc-content"></a> 文件的内容，该文件与[入门教程](/docs/services/tone-analyzer/getting-started.html)中的示例一起使用。该文件包含由一个人编写的单个文本段。（以下文本包含换行符以便于阅读；在实际输入中不要包含换行符。）
+以下示例显示了 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标"></a> 文件的内容，该文件与[入门教程](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted)中的示例一起使用。该文件包含由一个人编写的单个文本段。（以下文本包含换行符以便于阅读；在实际输入中不要包含换行符。）
 
 ```javascript
 {
@@ -208,7 +215,7 @@ Content-Type: text/plain;charset=utf-8
 {: codeblock}
 
 ## JSON 响应内容
-{: #JSONresponse}
+{: #JSONresponse-tone}
 
 该服务返回始终包含 `document_tone` 字段的 JSON `ToneAnalysis` 对象。此字段包含用于提供完整输入文档分析的 `DocumentAnalysis` 对象。它包含单个字段 `tones`，用于提供文档每个符合条件语气的分析结果。
 
@@ -242,11 +249,12 @@ Content-Type: text/plain;charset=utf-8
 {: codeblock}
 
 ### 语气和分数结果
+{: #uttsr}
 
-针对文档级别和句子级别分析返回的 `tones` 字段包含 `ToneScore` 对象数组，用于提供主语气的结果，其分数至少为 0.5。如果没有任何语气具有满足此阈值的得分，那么该数组为空。每个 `ToneScore` 对象都提供有关符合条件语气的以下信息：
+针对文档级别和句子级别分析返回的 `tones` 字段包含 `ToneScore` 对象数组，用于提供主语气的结果。此类语气的得分至少为 0.5。如果没有任何语气具有满足此阈值的得分，那么该数组为空。每个 `ToneScore` 对象都提供有关符合条件语气的以下信息：
 
 -   `score`（双精度）是一个语气的得分，范围在 0.5 到 1 之间。大于 0.75 的得分表示在内容中感知到该语气的可能性大。
--   `tone_id`（字符串）是语气的唯一非本地化标识；有关语气的描述，请参阅[通用语气](#tones)。
+-   `tone_id`（字符串）是语气的唯一非本地化标识；有关语气的描述，请参阅[通用语气](#tones-tone)。
 -   `tone_name`（字符串）是用户可见的已本地化的语气名称。
 
 以下示例显示了 `ToneScore` 对象的结构：
@@ -266,9 +274,9 @@ Content-Type: text/plain;charset=utf-8
 {: codeblock}
 
 ### 示例响应
-{: #exampleResponse}
+{: #exampleResponse-tone}
 
-对于[示例请求](#exampleRequests)，将返回以下输出。（对于[入门教程](/docs/services/tone-analyzer/getting-started.html)中的第一个示例，将返回相同的输出。）响应包含完整文档和每个单独句子的结果。所有报告语气的得分都至少为 0.5；得分至少为 0.75 的那些语气是很可能在内容中感知到语气。
+对于[示例请求](#exampleRequests)，将返回以下输出。（对于[入门教程](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted)中的第一个示例，将返回相同的输出。）响应包含完整文档和每个单独句子的结果。所有报告的语气的得分至少为 0.5。得分至少为 0.75 的语气在内容中很可能会被感知到。
 
 ```javascript
 {
@@ -331,9 +339,9 @@ Content-Type: text/plain;charset=utf-8
 {: codeblock}
 
 ## 通用语气
-{: #tones}
+{: #tones-tone}
 
-下表描述了服务可以返回的通用语气。省略分数小于 0.5 的语气，这表示在内容中不太可能感知到该情绪。大于 0.75 的分数表示很有可能会感知到该语气。
+下表描述了服务可以返回的通用语气。省略分数小于 0.5 的语气，这表示在内容中不太可能感知到该情绪。大于 0.75 的分数表示非常有可能会感知到该语气。
 
 <table>
   <caption>表 2. 通用语气</caption>
@@ -350,7 +358,7 @@ Content-Type: text/plain;charset=utf-8
   <tr>
     <td>恐惧<br/><code>fear</code></td>
     <td>
-      恐惧是对即将发生的危险的回应。它是一种生存机制，作为对某些负面刺激的反应而触发。恐惧可能是轻微谨慎到极度恐怖。（情绪语气。）
+      恐惧是对即将发生的危险的回应。它是一种生存机制，作为对某些负面刺激的反应而触发。恐惧可能是轻微谨慎或极度恐怖。（情绪语气。）
     </td>
   </tr>
   <tr>
@@ -362,7 +370,7 @@ Content-Type: text/plain;charset=utf-8
   <tr>
     <td>悲伤<br/><code>sadness</code></td>
     <td>
-悲伤表明了一种失去和处于不利地位的感觉。当一个人沉默寡言、没有精神、孤僻离群的时候，可以推断出他们感到悲伤。（情绪语气。）
+悲伤表明了一种失去和处于不利地位的感觉。当一个人沉默寡言、没有精神、孤僻离群的时候，可以推断出此人感到悲伤。（情绪语气。）
     </td>
   </tr>
   <tr>

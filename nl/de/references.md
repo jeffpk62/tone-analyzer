@@ -1,14 +1,19 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-11"
+  years: 2015, 2019
+lastupdated: "2019-03-27"
+
+subcollection: tone-analyzer
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,11 +23,11 @@ lastupdated: "2017-08-11"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Forschungsreferenzen
+{: #references}
 
-Detaillierte Informationen zur Forschung und dem technischen Hintergrund des Service {{site.data.keyword.toneanalyzershort}} finden Sie in den folgenden Dokumenten:
+Detaillierte Informationen zur Forschung und zum technischen Hintergrund des Service {{site.data.keyword.toneanalyzershort}} finden Sie in den folgenden Dokumenten.
 {: shortdesc}
 
-1.  <a id="bib-barrick" style="border-bottom:none; color:black">Barrick, Murray R. und Michael K. Mount.</a> [*The Big Five Personality Dimensions and Job Performance: A Meta-Analysis.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://onlinelibrary.wiley.com/doi/10.1111/j.1744-6570.1991.tb00688.x/abstract){: new_window} Personnel Psychology, Vol. 44(1) (March 1991): pp. 1-26.
 1.  <a id="bib-bradley" style="border-bottom:none; color:black">Bradley, Margaret M. und Peter J. Lang.</a> [*Affective Norms for English Words (ANEW) Instruction Manual and Affective Ratings.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://www.researchgate.net/publication/239604183_Affective_Norms_for_English_Words_%28ANEW%29_Instruction_Manual_and_Affective_Ratings){: new_window} Technical Report C-1, The Center for Research in Psychophysiology, University of Florida (1999).
 1.  <a id="bib-byron" style="border-bottom:none; color:black">Byron, Kristin.</a> [*Carrying too Heavy a Load? The Communication and Miscommunication of Emotion by Email.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://amr.aom.org/content/33/2/309.short){: new_window}  Academy of Management Review, Vol. 33(2) (2008): pp. 309-327.
 1.  <a id="bib-chen" style="border-bottom:none; color:black">Chen, Jilin, Gary Hsieh, Jalal Mahmud und Jeffrey Nichols.</a> [*Understanding Individuals' Personal Values from Social Media Word Use.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://dl.acm.org/citation.cfm?id=2531608){: new_window} Proceedings of the ACM Conference on Computer Supported Cooperative Work & Social Computing (2014): pp. 405-414.
@@ -39,9 +44,7 @@ Detaillierte Informationen zur Forschung und dem technischen Hintergrund des Ser
 1.  <a id="bib-mairesse" style="border-bottom:none; color:black">Mairesse, Francois und Marilyn Walker.</a> [*Words Mark the Nerds: Computational Models of Personality Recognition through Language.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://games.soe.ucsc.edu/words-mark-nerds-computational-models-personality-recognition-through-language){: new_window} Proceedings of the Annual Conference of the Cognitive Science Society (July 2006).
 1.  <a id="bib-mohammad" style="border-bottom:none; color:black">Mohammad, Saif M. und Peter D. Turney.</a> [*Emotions Evoked by Common Words and Phrases: Using Mechanical Turk to Create an Emotion Lexicon.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://dl.acm.org/citation.cfm?id=1860635){: new_window} In Proceedings of the NAACL HLT 2010 Workshop on Computational Approaches to Analysis and Generation of Emotion in Text, CAAGET (2010): pp. 26-34.
 1.  <a id="bib-norman" style="border-bottom:none; color:black">Norman, Warren T.</a> [*Toward an Adequate Taxonomy of Personality Attributes: Replicated Factor Structure in Peer Nomination Personality Rating.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://psycnet.apa.org/journals/abn/66/6/574/){: new_window} Journal of Abnormal and Social Psychology, Vol. 66(6) (June 1963): pp. 574-583.
-1.  <a id="bib-pennebaker" style="border-bottom:none; color:black">Pennebaker, James W., Cindy K. Chung, Molly Ireland, Amy Gonzales und Roger J. Booth.</a> [*The Development and Psychometric Properties of LIWC2007.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://www.liwc.net/LIWC2007LanguageManual.pdf){: new_window} Austin, TX: LIWC2007 Manual (2007).
-1.  <a id="" style="border-bottom:none; color:black">Plutchik, Robert.</a> [*The Nature of Emotions.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://www.americanscientist.org/issues/feature/2001/4/the-nature-of-emotions){: new_window} American Scientist, Vol. 89(4) (2001): pp. 344.
-1.  <a id="bib-shen" style="border-bottom:none; color:black">Shen, Jianqiang, Oliver Brdiczka und Juan Liu.</a> [*Understanding Email Writers: Personality Prediction from Email Messages.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.parc.com/publication/3428/understanding-email-writers.html){: new_window} Proceedings of the 21st International Conference on User Modeling, Adaptation and Personalization (UMAP), Rome, Italy; Berlin: Springer, Lecture Notes in Computer Science 7899 (June 2013): pp. 318-330.
-1.  <a id="bib-tausczik" style="border-bottom:none; color:black">Tausczik, Yla R. und James W. Pennebaker.</a> [*The Psychological Meaning of Words: LIWC and Computerized Text Analysis Methods.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://jls.sagepub.com/content/29/1/24.abstract){: new_window} In Journal of Language and Social Psychology, Vol. 29(1) (2010): pp. 24-54.
-1.  <a id="bib-wang" style="border-bottom:none; color:black">Wang, Yichen und Aditya Pal.</a> [*Detecting Emotions in Social Media: A Constrained NMF Approach.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://www.cc.gatech.edu/~ywang/papers/EmoDetect.pdf){: new_window} IBM Technical Report (2014).
+1.  <a id="bib-plutchik" style="border-bottom:none; color:black">Plutchik, Robert.</a> [*The Nature of Emotions.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://www.americanscientist.org/issues/feature/2001/4/the-nature-of-emotions){: new_window} American Scientist, Vol. 89(4) (2001): pp. 344.
+1.  <a id="bib-shen" style="border-bottom:none; color:black">Shen, Jianqiang, Oliver Brdiczka und Juan Liu.</a> [*Understanding Email Writers: Personality Prediction from Email Messages.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.semanticscholar.org/paper/Understanding-Email-Writers%3A-Personality-Prediction-Shen-Brdiczka/c639c8b8e0e5bee7bd834121dbe4f68b474e55d6){: new_window} Proceedings of the 21st International Conference on User Modeling, Adaptation and Personalization (UMAP), Rome, Italy; Berlin: Springer, Lecture Notes in Computer Science 7899 (June 2013): pp. 318-330.
+1.  <a id="bib-wang" style="border-bottom:none; color:black">Wang, Yichen und Aditya Pal.</a> [*Detecting Emotions in Social Media: A Constrained NMF Approach.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.semanticscholar.org/paper/Detecting-Emotions-in-Social-Media%3A-A-Constrained-Wang-Pal/9dcd60fa11d4e6bee0fc06405e3a9ac83c89203c){: new_window} IBM Technical Report (2014).
 1.  <a id="bib-yarkoni" style="border-bottom:none; color:black">Yarkoni, Tal.</a> [*Personality in 100,000 Words: A Large-Scale Analysis of Personality and Word Usage among Bloggers.* ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2885844/){: new_window} Journal of Research in Personality (2010).

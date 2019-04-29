@@ -1,14 +1,19 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-09-21"
+  years: 2015, 2019
+lastupdated: "2019-03-07"
+
+subcollection: tone-analyzer
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,27 +23,31 @@ lastupdated: "2017-09-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Utilizzo dell'endpoint di utilizzo generico
+{: #utgpe}
 
-L'endpoint di utilizzo generico {{site.data.keyword.toneanalyzershort}} analizza il tono delle comunicazioni scritte, da brevi messaggi email a documenti più lunghi. Può essere utile a comprendere i toni linguistici ed emotivi delle tue comunicazioni. Per informazioni dettagliate sull'interfaccia, incluse le SDK Node.js, Java e Python disponibili per il richiamo del servizio, consulta [API reference ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+L'endpoint di utilizzo generico {{site.data.keyword.toneanalyzershort}} analizza il tono delle comunicazioni scritte, da brevi messaggi email a documenti più lunghi. Può essere utile a comprendere i toni linguistici ed emotivi delle tue comunicazioni. Per ulteriori informazioni sull'interfaccia, inclusi gli SDK Node.js, Java e Python disponibili per il richiamo del servizio, consulta [API reference ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
 {: shortdesc}
 
+La registrazione della richiesta è disabilitata per il servizio {{site.data.keyword.toneanalyzershort}}. A prescindere dalla tua impostazione dell'intestazione della richiesta `X-Watson-Learning-Opt-Out`, il servizio non registra o conserva i dati da richieste e risposte.
+{: note}
+
 ## Richiesta di analisi del tono
-{: #request}
+{: #request-tone}
 
 Per analizzare il tono con l'endpoint di utilizzo generico, richiama una delle due versioni del metodo `tone` del servizio:
 
 -   Il metodo `POST /v3/tone` accetta contenuti di input in formato JSON, testo semplice o HTML tramite il corpo della richiesta. Utilizza questa versione del metodo per il testo più lungo o per il testo che non vuoi esporre nell'URL.
--   Il metodo `GET /v3/tone` accetta i contenuti di input tramite il proprio parametro di query `text` obbligatorio. Utilizza questa versione del metodo per il testo semplice che viene facilmente ospitato nell'URL. 
+-   Il metodo `GET /v3/tone` accetta i contenuti di input tramite il proprio parametro di query `text` obbligatorio. Utilizza questa versione del metodo per il testo semplice che viene facilmente ospitato nell'URL.
 
 I metodi accettano i seguenti parametri.
 
 <table>
-  <caption>Tabella 1. Parametri dei metodi <code>/v3/tone</code> </caption>
+  <caption>Tabella 1. Parametri dei metodi <code>/v3/tone</code></caption>
   <tr>
-    <th style="text-align:left; width:20%">Parametro </th>
-    <th style="text-align:center; width:12%">Tipo  </th>
+    <th style="text-align:left; width:20%">Parametro</th>
+    <th style="text-align:center; width:12%">Tipo</th>
     <th style="text-align:center; width:20%">Tipo di dati</th>
-    <th style="text-align:left">Descrizione </th>
+    <th style="text-align:left">Descrizione</th>
   </tr>
   <tr>
     <td><code>Body</code><br/><em>Obbligatorio per <code>POST</code></em></td>
@@ -46,9 +55,9 @@ I metodi accettano i seguenti parametri.
     <td style="text-align:center">Oggetto JSON | Stringa</td>
     <td>
       Input JSON, testo semplice o HTML che contiene il contenuto che deve
-      essere analizzato. Per l'input JSON, fornisci un oggetto del tipo
-      <code>ToneInput</code>; consulta <a href="#JSONinput">Specificare l'input
-        JSON</a>. <em>Non supportato per le richieste <code>GET</code>.</em>
+      essere analizzato. Per l'input JSON, fornisci un oggetto di tipo
+      <code>ToneInput</code>. Per ulteriori informazioni, vedi
+      [Specifica dell'input JSON](#JSONinput). <em>Non supportato per le richieste <code>GET</code>.</em>
     </td>
   </tr>
   <tr>
@@ -58,7 +67,6 @@ I metodi accettano i seguenti parametri.
     <td>
       L'input di testo semplice che contiene il contenuto che deve essere analizzato. Devi codificare
       tramite URL l'input. <em>Non supportato per le richieste <code>POST</code>.</em>
-
     </td>
   </tr>
   <tr>
@@ -66,7 +74,7 @@ I metodi accettano i seguenti parametri.
     <td style="text-align:center">Intestazione</td>
     <td style="text-align:center">Stringa</td>
     <td>
-      Il tipo di contenuto della richiesta:
+      Il tipo di contenuto della richiesta.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           <code>text/plain</code> per il testo semplice
@@ -87,9 +95,11 @@ I metodi accettano i seguenti parametri.
     <td style="text-align:center">Query</td>
     <td style="text-align:center">Stringa</td>
     <td>
-      La versione richiesta del formato della risposta come una data nel formato
+      La versione dell'API che vuoi utilizzare come una data nel formato
       <code>YYYY-MM-DD</code>; ad esempio, specifica <code>2017-09-21</code>
-      per il 21 settembre 2017.
+      per il 21 settembre 2017 (la versione più recente). Per ulteriori informazioni su tutte
+      le versioni disponibili vedi le
+      [Note sulla release](/docs/services/tone-analyzer?topic=tone-analyzer-rnrn).
     </td>
   </tr>
   <tr>
@@ -97,13 +107,13 @@ I metodi accettano i seguenti parametri.
     <td style="text-align:center">Intestazione</td>
     <td style="text-align:center">Stringa</td>
     <td>
-      La lingua del contenuto di input:
+      La lingua del contenuto di input.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           <code>en</code> (inglese, valore predefinito)
         </li>
         <li style="margin:0px; padding:0px">
-            <code>fr</code> (francese)
+          <code>fr</code> (francese)
         </li>
       </ul>
       Le varianti regionali sono trattate come le loro lingue principali; ad esempio,
@@ -118,40 +128,40 @@ I metodi accettano i seguenti parametri.
     <td style="text-align:center">Intestazione</td>
     <td style="text-align:center">Stringa</td>
     <td>
-      La lingua desiderata per la risposta:
+      La lingua richiesta della risposta.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
-          ar (Arabo)
+          <code>ar</code> (Arabo)
         </li>
         <li style="margin:0px; padding:0px">
-          de (Tedesco)
+          <code>de</code> (Tedesco)
         </li>
         <li style="margin:0px; padding:0px">
-          en (Inglese, valore predefinito)
+          <code>en</code> (inglese, valore predefinito)
         </li>
         <li style="margin:0px; padding:0px">
-          es (Spagnolo)
+          <code>es</code> (Spagnolo)
         </li>
         <li style="margin:0px; padding:0px">
-          fr (Francese)
+          <code>fr</code> (francese)
         </li>
         <li style="margin:0px; padding:0px">
-          it (Italiano)
+          <code>it</code> (Italiano)
         </li>
         <li style="margin:0px; padding:0px">
-          ja (Giapponese)
+          <code>ja</code> (Giapponese)
         </li>
         <li style="margin:0px; padding:0px">
-          ko (Coreano)
+          <code>ko</code> (Coreano)
         </li>
         <li style="margin:0px; padding:0px">
-          pt-br (Portoghese brasiliano)
+          <code>pt-br</code> (Portoghese brasiliano)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-cn (Cinese semplificato)
+          <code>zh-cn</code> (Cinese semplificato)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-tw (Cinese tradizionale)
+          <code>zh-tw</code> (Cinese tradizionale)
         </li>
       </ul>
       Per gli argomenti a due caratteri, le varianti regionali sono trattate come le loro lingue principali; ad esempio,
@@ -178,10 +188,10 @@ Invia non più di 128 KB di contenuto di input totale e non più di 1000 frasi s
 ### Richieste di esempio
 {: #exampleRequests}
 
-Il seguente comando cURL di esempio utilizza il metodo di richiesta `POST` HTTP per richiamare l'endpoint di utilizzo generico con il file di input <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno" class="style-scope doc-content"></a> e una versione di `2017-09-21`. L'esempio richiede un'analisi del documento completo e di singole frasi.
+Il seguente comando `curl` di esempio utilizza il metodo di richiesta `POST` HTTP per richiamare l'endpoint di utilizzo generico con il file di input <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno"></a> e una versione di `2017-09-21`. L'esempio richiede un'analisi del documento completo e di singole frasi.
 
 ```bash
-curl -X POST --user "{username}":"{password}"
+curl -X POST -u "apikey:{apikey}"
 --header "Content-Type: application/json"
 --data-binary @./tone.json
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21"
@@ -191,14 +201,14 @@ curl -X POST --user "{username}":"{password}"
 Il seguente comando di esempio è equivalente all'esempio precedente ma utilizza il metodo di richiesta `GET` HTTP:
 
 ```bash
-curl -X GET --user "{username}":"{password}"
+curl -X GET -u "apikey:{apikey}"
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21&text=Team%2C%20I%20know%20that
 %20times%20are%20tough%21%20Product%20sales%20have%20been%20disappointing%20for%20the%20past%20three%20quarters.
 %20We%20have%20a%20competitive%20product%2C%20but%20we%20need%20to%20do%20a%20better%20job%20of%20selling%20it%21"
 ```
 {: pre}
 
-Per ulteriori esempi, consulta l'[Esercitazione introduttiva](/docs/services/tone-analyzer/getting-started.html).
+Per ulteriori esempi, vedi l'[Esercitazione introduttiva](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted).
 
 ### Specificare la serie di caratteri
 {: #charset}
@@ -215,14 +225,14 @@ Content-Type: text/plain;charset=utf-8
 ```
 {: codeblock}
 
-Utilizzando il parametro `charset`, puoi evitare i problemi potenziali associati ai caratteri non stampabili o non ASCII. Se trasmetti i dati in UTF-8 senza specificare la serie di caratteri, i caratteri speciali possono provocare risultati non corretti o errori HTTP 4*nn* o 5*nn*.
+Utilizzando il parametro `charset`, puoi evitare i problemi potenziali associati ai caratteri non stampabili o non ASCII. Se passi i dati in UTF-8 senza specificare la serie di caratteri, i caratteri speciali possono provocare risultati non corretti o errori HTTP di livello 400 o 500.
 
-Per evitare errori simili quando utilizzi cURL, trasmetti sempre il contenuto tramite l'opzione `--data-binary` del comando `curl` per preservare tutta la codifica UTF-8 del contenuto. Se utilizzi l'opzione `--data` per trasmettere il contenuto come ASCII, il comando può elaborare l'input, che può causare problemi con i dati codificati in UTF-8.
+Per evitare errori simili quando utilizzi il comando the `curl`, passa sempre il contenuto tramite l'opzione `--data-binary` del comando `curl` per preservare l'eventuale codifica UTF-8 per il contenuto. Se utilizzi l'opzione `--data` per trasmettere il contenuto come ASCII, il comando può elaborare l'input, che può causare problemi con i dati codificati in UTF-8.
 
 ## Specifica dell'input JSON
 {: #JSONinput}
 
-Per analizzare l'input JSON con il metodo di richiesta `POST`, trasmetti il metodo a un oggetto `ToneInput` JSON con il seguente formato semplice:
+Per analizzare l'input JSON con il metodo di richiesta `POST`, passa il metodo a un oggetto `ToneInput` JSON con il seguente formato semplice:
 
 ```javascript
 {
@@ -231,7 +241,7 @@ Per analizzare l'input JSON con il metodo di richiesta `POST`, trasmetti il meto
 ```
 {: codeblock}
 
-Il seguente esempio illustra i contenuti del file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno" class="style-scope doc-content"></a> utilizzato con gli esempi nell'[Esercitazione introduttiva](/docs/services/tone-analyzer/getting-started.html). Il file include un solo paragrafo di testo scritto da una persona. (Il seguente testo include le interruzioni di linea per la leggibilità; non includerle in un input effettivo.)
+Il seguente esempio illustra i contenuti del file <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno"></a> utilizzato con gli esempi nell'[Esercitazione introduttiva](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted). Il file include un solo paragrafo di testo scritto da una singola persona. (Il seguente testo include le interruzioni di linea per la leggibilità; non includerle in un input effettivo.)
 
 ```javascript
 {
@@ -243,7 +253,7 @@ Il seguente esempio illustra i contenuti del file <a target="_blank" href="https
 {: codeblock}
 
 ## Contenuto della risposta JSON
-{: #JSONresponse}
+{: #JSONresponse-tone}
 
 Il servizio restituisce un oggetto `ToneAnalysis` JSON che contiene sempre un campo `document_tone`. Questo campo contiene un oggetto `DocumentAnalysis` che fornisce l'analisi del documento di input completo. Contiene un solo campo, `tones`, che fornisce i risultati dell'analisi di ogni tono qualificato del documento.
 
@@ -277,11 +287,12 @@ Il seguente esempio illustra la struttura di alto livello dell'oggetto `ToneAnal
 {: codeblock}
 
 ### Risultati punteggio e tono
+{: #uttsr}
 
-I campi `tones` restituiti dalle analisi al livello della frase e del documento contengono un array di oggetti `ToneScore` che fornisce i risultati dei toni dominanti, che hanno un punteggio di almeno 0.5. L'array è vuoto se nessun tono ha un punteggio che soddisfa questa soglia. Ogni oggetto `ToneScore` fornisce le seguenti informazioni sul tono qualificato:
+I campi `tones` restituiti dalle analisi al livello della frase e del documento contengono un array di oggetti `ToneScore` che fornisce i risultati per i toni dominanti. Questi toni hanno dei punteggi di almeno 0.5. L'array è vuoto se nessun tono ha un punteggio che soddisfa questa soglia. Ogni oggetto `ToneScore` fornisce le seguenti informazioni sul tono qualificato:
 
--   `score` (doppio) è il punteggio del tono nell'intervallo compreso tra 0.5 e 1. Un punteggio superiore a 0.75 indica un'alta probabilità che il tono sia stato percepito nel contenuto.
--   `tone_id` (stringa) è l'identificativo non localizzato e univoco del tono; per le descrizioni dei toni, consulta [Toni di utilizzo generico](#tones).
+-   `score` (doppio) è il punteggio del tono nell'intervallo compreso tra 0.5 e 1. Un punteggio maggiore di 0.75 indica un'alta probabilità che il tono sia stato percepito nel contenuto.
+-   `tone_id` (stringa) è l'identificativo non localizzato e univoco del tono; per le descrizioni dei toni, consulta [Toni di utilizzo generico](#tones-tone).
 -   `tone_name` (stringa) è il nome del tono localizzato e visibile dall'utente.
 
 Il seguente esempio illustra la struttura dell'oggetto `ToneScore`:
@@ -300,10 +311,10 @@ Il seguente esempio illustra la struttura dell'oggetto `ToneScore`:
 ```
 {: codeblock}
 
-### Risposta di esempio 
-{: #exampleResponse}
+### Risposta di esempio
+{: #exampleResponse-tone}
 
-Il seguente output viene restituito per le [Richieste di esempio](#exampleRequests). (Lo stesso output viene restituito per il primo esempio nell'[Esercitazione introduttiva](/docs/services/tone-analyzer/getting-started.html).) La risposta include i risultati per il documento completo e per ogni singola frase. Tutti i toni riportati hanno un punteggio di almeno 0.5; quelli con un punteggio di almeno 0.75 è molto probabile che siano stati percepiti nel contenuto.
+Il seguente output viene restituito per le [Richieste di esempio](#exampleRequests). (Lo stesso output viene restituito per il primo esempio nell'[Esercitazione introduttiva](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted).) La risposta include i risultati per il documento completo e per ogni singola frase. Tutti i toni riportati hanno un punteggio di almeno 0.5. I toni con un punteggio di almeno 0.75 è molto probabile che vengano percepiti nel contenuto.
 
 ```javascript
 {
@@ -366,15 +377,15 @@ Il seguente output viene restituito per le [Richieste di esempio](#exampleReques
 {: codeblock}
 
 ## Toni di utilizzo generico
-{: #tones}
+{: #tones-tone}
 
-La seguente tabella descrive i toni di utilizzo generico che può restituire il servizio. Un tono con un punteggio inferiore a 0.5 viene omesso, il che indica che l'emozione non è stata probabilmente percepita nel contenuto. Un punteggio superiore a 0.75 indica un'alta probabilità che il tono sarà percepito. 
+La seguente tabella descrive i toni di utilizzo generico che può restituire il servizio. Un tono con un punteggio inferiore a 0.5 viene omesso, il che indica che l'emozione non è stata probabilmente percepita nel contenuto. Un punteggio maggiore di 0.75 indica un'alta probabilità che il tono sia percepito.
 
 <table>
   <caption>Tabella 2. Toni di utilizzo generico</caption>
   <tr>
     <th style="text-align:left; vertical-align:bottom; width:20%">Tono / ID</th>
-    <th style="text-align:left">Descrizione </th>
+    <th style="text-align:left">Descrizione</th>
   </tr>
   <tr>
     <td>Rabbia<br/><code>anger</code></td>
@@ -394,7 +405,7 @@ La seguente tabella descrive i toni di utilizzo generico che può restituire il 
     </td>
   </tr>
   <tr>
-    <td>Gioia <br/><code>joy</code></td>
+    <td>Gioia<br/><code>joy</code></td>
     <td>
       La gioia (o felicità) ha sfumature di appagamento, soddisfazione e piacere.
       La gioia porta un senso di benessere, pace interiore, amore, sicurezza e
@@ -402,10 +413,10 @@ La seguente tabella descrive i toni di utilizzo generico che può restituire il 
     </td>
   </tr>
   <tr>
-    <td>Tristezza <br/><code>sadness</code></td>
+    <td>Tristezza<br/><code>sadness</code></td>
     <td>
       La tristezza indica una sensazione di perdita o disagio. Quando una persona
-      è silenziosa, poco energica e introversa, si potrebbe dedurre che sta provando
+      è silenziosa, poco energica e introversa, si può dedurre che sta provando
       tristezza. (Un tono emotivo.)
     </td>
   </tr>
@@ -418,9 +429,9 @@ La seguente tabella descrive i toni di utilizzo generico che può restituire il 
     </td>
   </tr>
   <tr>
-    <td>Confidente<br/><code>confident</code></td>
+    <td>Sicuro<br/><code>confident</code></td>
     <td>
-      Un tono confidente indica un grado di certezza della persona. Una persona confidente
+      Un tono sicuro indica un grado di certezza della persona. Una persona sicura
       potrebbe essere percepita come sicura, raccolta, fiduciosa o egocentrica.
       (Un tono linguistico.)
     </td>

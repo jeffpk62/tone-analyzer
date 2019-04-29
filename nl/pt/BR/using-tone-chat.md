@@ -1,14 +1,19 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-28"
+  years: 2015, 2019
+lastupdated: "2019-03-07"
+
+subcollection: tone-analyzer
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,14 +23,22 @@ lastupdated: "2017-10-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Usando o terminal de engajamento do cliente
+{: #utco}
 
-O terminal de engajamento do cliente do {{site.data.keyword.toneanalyzershort}} analisa o tom das conversas do atendimento ao cliente e do suporte. Pode ajudá-lo a entender melhor suas interações com clientes e melhorar suas comunicações em geral ou com clientes específicos. Para obter informações detalhadas sobre a interface, incluindo os SDKs de Node.js, Java e Python que estão disponíveis para chamar o serviço, consulte a [Referência de API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+O terminal de engajamento do cliente {{site.data.keyword.toneanalyzershort}} analisa o tom do atendimento ao cliente e das conversas de suporte. Pode ajudá-lo a entender melhor suas interações com clientes e melhorar suas comunicações em geral ou com clientes específicos. Para obter mais informações sobre a interface, incluindo os SDKs
+do Node.js, Java e Python que estão disponíveis para chamar o serviço, veja a [Referência da API ![Ícone de link externo](../../icons/launch-glyph.svg "Íconede link externo")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
+
 {: shortdesc}
 
-## Solicitando uma análise de tom
-{: #request}
+A criação de log da solicitação está desativada para o serviço {{site.data.keyword.toneanalyzershort}}. Independentemente de você configurar o cabeçalho
+da solicitação `X-Watson-Learning-Opt-Out`, o serviço não registra nem retém
+dados de solicitações e respostas.
+{: note}
 
-Para analisar tom com o terminal de engajamento do cliente, você chama o método `POST /v3/tone_chat` com os parâmetros a seguir.
+## Solicitando uma análise de tom
+{: #request-tone-chat}
+
+Para analisar o tom com o terminal de engajamento do cliente, você chama o método `POST /v3/tone_chat` com os parâmetros a seguir.
 
 <table>
   <caption>Tabela 1. Parâmetros do método <code>POST /v3/tone_chat</code></caption>
@@ -40,7 +53,8 @@ Para analisar tom com o terminal de engajamento do cliente, você chama o métod
     <td style="text-align:center">Corpo</td>
     <td style="text-align:center">Objeto JSON</td>
     <td>
-      Um objeto JSON <code>ToneChatInput</code> que contém o conteúdo a ser analisado. Consulte <a href="#JSONrequest">Especificando a entrada JSON</a>.
+      Um objeto JSON <code>ToneChatInput</code> com o conteúdo que
+      deve ser analisado. Para obter mais informações, veja [Especificando a entrada JSON](#JSONrequest).
     </td>
   </tr>
   <tr>
@@ -48,7 +62,26 @@ Para analisar tom com o terminal de engajamento do cliente, você chama o métod
     <td style="text-align:center">Consulta</td>
     <td style="text-align:center">Sequência</td>
     <td>
-      A versão solicitada da interface como uma data no formato <code>YYYY-MM-DD</code>; por exemplo, especifique <code>2017-09-21</code> para 21 de setembro de 2017.
+      A versão da API que você deseja usar como uma data no formato
+      <code>YYYY-MM-DD</code>; por exemplo, especifique <code>2017-09-21</code>
+      para 21 de setembro de 2017 (a versão mais recente). Para obter mais informações sobre todas as versões disponíveis, consulte as [Notas sobre a liberação](/docs/services/tone-analyzer?topic=tone-analyzer-rnrn).
+    </td>
+  </tr>
+  <tr>
+    <td><code>Content-Language</code><br/><em>Opcional </em></td>
+    <td style="text-align:center">Cabeçalho</td>
+    <td style="text-align:center">Sequência</td>
+    <td>
+      O idioma do conteúdo de entrada.
+      <ul style="margin:0px 0px 0px 20px; padding:0px">
+        <li style="margin:0px; padding:0px">
+          <code>en</code> (Inglês, o padrão)
+        </li>
+        <li style="margin:0px; padding:0px">
+            <code>fr</code> (Francês)
+        </li>
+      </ul>
+      Variantes regionais são tratadas como seu idioma pai; por exemplo, <code>en-US</code> é interpretada como <code>en</code>. O conteúdo de entrada deve corresponder ao idioma especificado. Não envie conteúdo que contenha ambos os idiomas. É possível usar diferentes idiomas para a entrada e a resposta.
     </td>
   </tr>
   <tr>
@@ -56,57 +89,66 @@ Para analisar tom com o terminal de engajamento do cliente, você chama o métod
     <td style="text-align:center">Cabeçalho</td>
     <td style="text-align:center">Sequência</td>
     <td>
-      O idioma desejado da resposta:
+      O idioma solicitado da resposta.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
-          ar (árabe)
+          <code>ar</code> (árabe)
         </li>
         <li style="margin:0px; padding:0px">
-          de (alemão)
+          <code>de</code>
+(Alemão)
         </li>
         <li style="margin:0px; padding:0px">
-          en (inglês, o padrão)
+          <code>en</code> (Inglês, o padrão)
         </li>
         <li style="margin:0px; padding:0px">
-          es (espanhol)
+          <code>es</code>
+(Espanhol)
         </li>
         <li style="margin:0px; padding:0px">
-          fr (francês)
+          <code>fr</code> (Francês)
         </li>
         <li style="margin:0px; padding:0px">
-          it (italiano)
+          <code>it</code>
+(Italiano)
         </li>
         <li style="margin:0px; padding:0px">
-          ja (japonês)
+          <code>ja</code> (Japonês)
         </li>
         <li style="margin:0px; padding:0px">
-          ko (coreano)
+          <code>ko</code>
+(Coreano)
         </li>
         <li style="margin:0px; padding:0px">
-          pt-br (português do Brasil)
+          <code>pt-br</code> (português do Brasil)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-cn (chinês simplificado)
+          <code>zh-cn</code> (chinês simplificado)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-tw (chinês tradicional)
+          <code>zh-tw</code> (chinês tradicional)
         </li>
       </ul>
+      Para argumentos de dois caracteres, variantes regionais são tratadas como seu idioma pai; por exemplo, <code>en-US</code> é interpretada como <code>en</code>. É possível usar diferentes idiomas para a entrada e a resposta.
     </td>
   </tr>
 </table>
 
 Se você enviar mais de 50 elocuções, o serviço retornará um campo `warning` para o conteúdo geral no nível de `utterances_tone` de sua resposta; ele analisará apenas as primeiras 50 elocuções. Se você enviar uma única elocução com mais de 500 caracteres, o serviço retornará um campo `error` para essa elocução e não a analisará. Em ambos os casos, a solicitação ainda é bem-sucedida com o código de resposta HTTP 200.
 
-> **Nota:** o serviço retornará o código de resposta 400 se todas as elocuções da entrada tiverem mais de 500 caracteres.
+O serviço retornará o código de resposta 400 se todas as elocuções da entrada tiverem mais
+de 500 caracteres.
+{: note}
 
 ### Solicitação de exemplo
 {: #exampleRequest}
 
-O comando cURL de exemplo a seguir chama o terminal de engajamento do cliente com o arquivo de entrada <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo" class="style-scope doc-content"></a> e uma versão de `2017-09-21`:
+O comando `curl` de exemplo a seguir chama o terminal de engajamento do cliente
+com o arquivo de entrada <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo"></a> e uma
+versão de `2017-09-21`:
 
 ```bash
-curl -X POST --user "{username}":"{password}"
+curl -X POST -u "apikey:{apikey}"
 --header "Content-Type: application/json"
 --data-binary @./tone-chat.json
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone_chat?version=2017-09-21"
@@ -116,7 +158,9 @@ curl -X POST --user "{username}":"{password}"
 ## Especificando entrada em JSON
 {: #JSONrequest}
 
-Você passa ao método um objeto JSON `ToneChatInput` com o formato a seguir. O campo `utterances` fornece uma matriz de objetos `utterance`, em que `text` é uma sequência necessária que fornece uma elocução de contribuição de um usuário para a conversa que deve ser analisada e `user` é uma sequência opcional que identifica o usuário que fez a contribuição da elocução.
+Você passa ao método um objeto JSON `ToneChatInput` com o formato a seguir. O
+campo `utterances` fornece uma matriz de objetos `utterance`. O campo `text` é uma sequência obrigatória que fornece uma elocução cuja contribuição foi feita por um
+usuário para a conversa que será analisada. O campo `user` é uma sequência opcional que identifica o usuário que contribuiu com a elocução.
 
 ```javascript
 {
@@ -131,7 +175,7 @@ Você passa ao método um objeto JSON `ToneChatInput` com o formato a seguir. O 
 ```
 {: codeblock}
 
-O exemplo a seguir mostra o conteúdo do arquivo <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo" class="style-scope doc-content"></a>. O arquivo inclui uma breve troca entre um <code>customer</code> e um <code>agent</code>.
+O exemplo a seguir mostra o conteúdo do arquivo <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo"></a>. O arquivo inclui uma breve troca entre um <code>customer</code> e um <code>agent</code>.
 
 ```javascript
 {
@@ -158,21 +202,21 @@ O exemplo a seguir mostra o conteúdo do arquivo <a target="_blank" href="https:
 {: codeblock}
 
 ## Conteúdo de resposta em JSON
-{: #JSONresponse}
+{: #JSONresponse-tone-chat}
 
 O serviço retorna um objeto JSON `UtteranceAnalyses` que contém um único campo, `utterances_tone`. Esse campo contém uma matriz de objetos `UtteranceAnalysis`, cada um fornecendo as informações a seguir sobre uma elocução do conteúdo de entrada:
 
 -   `utterance_id` (número inteiro) fornece o identificador exclusivo da elocução. A primeira elocução tem o ID 0 e o ID de cada elocução subsequente é incrementado em um.
 -   `utterance_text` (sequência) fornece o texto da elocução.
--   `tones` é uma matriz de objetos `ToneChatScore` que fornece resultados para os tons dominantes, aqueles cujas pontuações são de pelo menos 0,5. A matriz estará vazia se a elocução não tiver nenhum tom com uma pontuação que atenda a esse limite.
+-   `tones` é uma matriz de objetos `ToneChatScore` que fornece resultados para os tons dominantes. Esses tons têm pontuações de pelo menos 0,5. A matriz estará vazia se a elocução não tiver nenhum tom com uma pontuação que atenda a esse limite.
 
 Cada objeto `ToneChatScore` fornece as informações a seguir sobre um tom de qualificação:
 
 -   `score` (duplo) é a pontuação do tom no intervalo de 0,5 a 1. Uma pontuação maior que 0,75 indica uma alta probabilidade de o tom ser percebido na elocução.
--   `tone_id` (sequência) é o identificador único e não localizado do tom; para obter descrições dos tons, consulte [Tons de engajamento do cliente](#tones).
+-   `tone_id` (sequência) é o identificador exclusivo e não localizado do tom. Para obter descrições dos tons, veja [Tons de engajamento do cliente](#tones-tone-chat).
 -   `tone_name` (sequência) é o nome localizado do tom visível para o usuário.
 
-O exemplo a seguir mostra a estrutura do objeto `UtterancesAnalyses`:
+O exemplo a seguir mostra a estrutura do objeto `UtteranceAnalyses`:
 
 ```javascript
 {
@@ -195,9 +239,10 @@ O exemplo a seguir mostra a estrutura do objeto `UtterancesAnalyses`:
 {: codeblock}
 
 ### Resposta de exemplo
-{: #exampleResponse}
+{: #exampleResponse-tone-chat}
 
-A saída a seguir é retornada para a [Solicitação de exemplo](#exampleRequest). (A mesma saída é retornada para o exemplo no [Tutorial de introdução](/docs/services/tone-analyzer/getting-started.html#customerEngagement).) Todos os tons relatados têm uma pontuação de pelo menos 0,5; aqueles com uma pontuação de pelo menos 0,75 muito provavelmente serão percebidos por participantes na conversa.
+A saída a seguir é retornada para a [Solicitação de exemplo](#exampleRequest). (A mesma saída é retornada para o exemplo no [Tutorial de introdução](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted#customerEngagement).) Todos os tons relatados têm uma pontuação de pelo menos 0,5. Os tons com uma pontuação
+de pelo menos 0,75 são percebidos pelos participantes da conversa.
 
 ```javascript
 {
@@ -207,7 +252,7 @@ A saída a seguir é retornada para a [Solicitação de exemplo](#exampleRequest
       "utterance_text": "Hello, I'm having a problem with your product.",
       "tones": [
         {
-          "score": 0.718352,
+          "score": 0.686361,
           "tone_id": "polite",
           "tone_name": "Polite"
         }
@@ -216,14 +261,20 @@ A saída a seguir é retornada para a [Solicitação de exemplo](#exampleRequest
     {
       "utterance_id": 1,
       "utterance_text": "OK, let me know what's going on, please.",
-      "tones": []
+      "tones": [
+        {
+          "score": 0.92724,
+          "tone_id": "polite",
+          "tone_name": "Polite"
+        }
+      ]
     },
     {
       "utterance_id": 2,
       "utterance_text": "Well, nothing is working :(",
       "tones": [
         {
-          "score": 0.997149,
+          "score": 0.997795,
           "tone_id": "sad",
           "tone_name": "sad"
         }
@@ -234,12 +285,12 @@ A saída a seguir é retornada para a [Solicitação de exemplo](#exampleRequest
       "utterance_text": "Sorry to hear that.",
       "tones": [
         {
-          "score": 0.689109,
+          "score": 0.730982,
           "tone_id": "polite",
           "tone_name": "Polite"
         },
         {
-          "score": 0.663203,
+          "score": 0.672499,
           "tone_id": "sympathetic",
           "tone_name": "Sympathetic"
         }
@@ -251,7 +302,7 @@ A saída a seguir é retornada para a [Solicitação de exemplo](#exampleRequest
 {: codeblock}
 
 ## Tons de engajamento do cliente
-{: #tones}
+{: #tones-tone-chat}
 
 O serviço pode retornar pontuações para os sete tons a seguir.
 

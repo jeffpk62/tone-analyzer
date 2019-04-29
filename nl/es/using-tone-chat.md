@@ -1,14 +1,19 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-28"
+  years: 2015, 2019
+lastupdated: "2019-03-07"
+
+subcollection: tone-analyzer
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,12 +23,16 @@ lastupdated: "2017-10-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Utilización del punto final de fidelización del cliente
+{: #utco}
 
-El punto final de fidelización del cliente de {{site.data.keyword.toneanalyzershort}} analiza el tono del servicio al cliente y de las conversaciones de soporte. Puede ayudarle a comprender mejor sus interacciones con los clientes y a mejorar la comunicación en general o la correspondiente a clientes específicos. Para obtener información detallada sobre la interfaz, incluidos los SDK Node.js, Java y Python que están disponibles para llamar al servicio, reviste la [Consulta de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+El punto final de fidelización del cliente de {{site.data.keyword.toneanalyzershort}} analiza el tono del servicio al cliente y de las conversaciones de soporte. Puede ayudarle a comprender mejor sus interacciones con los clientes y a mejorar la comunicación en general o la correspondiente a clientes específicos. Para obtener más información sobre la interfaz, incluidos los SDK Node.js, Java y Python que están disponibles para llamar al servicio, reviste la [Consulta de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
 {: shortdesc}
 
+El registro de solicitudes está inhabilitado para el servicio {{site.data.keyword.toneanalyzershort}}. Independientemente de si se establece la cabecera de solicitud `X-Watson-Learning-Opt-Out`, el servicio no registra ni retiene datos de las solicitudes y respuestas.
+{: note}
+
 ## Solicitud de un análisis de tono
-{: #request}
+{: #request-tone-chat}
 
 Para analizar el tono con el punto final de fidelización del cliente, debe llamar al método `POST /v3/tone_chat` con los parámetros siguientes.
 
@@ -36,11 +45,13 @@ Para analizar el tono con el punto final de fidelización del cliente, debe llam
     <th style="text-align:left">Descripción</th>
   </tr>
   <tr>
-    <td><code>Body</code><br/><em>Obligatorio</em></td>
+    <td><code>Cuerpo</code><br/><em>Obligatorio</em></td>
     <td style="text-align:center">Cuerpo</td>
     <td style="text-align:center">Objeto JSON</td>
     <td>
-      Un objeto JSON <code>ToneChatInput</code> con el contenido que se va a analizar. Consulte <a href="#JSONrequest">Especificación de la entrada JSON</a>.
+      Un objeto JSON <code>ToneChatInput</code> que contiene el
+      contenido que se debe analizar. Para obtener más información, consulte
+      [Cómo especificar entrada JSON](#JSONrequest).
     </td>
   </tr>
   <tr>
@@ -48,9 +59,31 @@ Para analizar el tono con el punto final de fidelización del cliente, debe llam
     <td style="text-align:center">Consulta</td>
     <td style="text-align:center">Serie</td>
     <td>
-      La versión solicitada de la interfaz como una fecha con el formato
+      La versión de la API que desea utilizar como una fecha en formato
       <code>AAAA-MM-DD</code>; por ejemplo, especifique <code>2017-09-21</code>
-      para el 21 de septiembre de 2017.
+      para indicar el 21 de septiembre de 2017 (la última versión). Para obtener más información acerca de
+      todas las versiones disponibles, consulte las
+      [Notas del release](/docs/services/tone-analyzer?topic=tone-analyzer-rnrn).
+    </td>
+  </tr>
+  <tr>
+    <td><code>Content-Language</code><br/><em>Opcional</em></td>
+    <td style="text-align:center">Cabecera</td>
+    <td style="text-align:center">Serie</td>
+    <td>
+      El idioma del contenido de la entrada.
+      <ul style="margin:0px 0px 0px 20px; padding:0px">
+        <li style="margin:0px; padding:0px">
+          <code>en</code> (inglés, valor predeterminado)
+        </li>
+        <li style="margin:0px; padding:0px">
+            <code>fr</code> (francés)
+        </li>
+      </ul>
+      Las variantes regionales se tratan como su idioma padre; por ejemplo,
+      <code>en-US</code> se interpreta como <code>en</code>. El contenido de la entrada
+      debe coincidir con el idioma especificado. No envíe contenido que contenga
+      ambos idiomas. Puede utilizar diferentes idiomas para la entrada y la respuesta.
     </td>
   </tr>
   <tr>
@@ -58,67 +91,69 @@ Para analizar el tono con el punto final de fidelización del cliente, debe llam
     <td style="text-align:center">Cabecera</td>
     <td style="text-align:center">Serie</td>
     <td>
-      El idioma deseado de la respuesta:
+      El idioma solicitado de la respuesta.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
-          ar (árabe)
+          <code>ar</code> (árabe)
         </li>
         <li style="margin:0px; padding:0px">
-          de (alemán)
+          <code>de</code> (alemán)
         </li>
         <li style="margin:0px; padding:0px">
-          en (inglés, valor predeterminado)
+          <code>en</code> (inglés, valor predeterminado)
         </li>
         <li style="margin:0px; padding:0px">
-          es (español)
+          <code>es</code> (español)
         </li>
         <li style="margin:0px; padding:0px">
-          fr (francés)
+          <code>fr</code> (francés)
         </li>
         <li style="margin:0px; padding:0px">
-          it (italiano)
+          <code>it</code> (italiano)
         </li>
         <li style="margin:0px; padding:0px">
-          ja (japonés)
+          <code>ja</code> (japonés)
         </li>
         <li style="margin:0px; padding:0px">
-          ko (coreano)
+          <code>ko</code> (coreano)
         </li>
         <li style="margin:0px; padding:0px">
-          pt-br (portugués de Brasil)
+          <code>pt-br</code> (portugués de Brasil)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-cn (chino simplificado)
+          <code>zh-cn</code> (chino simplificado)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-tw (chino tradicional)
+          <code>zh-tw</code> (chino tradicional)
         </li>
       </ul>
+      Para los argumentos de dos caracteres, las variantes regionales se tratan como su idioma padre; por ejemplo, <code>en-US</code> se interpreta como <code>en</code>. Puede utilizar diferentes idiomas para la entrada y la respuesta.
     </td>
   </tr>
 </table>
 
 Si envía más de 50 expresiones, el servicio devuelve un campo `warning` para el contenido general a nivel de `utterances_tone` de su respuesta; solo analiza las 50 primeras expresiones. Si envía una sola expresión que contiene más de 500 caracteres, el servicio devuelve un campo `error` para dicha expresión y no la analiza. En ambos casos, la solicitud sigue siendo satisfactoria con el código de respuesta HTTP 200.
 
-> **Nota:** El servicio devuelve el código de respuesta 400 si todas las expresiones de la entrada tienen más de 500 caracteres.
+El servicio devuelve el código de respuesta 400 si todas las expresiones de la entrada tienen más de 500 caracteres.
+{: note}
 
 ### Solicitud de ejemplo
 {: #exampleRequest}
 
-El siguiente mandato cURL de ejemplo llama al punto final de fidelización del cliente con el archivo de entrada <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a> y una versión de `2017-09-21`:
+El siguiente mandato `curl` de ejemplo llama al punto final de fidelización del cliente con el archivo de entrada <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a> y una versión de `2017-09-21`:
 
 ```bash
-curl -X POST --user "{username}":"{password}"
+curl -X POST -u "apikey:{apikey}"
 --header "Content-Type: application/json"
 --data-binary @./tone-chat.json
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone_chat?version=2017-09-21"
 ```
 {: pre}
 
-## Especificación de la entrada JSON
+## Cómo especificar entrada JSON
 {: #JSONrequest}
 
-Puede pasar al método un objeto JSON `ToneChatInput` con el formato siguiente. El campo `utterances` ofrece una matriz de objetos `utterance`, donde `text` es una serie obligatoria que proporciona una expresión con la que ha contribuido un usuario a la conversación que se va a analizar y `user` es una serie opcional que identifica el usuario que ha contribuido a la expresión.
+Puede pasar al método un objeto JSON `ToneChatInput` con el formato siguiente. El campo `utterances` proporciona una matriz de objetos `utterance`. El campo `texto` es una serie de caracteres obligatoria que proporciona una expresión que ha hecho por un usuario en la conversación que se va a analizar. El campo `usuario` es una serie opcional que identifica al usuario que ha producido la expresión.
 
 ```javascript
 {
@@ -133,7 +168,7 @@ Puede pasar al método un objeto JSON `ToneChatInput` con el formato siguiente. 
 ```
 {: codeblock}
 
-En el ejemplo siguiente se muestra el contenido del archivo <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json.<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a> El archivo incluye un breve intercambio entre un cliente (<code>customer</code>) y un agente (<code>agent</code>).
+En el ejemplo siguiente se muestra el contenido del archivo <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone-chat.json" download="tone-chat.json">tone-chat.json.<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a> El archivo incluye un breve intercambio entre un cliente (<code>customer</code>) y un agente (<code>agent</code>).
 
 ```javascript
 {
@@ -160,21 +195,21 @@ En el ejemplo siguiente se muestra el contenido del archivo <a target="_blank" h
 {: codeblock}
 
 ## Contenido de la respuesta JSON
-{: #JSONresponse}
+{: #JSONresponse-tone-chat}
 
 El servicio devuelve un objeto JSON `UtteranceAnalyses` que contiene un solo campo, `utterances_tone`. Este campo contiene una matriz de objetos `UtteranceAnalysis`, cada uno de las cuales proporciona la siguiente información sobre una expresión del contenido de la entrada:
 
 -   `utterance_id` (integer) proporciona el identificador exclusivo de la expresión. La primera expresión tiene el ID 0, y el ID de cada expresión siguiente se incrementa en uno.
 -   `utterance_text` (string) proporciona el texto de la expresión.
--   `tones` es una matriz de objetos `ToneChatScore` que proporciona resultados para los tonos dominantes, aquellos cuya puntuación es de al menos 0.5. La matriz está vacía si la expresión no tiene ningún tono con una puntuación que cumpla este umbral.
+-   `tones` es una matriz de objetos `ToneChatScore` que proporciona resultados para los tonos dominantes. Estos tonos tienen puntuaciones de al menos 0.5. La matriz está vacía si la expresión no tiene ningún tono con una puntuación que cumpla este umbral.
 
 Cada objeto `ToneChatScore` proporciona la información siguiente sobre un tono que califica:
 
 -   `score` (double) es la puntuación correspondiente al tono comprendido entre 0.5 y 1. Una puntuación mayor que 0.75 indica una alta probabilidad de que el tono se perciba en la expresión.
--   `tone_id` (string) es el identificador exclusivo y no localizado del tono; para ver descripciones de los tonos, consulte [Tonos de fidelización del cliente](#tones).
+-   `tone_id` (string) es el identificador exclusivo y no localizado del tono; para ver descripciones de los tonos, consulte [Tonos de fidelización del cliente](#tones-tone-chat).
 -   `tone_name` (string) es el nombre del tono localizado que ve el usuario.
 
-En el ejemplo siguiente se muestra la estructura del objeto `UtterancesAnalyses`:
+En el ejemplo siguiente se muestra la estructura del objeto `UtteranceAnalyses`:
 
 ```javascript
 {
@@ -197,9 +232,9 @@ En el ejemplo siguiente se muestra la estructura del objeto `UtterancesAnalyses`
 {: codeblock}
 
 ### Respuesta de ejemplo
-{: #exampleResponse}
+{: #exampleResponse-tone-chat}
 
-Se devuelve la siguiente salida para la [Solicitud de ejemplo](#exampleRequest). (Se devuelve la misma salida para el ejemplo de la [Guía de aprendizaje de iniciación](/docs/services/tone-analyzer/getting-started.html#customerEngagement)). Todos los tonos notificados tienen una puntuación de al menos 0.5; los que tienen una puntuación de al menos 0.75 tienen una alta probabilidad de ser percibidos por los participantes en la conversación.
+Se devuelve la siguiente salida para la [Solicitud de ejemplo](#exampleRequest). (Se devuelve la misma salida para el ejemplo de la [Guía de aprendizaje de iniciación](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted#customerEngagement)). Todos los tonos notificados tienen una puntuación de al menos 0.5. Los tonos con una puntuación de al menos 0.75 tienen una alta probabilidad de ser percibidos por los participantes en la conversación.
 
 ```javascript
 {
@@ -209,7 +244,7 @@ Se devuelve la siguiente salida para la [Solicitud de ejemplo](#exampleRequest).
       "utterance_text": "Hello, I'm having a problem with your product.",
       "tones": [
         {
-          "score": 0.718352,
+          "score": 0.686361,
           "tone_id": "polite",
           "tone_name": "Polite"
         }
@@ -218,14 +253,20 @@ Se devuelve la siguiente salida para la [Solicitud de ejemplo](#exampleRequest).
     {
       "utterance_id": 1,
       "utterance_text": "OK, let me know what's going on, please.",
-      "tones": []
+      "tones": [
+        {
+          "score": 0.92724,
+          "tone_id": "polite",
+          "tone_name": "Polite"
+        }
+      ]
     },
     {
       "utterance_id": 2,
       "utterance_text": "Well, nothing is working :(",
       "tones": [
         {
-          "score": 0.997149,
+          "score": 0.997795,
           "tone_id": "sad",
           "tone_name": "sad"
         }
@@ -236,12 +277,12 @@ Se devuelve la siguiente salida para la [Solicitud de ejemplo](#exampleRequest).
       "utterance_text": "Sorry to hear that.",
       "tones": [
         {
-          "score": 0.689109,
+          "score": 0.730982,
           "tone_id": "polite",
           "tone_name": "Polite"
         },
         {
-          "score": 0.663203,
+          "score": 0.672499,
           "tone_id": "sympathetic",
           "tone_name": "Sympathetic"
         }
@@ -253,7 +294,7 @@ Se devuelve la siguiente salida para la [Solicitud de ejemplo](#exampleRequest).
 {: codeblock}
 
 ## Tonos de fidelización del cliente
-{: #tones}
+{: #tones-tone-chat}
 
 El servicio puede devolver puntuaciones para los siete tonos siguientes.
 

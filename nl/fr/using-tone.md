@@ -1,14 +1,19 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-09-21"
+  years: 2015, 2019
+lastupdated: "2019-03-07"
+
+subcollection: tone-analyzer
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,12 +23,16 @@ lastupdated: "2017-09-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Utilisation du noeud final générique
+{: #utgpe}
 
-Le noeud final générique de {{site.data.keyword.toneanalyzershort}} analyse le ton des communications écrites, des messages brefs par courrier électronique et jusqu'aux documents plus longs. Il peut vous aider à comprendre les tons émotionnels et du langage de vos communications. Pour des informations détaillées sur l'interface, y-compris sur les SDK Node.js, Java et Python disponibles pour appeler le service, reportez-vous à la [Référence d'API![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/){: new_window}.
+Le noeud final générique de {{site.data.keyword.toneanalyzershort}} analyse le ton des communications écrites, des messages brefs par courrier électronique et jusqu'aux documents plus longs. Il peut vous aider à comprendre les tons émotionnels et du langage de vos communications. Pour plus d'informations sur l'interface, y-compris sur les SDK Node.js, Java et Python disponibles pour appeler le service, reportez-vous à la [Référence d'API![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/tone-analyzer){: new_window}.
 {: shortdesc}
 
+La consignation des demandes est désactivée pour le service {{site.data.keyword.toneanalyzershort}}. Que vous définissiez ou non l'en-tête de requête `X-Watson-Learning-Opt-Out`, le service ne consigne pas et ne conserve pas les données des demandes et des réponses.
+{: note}
+
 ## Demande d'une analyse des tons
-{: #request}
+{: #request-tone}
 
 Pour analyser les tons avec le noeud final générique, appelez l'une des deux versions de la méthode `tone` du service :
 
@@ -42,10 +51,12 @@ La méthode accepte les paramètres suivants.
   </tr>
   <tr>
     <td><code>Body</code><br/><em>Obligatoire pour la méthode <code>POST</code></em></td>
-    <td style="text-align:center">Body</td>
+    <td style="text-align:center">Corps</td>
     <td style="text-align:center">Objet JSON | chaîne</td>
     <td>
-      JSON, texte brut ou entrée HTML hébergeant le contenu à analyser. Pour une entrée JSON, soumettez un objet du type <code>ToneInput</code> (voir <a href="#JSONinput">Spécification d'une entrée JSON</a>. <em>Non pris en charge pour les requêtes <code>GET</code>.</em>
+      JSON, texte brut ou entrée HTML hébergeant le contenu à analyser. Pour une entrée JSON, soumettez un objet du type <code>ToneInput</code>. Pour plus d'informations, voir
+      [Spécification d'entrée JSON](#JSONinput).
+    <em>Non pris en charge pour les demandes <code>GET</code>.</em>
     </td>
   </tr>
   <tr>
@@ -53,7 +64,7 @@ La méthode accepte les paramètres suivants.
     <td style="text-align:center">Requête</td>
     <td style="text-align:center">Chaîne</td>
     <td>
-      Entrée en texte brut hébergeant le contenu à analyser. Vous devez utiliser le codage d'URL pour l'entrée. <em>Non pris en charge pour les requêtes <code>POST</code>.</em>
+      Entrée en texte brut hébergeant le contenu à analyser. Vous devez utiliser le codage d'URL pour l'entrée. <em>Non pris en charge pour les demandes <code>POST</code>.</em>
     </td>
   </tr>
   <tr>
@@ -61,7 +72,7 @@ La méthode accepte les paramètres suivants.
     <td style="text-align:center">En-tête</td>
     <td style="text-align:center">Chaîne</td>
     <td>
-      Type de contenu de la requête :
+      Type de contenu de la demande.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           <code>text/plain</code> pour du texte brut
@@ -74,7 +85,7 @@ La méthode accepte les paramètres suivants.
           <code>application/json</code> pour du texte au format JSON
         </li>
       </ul>
-    <em>A omettre pour les requêtes <code>GET</code>.</em>
+    <em>A omettre pour les demandes <code>GET</code>.</em>
     </td>
   </tr>
   <tr>
@@ -82,9 +93,9 @@ La méthode accepte les paramètres suivants.
     <td style="text-align:center">Requête</td>
     <td style="text-align:center">Chaîne</td>
     <td>
-      Version demandée de la réponse sous forme de date au format
-      <code>AAAAY-MM-JJ</code>. Spécifiez, par exemple, <code>2017-09-21</code>
-      pour le 21 septembre 2017.
+      Version de l'API que vous souhaitez utiliser comme date au format
+      <code>AAAAY-MM-JJ</code> ; par exemple, spécifiez <code>2017-09-21</code>
+       pour le 21 septembre 2017 (la dernière version). Pour plus d'informations sur toutes les versions disponibles, voir les [Notes sur l'édition](/docs/services/tone-analyzer?topic=tone-analyzer-rnrn).
     </td>
   </tr>
   <tr>
@@ -92,13 +103,13 @@ La méthode accepte les paramètres suivants.
     <td style="text-align:center">En-tête</td>
     <td style="text-align:center">Chaîne</td>
     <td>
-      Langue du contenu en entrée :
+      Langue du contenu en entrée.
       <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
           <code>en</code> (anglais, valeur par défaut)
         </li>
         <li style="margin:0px; padding:0px">
-            <code>fr</code> (français)
+          <code>fr</code> (français)
         </li>
       </ul>
       Les variantes régionales sont traitées comme la langue parent. Par exemple,
@@ -113,40 +124,39 @@ La méthode accepte les paramètres suivants.
     <td style="text-align:center">En-tête</td>
     <td style="text-align:center">Chaîne</td>
     <td>
-      Langue désirée pour la réponse :
-      <ul style="margin:0px 0px 0px 20px; padding:0px">
+         Langue demandée de la réponse. <ul style="margin:0px 0px 0px 20px; padding:0px">
         <li style="margin:0px; padding:0px">
-          ar (arabe)
+          <code>ar</code> (arabe)
+</li>
+        <li style="margin:0px; padding:0px">
+          <code>de</code> (allemand)
         </li>
         <li style="margin:0px; padding:0px">
-          de (allemand)
+          <code>en</code> (anglais, valeur par défaut)
         </li>
         <li style="margin:0px; padding:0px">
-          en (anglais, valeur par défaut)
+          <code>es</code> (espagnol)
         </li>
         <li style="margin:0px; padding:0px">
-          es (espagnol)
+          <code>fr</code> (français)
         </li>
         <li style="margin:0px; padding:0px">
-          fr (français)
+          <code>it</code> (italien)
         </li>
         <li style="margin:0px; padding:0px">
-          it (italien)
+          <code>ja</code> (japonais)
         </li>
         <li style="margin:0px; padding:0px">
-          ja (japonais)
+          <code>ko</code> (coréen)
         </li>
         <li style="margin:0px; padding:0px">
-          ko (coréen)
+          <code>pt-br</code> (portugais brésilien)
         </li>
         <li style="margin:0px; padding:0px">
-          pt-br (portugais brésilien)
+          <code>zh-cn</code> (chinois simplifié)
         </li>
         <li style="margin:0px; padding:0px">
-          zh-cn (chinois simplifié)
-        </li>
-        <li style="margin:0px; padding:0px">
-          zh-tw (chinois traditionnel)
+          <code>zh-tw</code> (chinois traditionnel)
         </li>
       </ul>
       Pour les arguments à deux caractères, les variantes régionales sont traitées
@@ -168,56 +178,56 @@ La méthode accepte les paramètres suivants.
   </tr>
 </table>
 
-Ne soumettez pas plus de 128 Ko au total pour le contenu en entrée et pas plus de 1000 phrases individuelles. Le service analyse les 1000 premières phrases pour l'analyse au niveau du document et seulement les 100 premières phrases pour l'analyse au niveau des phrases. Il renvoie une zone `warning` (avertissement) dans le cadre de la réponse si vous dépassez l'une de ces limites. La requête aboutit toutefois avec un code de réponse HTTP 200.
+Ne soumettez pas plus de 128 Ko au total pour le contenu en entrée et pas plus de 1000 phrases individuelles. Le service analyse les 1000 premières phrases pour l'analyse au niveau du document et seulement les 100 premières phrases pour l'analyse au niveau des phrases. Il renvoie une zone `warning` (avertissement) dans le cadre de la réponse si vous dépassez l'une de ces limites. La demande aboutit toutefois avec un code de réponse HTTP 200.
 
-### Exemples de requêtes
+### Exemples de demandes
 {: #exampleRequests}
 
-L'exemple de commande cURL suivant utilise la méthode de requête HTTP `POST` pour appeler le noeud final générique avec le fichier d'entrée <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe" class="style-scope doc-content"></a> et la version `2017-09-21`. L'exemple demande une analyse tant du document complet que des phrases individuelles.
+L'exemple de commande `curl` suivant utilise la méthode de demande HTTP `POST` pour appeler le noeud final générique avec le fichier d'entrée <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe"></a> et la version `2017-09-21`. L'exemple demande une analyse tant du document complet que des phrases individuelles.
 
 ```bash
-curl -X POST --user "{username}":"{password}"
+curl -X POST -u "apikey:{apikey}"
 --header "Content-Type: application/json"
 --data-binary @./tone.json
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21"
 ```
 {: pre}
 
-L'exemple de commande suivant est équivalent au précédent mais utilise la méthode de requête HTTP `GET` :
+L'exemple de commande suivant est équivalent au précédent mais utilise la méthode de demande HTTP `GET` :
 
 ```bash
-curl -X GET --user "{username}":"{password}"
+curl -X GET -u "apikey:{apikey}"
 "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21&text=Team%2C%20I%20know%20that
 %20times%20are%20tough%21%20Product%20sales%20have%20been%20disappointing%20for%20the%20past%20three%20quarters.
 %20We%20have%20a%20competitive%20product%2C%20but%20we%20need%20to%20do%20a%20better%20job%20of%20selling%20it%21"
 ```
 {: pre}
 
-Pour d'autres exemples, reportez-vous au [tutoriel Initiation](/docs/services/tone-analyzer/getting-started.html).
+Pour d'autres exemples, reportez-vous au [tutoriel Initiation](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted).
 
 ### Spécification du jeu de caractères
 {: #charset}
 
 Par défaut, le service utilise les jeux de caractères suivants pour le contenu en entrée :
 
--   *Pour le texte brut et le contenu HTML,* le service utilise le jeu de caractères ISO (International Standards OrganizationSO) 8859-1 (lequel correspond au jeu de caractères ASCII) d'après la spécification HTTP version 1.1.
+-   *Pour le texte brut et le contenu HTML,* le service utilise le jeu de caractères ISO (International Standards Organization) 8859-1 (lequel correspond au jeu de caractères ASCII) d'après la spécification HTTP version 1.1.
 -   *Pour le contenu JSON,* le service utilise systématiquement le jeu de caractères UTF (Unicode Transformation Format) 8, conformément à la Section 8.1 de l'organisme IETF (International Engineering Task Force) : [RFC (Request for Comment - Demande de changement) 7159 ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://tools.ietf.org/html/rfc7159#section-8.1){: new_window}.
 
-Lors d'une soumission de texte brut ou de contenu HTML, incluez le paramètre `charset` avec l'en-tête `Content-Type` pour indiquer le codage de caractères du texte en entrée. L'exemple ci-après stipule le codage de caractères UTF-8 pour entrée de texte brut :
+Lorsque vous soumettez un texte brut ou un contenu HTML, ajoutez le paramètre `charset` avec l'en-tête `Content-Type` pour indiquer le codage de caractères du texte d'entrée. L'exemple suivant spécifie le codage de caractères UTF-8 pour l'entrée de texte brut :
 
 ```
 Content-Type: text/plain;charset=utf-8
 ```
 {: codeblock}
 
-En utilisant le paramètre `charset`, vous pouvez éviter des problèmes potentiels associés à des caractères non -ASCII ou non imprimables. Si vous transmettez des données UTF-8 sans spécifier le jeu de caractères, les caractères spéciaux peuvent générer des résultats incorrects ou des erreurs HTTP 4*nn* ou 5*nn*.
+En utilisant le paramètre `charset`, vous pouvez éviter tout problème potentiel associé à des caractères non ASCII ou non imprimables. Si vous transmettez des données UTF-8 sans spécifier le jeu de caractères, les caractères spéciaux peuvent générer des résultats incorrects ou des erreurs HTTP de niveau 400 ou 500.
 
-Pour éviter des erreurs similaires lors de l'utilisation de commande cURL, transmettez toujours le contenu via l'option `--data-binary` de la commande `curl` pour préserver un éventuel codage UTF-8 du contenu. Si vous utilisez l'option `--data` pour le transmettre en tant que contenu ASCII, la commande peut traiter l'entrée, ce qui peut entraîner des problèmes pour les données codées en UTF-8.
+Pour éviter des erreurs similaires lors de l'utilisation de la commande `curl`, transmettez toujours le contenu via l'option `--data-binary` de la commande `curl` pour préserver un éventuel codage UTF-8 du contenu. Si vous utilisez l'option `--data` pour le transmettre en tant que contenu ASCII, la commande peut traiter l'entrée, ce qui peut entraîner des problèmes pour les données codées en UTF-8.
 
 ## Spécification d'entrée JSON
 {: #JSONinput}
 
-Pour analyser une entrée JSON avec la méthode de requête `POST`, transmettez à la méthode un objet JSON `ToneInput` sous le format simple suivant :
+Pour analyser une entrée JSON avec la méthode de demande `POST`, transmettez à la méthode un objet JSON `ToneInput` sous le format simple suivant :
 
 ```javascript
 {
@@ -226,23 +236,23 @@ Pour analyser une entrée JSON avec la méthode de requête `POST`, transmettez 
 ```
 {: codeblock}
 
-L'exemple suivant illustre le contenu du fichier <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe" class="style-scope doc-content"></a> utilisé dans les exemples du [tutoriel Initiation](/docs/services/tone-analyzer/getting-started.html). Le fichier inclut un seul paragraphe de texte rédigé par une seule personne. (Le texte ci-après comprend des retours à la ligne à des fins de lisibilité ; ne les incluez pas dans l'entrée concrète).
+L'exemple suivant illustre le contenu du fichier <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/tone-analyzer/tone.json" download="tone.json">tone.json <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe"></a> utilisé dans les exemples du [tutoriel Initiation](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted). Le fichier inclut un seul paragraphe de texte rédigé par une seule personne. (Le texte ci-après comprend des retours à la ligne à des fins de lisibilité ; ne les incluez pas dans l'entrée même).
 
 ```javascript
 {
-  "text": "Team, I know that times are tough! Product sales have been
-  disappointing for the past three quarters. We have a competitive
-  product, but we need to do a better job of selling it!"
+  "text": "Je sais que les temps sont difficiles ! Les ventes de produits
+  ont été décevantes ces trois derniers trimestres. Nous avons un produit
+  concurrentiel, mais nous devons mieux faire pour le vendre !!"
 }
 ```
 {: codeblock}
 
 ## Contenu de la réponse JSON
-{: #JSONresponse}
+{: #JSONresponse-tone}
 
 Le service renvoie un objet JSON `ToneAnalysis` comprenant toujours une zone `document_tone`. Cette zone contient un objet `DocumentAnalysis` qui fournit l'analyse du document d'entrée complet. Il contient une seule zone, `tones`, qui fournit les résultats de l'analyse pour chaque ton qualifié dans le document.
 
-Si le paramètre `sentences` est omis dans la requête ou reçoit la valeur `true`, la réponse inclut également une zone `sentences_tone`. Cette zone contient un tableau d'objets `SentenceAnalysis`, chacun fournissant les informations suivantes pour une phrase différente du contenu en entrée :
+Si le paramètre `sentences` est omis dans la demande ou reçoit la valeur `true`, la réponse inclut également une zone `sentences_tone`. Cette zone contient un tableau d'objets `SentenceAnalysis`, chacun fournissant les informations suivantes pour une phrase différente du contenu en entrée :
 
 -   `sentence_id` (entier) fournit l'identificateur unique de la phrase. La première est associée à ID 0, et l'ID de chaque phrase ultérieure est incrémenté d'une unité.
 -   `text` (chaîne) fournit le texte de la phrase.
@@ -272,11 +282,12 @@ L'exemple suivant illustre la structure de haut niveau de l'objet `ToneAnalysis`
 {: codeblock}
 
 ### Ton et résultats du score
+{: #uttsr}
 
-Les zones `tones` renvoyées pour les analyses tant au niveau du document que des phrases contiennent un tableau d'objets `ToneScore` qui fournissent les résultats sur les tons dominants, à savoir ceux avec un score au moins égal à 0,5. Le tableau est vide si aucun ton n'a un score atteignant ce seuil. Chaque objet `ToneScore` fournit les informations suivantes sur un ton se qualifiant :
+Les zones `tones` renvoyées pour les analyses tant au niveau du document que des phrases contiennent un tableau d'objets `ToneScore` qui fournissent les résultats sur les tons dominants. Ces tons ont un score d'au moins 0,5. Le tableau est vide si aucun ton n'a un score atteignant ce seuil. Chaque objet `ToneScore` fournit les informations suivantes sur un ton se qualifiant :
 
 -   `score` (double) correspond au score du ton sur la plage 0,5 à 1. Un score supérieur à 0,75 indique une forte probabilité que le ton soit perçu dans le contenu.
--   `tone_id` (chaîne) correspond à l'identificateur unique, non localisé, du ton. Pour les descriptions des tons, voir [Tons génériques](#tones).
+-   `tone_id` (chaîne) correspond à l'identificateur unique, non localisé, du ton. Pour les descriptions des tons, voir [Tons génériques](#tones-tone).
 -   `tone_name` (chaîne) correspond au nom visible par l'utilisateur et localisé du ton.
 
 L'exemple suivant illustre la structure de l'objet `ToneScore` :
@@ -296,9 +307,9 @@ L'exemple suivant illustre la structure de l'objet `ToneScore` :
 {: codeblock}
 
 ### Exemple de réponse
-{: #exampleResponse}
+{: #exampleResponse-tone}
 
-La sortie suivante est renvoyée pour les [Exemples de requêtes](#exampleRequests). (La même sortie est renvoyée pour le premier exemple dans le [tutoriel Initiation](/docs/services/tone-analyzer/getting-started.html)). La réponse inclut les résultats pour le document complet et pour chaque phrase. Tous les tons signalés ont un score d'au moins 0,5 ; ceux avec un score d'au moins 0,75 ont une forte probabilité d'être perçus dans le contenu.
+La sortie suivante est renvoyée pour les [Exemples de demandes](#exampleRequests). (La même sortie est renvoyée pour le premier exemple dans le [tutoriel Initiation](/docs/services/tone-analyzer?topic=tone-analyzer-gettingStarted)). La réponse inclut les résultats pour le document complet et pour chaque phrase. Tous les tons signalés ont un score d'au moins 0,5. Les tons dont le score est d'au moins 0,75 ont une forte probabilité d'être perçus dans le contenu.
 
 ```javascript
 {
@@ -307,51 +318,51 @@ La sortie suivante est renvoyée pour les [Exemples de requêtes](#exampleReques
       {
         "score": 0.6165,
         "tone_id": "sadness",
-        "tone_name": "Sadness"
+        "tone_name": "Tristesse"
       },
       {
         "score": 0.829888,
         "tone_id": "analytical",
-        "tone_name": "Analytical"
+        "tone_name": "Analytique"
       }
     ]
   },
   "sentences_tone": [
     {
       "sentence_id": 0,
-      "text": "Team, I know that times are tough!",
+      "text": "Je sais que les temps sont difficiles !",
       "tones": [
         {
           "score": 0.801827,
           "tone_id": "analytical",
-          "tone_name": "Analytical"
+          "tone_name": "Analytique"
         }
       ]
     },
     {
       "sentence_id": 1,
-      "text": "Product sales have been disappointing for the past three quarters.",
+      "text": "Les ventes de produits ont été décevantes ces trois derniers trimestres.",
       "tones": [
         {
           "score": 0.771241,
           "tone_id": "sadness",
-          "tone_name": "Sadness"
+          "tone_name": "Tristesse"
         },
         {
           "score": 0.687768,
           "tone_id": "analytical",
-          "tone_name": "Analytical"
+          "tone_name": "Analytique"
         }
       ]
     },
     {
       "sentence_id": 2,
-      "text": "We have a competitive product, but we need to do a better job of selling it!",
+      "text": "Nous avons un produit concurrentiel, mais nous devons mieux faire pour le vendre !!",
       "tones": [
         {
           "score": 0.506763,
           "tone_id": "analytical",
-          "tone_name": "Analytical"
+          "tone_name": "Analytique"
         }
       ]
     }
@@ -361,7 +372,7 @@ La sortie suivante est renvoyée pour les [Exemples de requêtes](#exampleReques
 {: codeblock}
 
 ## Tons génériques
-{: #tones}
+{: #tones-tone}
 
 Le tableau suivant décrit les tons génériques pouvant être renvoyés par le service. Un ton avec un score inférieur à 0,5 est omis, ce qui dénote que l'émotion est peu susceptible d'être perçue dans le contenu. Un score supérieur à 0,75 indique une forte probabilité que le ton soit perçu.
 

@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="tone-analyzer" audience="service" href="/docs/services/tone-analyzer/getting-started.html" path="services/tone-analyzer"}
+{: .toc subcollection="tone-analyzer" audience="service" arm="347" href="/docs/services/tone-analyzer/getting-started.html" path="services/tone-analyzer"}
 Tone Analyzer
 
     {: .navgroup id="learn"}
@@ -12,7 +12,7 @@ Tone Analyzer
     {: .topicgroup}
     Demos
         [Allgemeine Zwecke](https://tone-analyzer-demo.ng.bluemix.net/)
-        [Kundenengagement](http://customer-engagement-analytics.mybluemix.net/)
+        [Kundenengagement](https://customer-engagement-demo.ng.bluemix.net/)
 
     {: .topicgroup}
     Zusätzliche Ressourcen
@@ -24,6 +24,7 @@ Tone Analyzer
     {: .navgroup id="howto"}
     using-tone.md
     using-tone-chat.md
+    ha-dr.md
 
     {: topicgroup}
     Servicehintergrund
@@ -33,16 +34,9 @@ Tone Analyzer
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [API-Referenz](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/)
-
-    {: .topicgroup}
-    Watson SDKs
-        [Java SDK](https://github.com/watson-developer-cloud/java-sdk)
-        [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk)
-        [Python SDK](https://github.com/watson-developer-cloud/python-sdk)
-        [Swift SDK](https://github.com/watson-developer-cloud/ios-sdk)
-        [Unity SDK](https://github.com/watson-developer-cloud/unity-sdk)
-
+    [API-Referenz](https://cloud.ibm.com/apidocs/tone-analyzer)
+    information-security.md
+    /watson/watson-using-sdks
     [Watson GitHub-Repositorys](https://github.com/watson-developer-cloud/)
     {: .navgroup-end}
 
@@ -52,6 +46,6 @@ Tone Analyzer
     {: .topicgroup}
     Entwicklercommunity
         [StackOverflow](http://stackoverflow.com/questions/tagged/tone-analyzer)
-        [developerWorks-Antworten](https://developer.ibm.com/answers/topics/tone-analyzer/)
+        [IBM Entwicklerantworten](https://developer.ibm.com/answers/topics/tone-analyzer/)
         [WDC-Slack-Kanal](http://wdc-slack-inviter.mybluemix.net/)
     {: .navgroup-end}
